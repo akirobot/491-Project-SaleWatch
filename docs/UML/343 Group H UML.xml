@@ -1,0 +1,157 @@
+<diagram program="umletino" version="14.2"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>50</x><y>710</y><w>380</w><h>140</h></coordinates><panel_attributes>&lt;abstract&gt;
+Illuminati
+--
+- ArrayList&lt;Group&gt; puppets
+- final static int outgoingArrows = 4
+--
++ Illuminati illuminati(String name, int income, int power, int tPower)
++ Group getIlluminatiPuppet(int choice)
++ void displayPuppets()
++ abstract void useSpecialPowerActions()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>660</y><w>220</w><h>250</h></coordinates><panel_attributes>Game
+--
+- Illuminati IlluminatiCards[8]
+- Group Groups[83] 
+- SpecialCard specialCards[15]	
+- ArrayList&lt;Player&gt; players
+- ArrayList&lt;Deck&gt; gameDeck
+- ArrayList&lt;Group&gt; uncontrolledArea
+- boolean gameOver
+--
++ void main()
++ void createPlayers()
++ void initializeIlluminatiCards()
++ void initializeOtherGroupsCards()
++ void initializeSpecialCards()
++ void createGameDeck()
++ boolean checkWinner(Player)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>0</y><w>350</w><h>170</h></coordinates><panel_attributes>CombatCard
+--
+- int income
+- int treasury
+- int power
+- int transferrablePower
+- int outgoingArrows
+--
++ Card(string name, int income, int power, int tPower)
++ void incomeWhenTurnStarts()
++ void moveMegaBucks()
++ void movePuppets()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>310</y><w>300</w><h>250</h></coordinates><panel_attributes>Group 
+--
+- int resistance
+- CombatCard master 
+- Illuminati illuminati
+- ArrayList &lt;Group&gt; puppets
+- ArrayList &lt;String&gt; alignments
+--
++ Group(string name, int income, int power, int tPower,
+ int resistance, int outgoingArrows)
++ CombatCard getMaster()
++ Group getPuppet(int choice) 
++ void setMaster(CombatCard master) 
++ void setIlluminati(Illuminati illuminati)
++ void addPuppet(Group puppet)
++ void addAlignment (string alignment)
++ void displayPuppets()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>1020</y><w>360</w><h>260</h></coordinates><panel_attributes>Player
+--
+- Illuminati illuminati
+- int diceRollOutcome
+- int actionsTaken
+- ArrayList&lt;SpecialCard&gt; specialCards
+--
++ Player(Illuminati illuminati)
++ Illumanti getIlluminati()
++ void addSpecialCard()	
++ void useSpecialCard()
++ void rollDice()
++ int getdiceRollOutcome()
++ int getActionsTaken()
++ void takeAction()
++ void resetAction()
++ void interfere()
++ void displayPowerStructure()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>310</y><w>360</w><h>90</h></coordinates><panel_attributes>&lt;interface&gt;
+Attack
+--
++ void attackToControl(CombatCard attacker, Group defender)
++ void attackToDestroy(CombatCard attacker, Group defender)
++ void attackToNeutralize(CombatCard attacker, Group defender)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>0</y><w>210</w><h>90</h></coordinates><panel_attributes>&lt;interface&gt;
+cardUpdateStats
+--
++ int adjustTreasury(int megaBucks)
++ int adjustPower(int power)
++ int adjustTPower(int tPower)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>0</y><w>170</w><h>110</h></coordinates><panel_attributes>&lt;interface&gt;
+cardStats
+--
++ int getIncome()
++ int getTreasury()
++ int getPower()
++ int getTranferrablePower()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1000</x><y>310</y><w>140</w><h>80</h></coordinates><panel_attributes>Card
+--
+- String name
+--
++ Card(String name)
++ String getCardName()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>960</x><y>720</y><w>140</w><h>110</h></coordinates><panel_attributes>Deck
+--
+- ArrayList&lt;Card&gt; deck
+--
++ Deck()
++ void addCards(Card)
++ void shuffleDeck()
++ void displayAllCards()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1000</x><y>850</y><w>240</w><h>80</h></coordinates><panel_attributes>&lt;abstract&gt;
+SpecialCard
+--
++ SpecialCard(String name)
++ abstract void useSpecialCardEffect()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>350</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>40</y><w>150</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>130;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>130</y><w>500</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>480;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>750</y><w>60</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;20;40;20</additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>130</y><w>30</w><h>660</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;640;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>120</y><w>260</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;20;240;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1060</x><y>130</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>160</y><w>80</w><h>170</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1
+r1= - master</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>1110</x><y>380</y><w>30</w><h>490</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;470;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>750</y><w>210</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..*
+r1= - gameDeck </panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>550</y><w>100</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+r1= - groupCards</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>550</y><w>130</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+r1= - uncontrolledArea</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1110</x><y>920</y><w>110</w><h>250</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..*
+r1= - specialCards </panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>840</x><y>1130</y><w>300</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;20;280;20</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>1130</y><w>280</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;20;260;20</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>840</y><w>90</w><h>330</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..1
+r1= - illuminati </panel_attributes><additional_attributes>10;10;10;310</additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>900</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..*
+r1= - players</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>750</y><w>160</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..*
+r1= - illuminatiCards</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>380</y><w>70</w><h>360</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..*
+r1= - deck </panel_attributes><additional_attributes>10;10;10;340</additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>40</y><w>160</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>390</y><w>30</w><h>340</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;320</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>860</y><w>250</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..*
+r1= - specialCards </panel_attributes><additional_attributes>230;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>160</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>810</x><y>470</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>440</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>810</x><y>430</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
+r1= - puppets 
+m1= 0..*
+
+</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>430</y><w>310</w><h>30</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;290;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>430</y><w>90</w><h>300</h></coordinates><panel_attributes>lt=&lt;-
+m1= 0..1
+r1= - illuminati 
+</panel_attributes><additional_attributes>10;280;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>460</y><w>210</w><h>50</h></coordinates><panel_attributes>lt=-&gt;
+m2= 0..*
+r2= - puppets </panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>470</y><w>30</w><h>260</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;240;10;10</additional_attributes></element></diagram>
