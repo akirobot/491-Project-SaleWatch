@@ -8,13 +8,14 @@ Illuminati
 + Group getIlluminatiPuppet(int choice)
 + void displayPuppets()
 + abstract void useSpecialPowerActions()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>660</y><w>220</w><h>250</h></coordinates><panel_attributes>Game
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>640</y><w>220</w><h>270</h></coordinates><panel_attributes>Game
 --
 - Illuminati IlluminatiCards[8]
 - Group Groups[83] 
 - SpecialCard specialCards[15]	
 - ArrayList&lt;Player&gt; players
 - ArrayList&lt;Deck&gt; gameDeck
+- ArrayList&lt;Group&gt; deadPile
 - ArrayList&lt;Group&gt; uncontrolledArea
 - boolean gameOver
 --
@@ -123,11 +124,11 @@ m2=
 m1=0..1
 r1= - master</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>1110</x><y>380</y><w>30</w><h>490</h></coordinates><panel_attributes>lt=-&gt;&gt;</panel_attributes><additional_attributes>10;470;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>750</y><w>210</w><h>50</h></coordinates><panel_attributes>lt=&lt;-
 m1= 0..*
-r1= - gameDeck </panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>550</y><w>100</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+r1= - gameDeck </panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>550</y><w>100</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
 m1=0..*
-r1= - groupCards</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>550</y><w>130</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+r1= - groupCards</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>550</y><w>130</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
 m1=0..*
-r1= - uncontrolledArea</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1110</x><y>920</y><w>110</w><h>250</h></coordinates><panel_attributes>lt=&lt;-
+r1= - uncontrolledArea</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1110</x><y>920</y><w>110</w><h>250</h></coordinates><panel_attributes>lt=&lt;-
 m1= 0..*
 r1= - specialCards </panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>840</x><y>1130</y><w>300</w><h>40</h></coordinates><panel_attributes>lt=-
 m1=
@@ -154,4 +155,6 @@ m1= 0..1
 r1= - illuminati 
 </panel_attributes><additional_attributes>10;280;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>460</y><w>210</w><h>50</h></coordinates><panel_attributes>lt=-&gt;
 m2= 0..*
-r2= - puppets </panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>470</y><w>30</w><h>260</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;240;10;10</additional_attributes></element></diagram>
+r2= - puppets </panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>470</y><w>30</w><h>260</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;240;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>550</y><w>90</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+r1= - deadPile</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element></diagram>
