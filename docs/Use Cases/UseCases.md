@@ -975,16 +975,30 @@ Extensions:
 ##### Use Case: #48 Use a Special Ability of The Network
 Actor: Player
 Pre-Conditions:
-1. 	Must be start of players turn
+1. 	Must be start of Player's turn
 Post-Conditions:
-1. 	Player has an extra card in hand
-2. 	Players turn continues
+1. 	Player may hold one or two Special Cards.
+2.         Group Card(s) goes to Uncontrolled Area.
+2. 	Player's turn continues
 Events:
-1. 	System checks if start of players turn
+1. 	System checks if start of Player's turn
 2. 	Special Ability of The Network is activated
-3. 	Players turn continues
+3.         Player draws one card from deck.
+4.         Player draws another card from deck.         
+5. 	Player's turn continues
 Extensions:
-1. 	None
+3a1. 	Card drawn is a Special Card
+3a2. 	Player keeps Special Card
+3a3.	Go to Step 4.
+3b1.     Card drawn is a Group Card
+3b2.     Group Card goes to Uncontrolled Area
+3b3.     Go to Step 4.
+4a1. 	Card drawn is a Special Card
+4a2. 	Player keeps Special Card
+4a3.     Go to Step 5.
+4b1.     Card drawn is a Group Card
+4b2.     Group Card goes to Uncontrolled Area
+4b3.     Go to Step 5.
  
 ##### Use Case: #49. Use a Special Ability of The Servants of Cthulhu
 Actor: Player
@@ -1044,7 +1058,7 @@ Events:
 Extensions:
 1. 	None
  
-##### Use Cases: #52. Leave Game
+##### Use Cases: #52. Leave Game after Winner is Declared
 Actor: Player
 Pre-Conditions:
 1. 	A winner has been declared
@@ -1056,9 +1070,24 @@ Events:
 Extensions:
 1. 	None
  
- 
- 
- 
+##### Use Cases: #53. Leave the Game While the Game is Still in Session
+Actor: Player
+Pre-Conditions:
+1. 	No winners has been declared.
+2. 	Player has a power structure.
+Post-Conditions:
+1. 	Player's Illuminati is taken out of the game.
+2. 	Player's Group Cards go to the Uncontrolled Area.
+Events:
+1. 	Player presses the Leave Game button
+2. 	Player's Illuminati is taken out of the game.
+3. 	Remove all MegaBucks from Player's power structure
+4. 	Player's Group Cards go to the Uncontrolled Area.
+5. 	Player leaves the game
+6. 	Game continues until winner has been declared
+Extensions:
+1. 	None
+
 
 
 
