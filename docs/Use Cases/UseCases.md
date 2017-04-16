@@ -127,19 +127,21 @@ Event:
 Extensions:
 1. The same money may be moved two or more Groups in one turn.
 
-##### Use Case: #8.	Group Transfer
+##### Use Case: #8.	Group Transfer within Power Structure
 Actor: Players
 Pre-Conditions:
 1. Player's turn to take action.
-2. Player want to give away or trade a group.
+2. Player has at least one available regular action.
+Post-Conditions:
+1. Player moved a Group within his Power Structure.
 
 Event:
-1. Each Group exchanged counts as an action for the player whose turn it is, whichever way the Group moves.
-2. If player trades a Group for a Group counts as two actions, one to move the first Group, one to move the second one.
+1. Each Group moved counts as an action for the player whose turn it is, whichever way the Group moves.
+2. Player moves one Group Card in his Power Structure
+3. Player's regular action goes up by 1.
 
 Extensions:
-1. Exception: Using the Bribery card is a regular action.
-2. May only give a Group away with the permission of the player who receives.
+1. None
 
 ##### Use Case: #9.	Interfere an Attack
 Actor: Players
@@ -517,7 +519,7 @@ Events:
 	3. Player plays the “Secrets Man Was Not Meant To Know” card.
         	4. The other Special Card is neutralized.
 	5. The other Special Card has no effect.
-        	6. “Murphy's Law” card is discarded into the dead pile.
+        	6. “Secrets Man Was Not Meant To Know” card is discarded into the dead pile.
 Extensions:
 	Not Applicable. 
 
