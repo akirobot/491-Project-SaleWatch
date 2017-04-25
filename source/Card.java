@@ -1,37 +1,74 @@
+/** Card is a representation of card */
 
 public class Card {
 
+    /** The name of this card */
     private String name;
+
     /**
-     * Types of Card
-     * (1): Illuminati Card
-     * (2): Special Card
-     * (3): Group Card
+     * The type of this card. Types of Card (1): Illuminati Card (2): Group Card
+     * (3): Special Card
      */
     private int type;
-    
-    public Card(String name, int type){
+
+    /**
+     * Special Card constructor
+     * 
+     * @param name
+     * @param type
+     */
+    public Card(String name, int type) {
 	this.name = name;
 	this.type = type;
-	
-	if(type == 1){
+    }
+
+    /**
+     * Illuminati Card constructor An Illuminati Card does not have any
+     * resistances
+     * 
+     * @param name
+     * @param type
+     * @param income
+     * @param power
+     * @param transferPower
+     */
+    public Card(String name, int type, int power, int transferPower, int income) {
+
+    }
+
+    /**
+     * Group Card constructor
+     * 
+     * @param name
+     * @param type
+     * @param income
+     * @param power
+     * @param transferPower
+     * @param resistance
+     */
+    public Card(String name, int type, int power, int transferPower,
+	    int resistance, int income) {
+
+    }
+
+    public String getCardName() {
+	return name;
+    }
+
+    public int getCardType() {
+
+	if (type == 1) {
 	    System.out.println("This is an Illuminati card");
 	}
-	
-	if(type == 2){
-	    System.out.println("This is a Special card");
-	}
-	
-	if(type == 3){
+
+	if (type == 2) {
 	    System.out.println("This is a Group card");
 	}
-    }
-    
-    public Card(String name, int income, int power, int transferPower, int resistance, int type){
-	
-    }
-    
-    public String getCardName(){
-	return name;
+
+	if (type == 3) {
+	    System.out.println("This is a Special card");
+	}
+
+	return type;
     }
 }

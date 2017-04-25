@@ -1,4 +1,4 @@
 
-public class IncomingArrow {
+public class IncomingArrow extends Arrow {
 
 }

@@ -1,34 +1,54 @@
 import java.util.ArrayList;
 
-public abstract class Illuminati extends CombatCard implements Attack {
+public abstract class Illuminati extends Card implements Attack, cardStats,
+	cardUpdateStats {
 
-    private ArrayList<Group> puppets = new ArrayList<Group>();
-    private final static int outgoingArrows = 4; 
+    private ArrayList<GroupCard> puppets = new ArrayList<GroupCard>();
+    private final static int outgoingArrows = 4;
+
+    private int income;
+    private int treasury;
+    private int power;
+    private int transferrablePower;
 
     private Arrow top = new OutgoingArrow();
     private Arrow bottom = new OutgoingArrow();
     private Arrow left = new OutgoingArrow();
     private Arrow right = new OutgoingArrow();
-    
-    public Illuminati(String name, int income, int power, int tPower) {
-	super(name, income, power, tPower, outgoingArrows);
-	// TODO Auto-generated constructor stub
+
+    public Illuminati(String name, int type, int power, int tPower, int income) {
+	super(name, type, power, tPower, income);
     }
-    
+
     /*
-     * An Illuminati has a max of 4 direct puppets. 
+     * An Illuminati has a max of 4 direct puppets, and an unlimited amount of indirect puppets 
      */
-    public Group getIlluminatiPuppet(int choice){
-	if((choice > outgoingArrows) && (choice < 0)){
+    public GroupCard getIlluminatiPuppet(int choice) {
+	if ((choice > outgoingArrows) && (choice < 0)) {
 	    // invalid choice
 	}
 	return null;
     }
- 
-    public void displayPuppets(){
-	
+
+    public void addIncomeAtStartOfTurn() {
+	// this.treasury += this.income;
     }
+
+    public void moveMegaBucks() {
+
+    }
+
+    public void movePuppets() {
+
+    }
+
     
-    public abstract void useSpecialPowerActions();
+    public void useSpecialPowerActions(){
+	if(this.getCardName() == "The Bavarian Illuminati"){
+	    
+	}else if(this.getCardName() == "The Bermuda Triangle"){
+	    
+	}
+    }
 
 }
