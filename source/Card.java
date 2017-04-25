@@ -15,7 +15,7 @@ public class Card {
      * Special Card constructor
      * 
      * @param name
-     * @param type
+     * @param type - Must be type 3
      */
     public Card(String name, int type) {
 	this.name = name;
@@ -23,11 +23,11 @@ public class Card {
     }
 
     /**
-     * Illuminati Card constructor An Illuminati Card does not have any
+     * Illuminati Card constructor - An Illuminati Card does not have any
      * resistances
      * 
      * @param name
-     * @param type
+     * @param type - Must be type 1
      * @param income
      * @param power
      * @param transferPower
@@ -40,7 +40,7 @@ public class Card {
      * Group Card constructor
      * 
      * @param name
-     * @param type
+     * @param type - Must be type 2
      * @param income
      * @param power
      * @param transferPower
