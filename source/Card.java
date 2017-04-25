@@ -5,6 +5,8 @@
  */
 package theilluminatigame;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author saidz
@@ -23,14 +25,17 @@ public class Card {
     private int transferPower;
     private int income;
     private int resistance;
+    private ImageIcon face;
     
     /**
      * Special Card constructor
      * 
      * @param name
      * @param type - Must be type 3
+     * @param face
      */
-    public Card(String name, int type) {
+    public Card(String name, int type, javax.swing.ImageIcon face) {
+        this.face = face;
         this.name = name;
         this.type = type;
     }
@@ -43,13 +48,15 @@ public class Card {
      * @param income
      * @param power
      * @param transferPower
+     * @param face
      */
-    public Card(String name, int type, int power, int transferPower, int income) {
+    public Card(String name, int type, int power, int transferPower, int income, javax.swing.ImageIcon face) {
         this.name = name;
         this.type = type;
         this.power = power;
         this.transferPower = transferPower;
         this.income = income;
+        this.face = face;
     }
  
     /**
@@ -61,14 +68,16 @@ public class Card {
      * @param power
      * @param transferPower
      * @param resistance
+     * @param face
      */
-    public Card(String name, int type, int power, int transferPower,int resistance, int income) {
+    public Card(String name, int type, int power, int transferPower,int resistance, int income, javax.swing.ImageIcon face) {
         this.name = name;
         this.type = type;
         this.power = power;
         this.transferPower = transferPower;
         this.resistance = resistance;
         this.income = income;
+        this.face = face;
     }
     public String getCardName() {
 	return name;
