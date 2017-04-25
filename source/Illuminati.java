@@ -5,6 +5,11 @@ public abstract class Illuminati extends CombatCard implements Attack {
     private ArrayList<Group> puppets = new ArrayList<Group>();
     private final static int outgoingArrows = 4; 
 
+    private Arrow top = new OutgoingArrow();
+    private Arrow bottom = new OutgoingArrow();
+    private Arrow left = new OutgoingArrow();
+    private Arrow right = new OutgoingArrow();
+    
     public Illuminati(String name, int income, int power, int tPower) {
 	super(name, income, power, tPower, outgoingArrows);
 	// TODO Auto-generated constructor stub

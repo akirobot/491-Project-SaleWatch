@@ -7,6 +7,11 @@ public class CombatCard extends Card implements cardStats, cardUpdateStats  {
     private int transferrablePower;
     private int outgoingArrows;
     
+    private Arrow top;
+    private Arrow bottom;
+    private Arrow left;
+    private Arrow right;
+     
     public CombatCard(String name, int income, int power, int tPower, int outgoingArrows){
 	super(name);
 	

@@ -1,3 +1,4 @@
+/** Interface for different types of attacks for CombatCards */
 
 public interface Attack {
 
@@ -5,6 +6,7 @@ public interface Attack {
     // Basically, you can't attack Illuminatis.
     // Attacker is a CombatCard type, because an Illuminati is a CombatCard that can attack.
     // A Group type is still a CombatCard. A Dog is still an Animal. Sub-class and Super-class.
+    
     public void attackToControl(CombatCard attacker, Group defender);
     public void attackToDestroy(CombatCard attacker, Group defender);
     public void attackToNeutralize(CombatCard attacker, Group defender);

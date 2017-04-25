@@ -13,7 +13,7 @@ public class Deck {
     private ArrayList<Card> deck;
    
     // Default constructor
-    public Deck(){s
+    public Deck(){
 	   deck = new ArrayList<Card>();
     }
     
