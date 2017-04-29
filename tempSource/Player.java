@@ -89,12 +89,24 @@ public class Player {
     public void resetInterfere() {
 	interfereFlag = false;
     }
+    
+    /**
+     * Reset player's dice roll value after he is done attacking
+     */
+    public void resetDiceValue(){
+    	this.diceRollOutcome = 0;
+    }
 
     /**
      * Remove this method since the power structured should be already be
-     * displayed via the gameUI class public void displayPowerStructure(){
+     * displayed via the gameUI class 
      * 
-     * }
-     */
+     * */
+     //Actually let's put this method back for now 
+     public void displayPowerStructure(){
+    	 System.out.println("200 Displaying Power Structure Method is called");
+    	 
+    	// this.getIlluminati().
+     }
 
 }

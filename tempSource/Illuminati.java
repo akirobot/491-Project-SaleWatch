@@ -145,6 +145,11 @@ public class Illuminati extends Card implements Attack, cardStats, cardUpdateSta
 
 	    	
 	    }
+	    
+	    public void addPuppet(GroupCard puppet) {
+	    	puppets.add(puppet);
+	        }
+	    
 	
 	
 	@Override
@@ -168,5 +173,13 @@ public class Illuminati extends Card implements Attack, cardStats, cardUpdateSta
 		// TODO Auto-generated method stub
 		
 	}
+	
+	/** Display puppets in file-hierarchy form
+	 * 
+	 */
+	public void displayPuppets(){
+		
+	}
+	
 }
 

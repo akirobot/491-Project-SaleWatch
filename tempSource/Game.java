@@ -18,17 +18,13 @@ import javax.swing.ImageIcon;
 public class Game {
 
     private static ArrayList<Player> players = new ArrayList<Player>();
-    /** For simplicity, we will create fewer cards for now */
-    // private static Illuminati[] illuminatiCards = new Illuminati[8];
-   // private static Illuminati[] illuminatiCards = new Illuminati[4];
+
      private static ArrayList<Illuminati> illuminatiCards = new ArrayList<Illuminati>();
 
-  //  private static GroupCard[] groupCards = new GroupCard[10];
     
    private static ArrayList<GroupCard> groupCards = new ArrayList<GroupCard>();
 
     
-    // private static SpecialCard[] specialCards = new SpecialCard[15];
     private static ArrayList<SpecialCard> specialCards  = new ArrayList<SpecialCard>();
 
     
@@ -37,6 +33,7 @@ public class Game {
     private static ArrayList<GroupCard> uncontrolledArea = new ArrayList<GroupCard>();
     private static boolean gameOver;
     private static int round;
+    
     // Alignments
     private static String government = "Government";
     private static String straight = "Straight";
@@ -64,7 +61,6 @@ public class Game {
     public static void gameLoop() {
 	// Initialize Illuminati Cards, Special Cards, and Group Cards
 	initializeIlluminatiCards();
-	
 	initializeSpecialCards();
 	initializeGroupsCards();
 
@@ -78,7 +74,7 @@ public class Game {
 	
 	createGameDeck();
 	
-	createUnControlledArea();
+	//createUnControlledArea();
 
 	
 	// unControlledArea should have at least 4 Group Cards at beginning of round
@@ -92,14 +88,52 @@ public class Game {
 	// Reset all player roll values to 0
 	// 1st round starts with the first player going first
 	
+	System.out.println("SBOX 000 Game.java\n");
 	
+	// Assign a Group Card a Group Card Master Puppet
+	// Display it
+	// Let's create a temp ArrayList of Card objects
+	ArrayList<GroupCard> testPStrans = new ArrayList<GroupCard>();
 	
-		// Assume player 1 goes first for now
+	for(int i = 0; i < groupCards.size()-7; i++){
+		testPStrans.add(groupCards.get(i));
+	}
+	
+	for(int i = 0; i < testPStrans.size(); i++){
+		System.out.println("44444 " + i + ": " + testPStrans.get(i).getCardName());
+	}
+	
+	int Top = 1;
+	int Bottom = 2;
+	int Left = 3;
+	int Right = 4;
+	
+	// testPStrans.get(0).addPuppet(testPStrans.get(1));
+	testPStrans.get(0).addPuppetWithArrow(testPStrans.get(1), Top);
+	System.out.println("3333 " + testPStrans.get(0).getPuppet(0).getCardName()); // Clone Arrangers
+	System.out.println("3334 " + testPStrans.get(0).getTopArrow().getCardFromArrow().getCardName()); // Clone Arrangers
+	System.out.println("3335 " + testPStrans.get(0).getPuppet(0).getIncomingArrow().getCardFromArrow().getCardName()); // F.B.I.
+	System.out.println("3336 " + testPStrans.get(0).getPuppet(0).getMaster().getCardName()); // F.B.I.
+	
+	// 3333 and 3335 are the same object 
+	// So If I assign another Group Card to 3333, then 3335 should change as well, Let's find out
+	
+//	testPStrans.get(0).getPuppet(0).addPuppetWithArrow(testPStrans.get(2), 1);
+
+	
+	/*  <----- 4.28.17 10:52 AM ----->
+	
+		// Assume player 1 goes first for now, Collects income
 	
 		// Let's Attack to Destroy
 		System.out.println("008 Attack to Destroy");
 		
-		atkToDestroy(2);
+		int attackEnemyPowerStructure = 1;
+		int attackUncontrolled= 2;
+		atkToDestroy(attackUncontrolled);
+		
+		// Let's Attack to Control
+		atkToControl(attackUncontrolled);
 	
 		// Whenever UncontrolledArea has less than 2 cards, keep drawing until there are at
 		// least 2 cards in uncontrolled Area.
@@ -113,18 +147,109 @@ public class Game {
 		
 	    // 1) Player can pass a turn
 	    // 2) Player can take actions if available - Check player's actionsTaken value
-	    // 3) Player can take free actions
-	    // 4) Player can give up
-	    // 5) Player is done with turn
+	    // 3) Player can take free actions 
+	    // 4) Player can give up <- Low priority since it's harder
+	    // 5) Player is done with turn < Higher priority to implement since it's easier to implement
 	    // Next player starts
 	    // A player meets a win condition (Basic Goal or Special Goal)
 	    gameOver = true;
 	}
-	System.out.println("End Game");
+	
+	*/// <----- 4.28.17 10:52 AM ----->
+	System.out.println("998 End Game");
     }
     
+    
+    // Pass a turn: If at start of turn, players get +5. Maybe give to Illuminati the 5 MegaBucks
+    // To check if start of turn, then player's actions taken must be 0 and no free actions taken
+    // If player's take action, remove the option of passing a turn. So in that case, player must
+    // say he is done with his turn instead. 
+    public static void passTurn(Player p){
+    
+    }
+    
+    public static void atkToControl(int choice) {
+    	// The user can attack another Player's Card
+    	if(choice == 1) {
+    		
+    	} else {
+    		displayUncontrolledAreaCards();
+
+    		
+    		System.out.println("\n009 Player's 1 stat");
+    		
+    		players.get(0).getIlluminati().displayStats();
+    		
+    		
+    		// Player wants attack to control the 1st card from uncontrolledArea
+    		System.out.println("\n010 Defender's stat");
+
+    		uncontrolledArea.get(0).displayStats();
+
+    		int attackerIndex = 0;
+    		int defenderIndex = 0;
+    		
+    		Card attacker = players.get(0).getIlluminati();
+    		GroupCard defender = uncontrolledArea.get(0);
+    		
+    		
+    	    int atkPower = players.get(0).getIlluminati().getPower();
+    	    int defResistance = uncontrolledArea.get(0).getResistance();
+    	    
+    	    int powerAndResistDifference = atkPower - defResistance;
+    		System.out.println("\n011 Power and Resistance difference is " + powerAndResistDifference);
+    
+    		System.out.println("\n012 Player must roll " + powerAndResistDifference + " or less." 
+    		+ "\nA roll of 11 or 12 is an automatic failure.");
+    	    
+    		System.out.println("\n013 Assume player rolls dice value is 5");
+    		players.get(0).setDiceRoll_TestModeOnly(5);
+    		
+    		int playerDiceRoll = players.get(0).getDiceRollOutcome();
+    		System.out.println("\n014 Player's dice roll value is " + playerDiceRoll);
+    		
+    		boolean successfulAttack = false;
+    		if((playerDiceRoll <= powerAndResistDifference) && playerDiceRoll < 11 ){
+    			System.out.println("\n015 Successful atk to control");
+    			successfulAttack = true;
+    			// so add to an arrow of Illuminati
+    		} else if(playerDiceRoll == 11 || playerDiceRoll == 12){
+    			System.out.println("\n016 Failed atk to control");
+    		} else {
+    			System.out.println("\n017 Failed atk to control");
+    		}
+
+    		if(successfulAttack){
+    			//deadPile.add(defender);
+    			//displayDeadPileCards();
+    			
+    			players.get(0).getIlluminati().addPuppet(defender);
+    		//	players.get(0).
+    				
+    			uncontrolledArea.remove(defenderIndex);
+    		}
+    		
+    		displayUncontrolledAreaCards();
+    	    
+    		// Increase player's action after an attack
+    		players.get(0).takeAction();
+    		
+    		// As long as player haven't taken more than 2 regular actions, then he can still attack
+    		
+    		// When attack is done, reset Player's roll back to 0
+    		// players.get(0).setDiceRoll_TestModeOnly(0);
+    		 players.get(0).resetDiceValue();
+    		
+    		 System.out.println("030 players dice value is "+ players.get(0).getDiceRollOutcome());
+    	}
+    	
+    }
+
+    
+    
+    
     /**
-     * 
+     * Later, we have to keep the alignment oppositions in mind
      * @param choice 
      *  <p> 1 for Attacking a Player's Card 
      *  <p> 2 for Attacking an Uncontrolled Area's Card 
@@ -402,7 +527,7 @@ public class Game {
         California.addAlignment(weird);
         California.addAlignment(government);
         groupCards.add(California);
-        
+                
         GroupCard JunkMail = new GroupCard ("Junk Mail",groupCardType,1,0,3,2,face);
         JunkMail.setTopArrow(out);
         JunkMail.setRightArrow(in);
@@ -492,88 +617,3 @@ public class Game {
 }
 
 
-/**
- * OUTPUT as of 4/26/17 11:57 AM PDT
-Main method...
-000a Player 0's Illuminati: The Bavarian Illuminati
-000a Player 1's Illuminati: The Society of Assasins
-001 createGameDeck
-002 groupCards's size is 10
-003 first card in groupCards array F.B.I.
-101 deck.size() is 10
-	0: F.B.I.
-	1: Clone Arrangers
-	2: Moonies
-	3: Punk Rockers
-	4: TV Preachers
-	5: New York
-	6: Madison Avenue
-	7: Gun Lobby
-	8: California
-	9: Junk Mail
-004 shuffled the game deck 
-101 deck.size() is 10
-	0: F.B.I.
-	1: Clone Arrangers
-	2: Moonies
-	3: Punk Rockers
-	4: TV Preachers
-	5: New York
-	6: Madison Avenue
-	7: Gun Lobby
-	8: California
-	9: Junk Mail
-006 Drew Group Card from gameDeck: Junk Mail
-006 Drew Group Card from gameDeck: California
-006 Drew Group Card from gameDeck: Gun Lobby
-006 Drew Group Card from gameDeck: Madison Avenue
-
-007 Uncontrolled Area consists of these cards
-	0: Junk Mail
-	1: California
-	2: Gun Lobby
-	3: Madison Avenue
-008 Attack to Destroy
-
-007 Uncontrolled Area consists of these cards
-	0: Junk Mail
-	1: California
-	2: Gun Lobby
-	3: Madison Avenue
-
-009 Player's 1 stat
-102 Display Stats for The Bavarian Illuminati
-	 Power: 10
-	 tPower: 10
-	 treasury: 0
-	 income: 9
-
-010 Defender's stat
-103 Display Stats for Junk Mail
-	 Power: 0
-	 tPower: 0
-	 tPower: 3
-	 treasury: 0
-	 income: 0
-
-011 Power difference is 10
-
-012 Player must roll 10 or less.
-A roll of 11 or 12 is an automatic failure.
-
-013 Assume player rolls dice value is 7
-
-014 Player's dice roll value is 7
-
-015 Successful atk to destroy
-
-020 Dead Pile consists of these cards
-	0: Junk Mail
-
-007 Uncontrolled Area consists of these cards
-	0: California
-	1: Gun Lobby
-	2: Madison Avenue
-End Game
-
- */

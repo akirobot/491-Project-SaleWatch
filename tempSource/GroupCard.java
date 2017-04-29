@@ -37,10 +37,15 @@ public class GroupCard extends Card implements Attack, cardStats,
 	    int resistance, int income, ImageIcon face) {
 	super(name, type, power, tPower, resistance, income, face);
 		
-		incomeDefault = income;
-		powerDefault = power;
-	    transferrablePowerDefault = tPower;
-	    resistanceDefault = resistance;
+	this.incomeDefault = income;
+	this.powerDefault = power;
+	    this.transferrablePowerDefault = tPower;
+	    this.resistanceDefault = resistance;
+	    
+	    this.income = income;
+	    this.power = power;
+	    this.transferrablePower = tPower;
+	    this.resistance = resistance;
     }
 
     public void setTopArrow(Arrow direction) {
@@ -58,7 +63,34 @@ public class GroupCard extends Card implements Attack, cardStats,
     public void setRightArrow(Arrow direction) {
 	right = direction;
     }
+    
+    
+    // Every Group Card has one incoming Arrow, either on its left or right.
+    public Arrow getIncomingArrow(){
+	if(this.left instanceof IncomingArrow){
+	    System.out.println("305a This Group Card has a Left Incoming Arrow");
+	    return this.left;
+	} else {
+	    System.out.println("305b This Group Card has a Right Incoming Arrow");
+	    return this.right;
+	}
+    }
 
+    public Arrow getTopArrow() {
+	return top;
+    }
+
+    public Arrow getBottomArrow() {
+	return bottom;
+    }
+
+    public Arrow  getLeftArrow() {
+	return left;
+    }
+
+    public Arrow  getRightArrow() {
+	return right;
+    }
     public Card getMaster() {
 	return master;
     }
@@ -71,18 +103,168 @@ public class GroupCard extends Card implements Attack, cardStats,
 	this.master = master;
     }
 
+    
+
     public void setIlluminati(Illuminati illuminati) {
 	this.illuminati = illuminati;
     }
 
+    /**
+     * Add a puppet to this Group Card
+     * Set the puppet's master to this Group Card
+     * @param puppet
+     */
     public void addPuppet(GroupCard puppet) {
 	puppets.add(puppet);
+	// Next steps
+	// 1) Check if available arrows
+	// 2) Which arrow to add puppet to? Top, Bot, Left, Right
+	puppet.setMaster(this);
     }
+    
+/**
+ * 
+ * @param puppet
+ * @param arrowDirection - 1:TOP, 2:BOTTOM, 3: LEFT, 4:RIGHT
+ */
+    public void addPuppetWithArrow (GroupCard puppet, int arrowDirection) {
+	puppets.add(puppet);
+	// Check if available "outgoing" arrows
+	// Check if puppet has an available incoming arrow spot
+	// With the Game UI graphics, we need to check if the arrow isn't blocked by another card, such as collision detection.
+	int Top = 1;
+	int Bottom = 2;
+	int Left = 3;
+	int Right = 4;
+	
+	
+	
+	// A Group Card's incoming arrow is either the left or right direction, but never the top or bottom direction
+	// So we check the left and right of the puppet's incoming arrow
+	if((puppet.getLeftArrow() instanceof IncomingArrow) && (puppet.getLeftArrow().getCardFromArrow() == null)){
+	    addPuppetWithArrowTwo(puppet, arrowDirection);
+	 // Set this Group Card as the master of the puppet
+		puppet.setMaster(this); // Have to have incoming arrow direction in mind as well. 
+		puppet.getLeftArrow().addCardToArrow(this);
+	} else if( (puppet.getRightArrow() instanceof IncomingArrow && puppet.getRightArrow().getCardFromArrow() == null)){
+	    addPuppetWithArrowTwo(puppet, arrowDirection);
+	 // Set this Group Card as the master of the puppet
+		puppet.setMaster(this); // Have to have incoming arrow direction in mind as well. 
+		puppet.getRightArrow().addCardToArrow(this);
+
+	}
+	
+	/*
+	if(arrowDirection == Top){
+	    // TOP
+	    if((this.getTopArrow() instanceof OutgoingArrow) && (this.getTopArrow().getPuppetFromArrow() == null) ){
+		    System.out.println("303a Top Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getTopArrow().addPuppetToArrow(puppet);
+		} else if((this.getTopArrow() instanceof OutgoingArrow) && (this.getTopArrow().getPuppetFromArrow() != null)){
+		    System.out.println("303b Top Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("303c You can't add a puppet to an Incoming arrow. Or the top arrow does not exists");
+		}
+	} else if(arrowDirection == Bottom){
+	    // BOTTOM
+	    if((this.getBottomArrow() instanceof OutgoingArrow) && (this.getBottomArrow().getPuppetFromArrow() == null) ){
+		    System.out.println("304a Bottom Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getBottomArrow().addPuppetToArrow(puppet);
+		} else if((this.getBottomArrow() instanceof OutgoingArrow) && (this.getBottomArrow().getPuppetFromArrow() != null)){
+		    System.out.println("304b Bottom Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("304c You can't add a puppet to an Incoming arrow. Or the bottom arrow does not exists");
+		}
+	} else if(arrowDirection == Left){
+	    // LEFT
+	    if((this.getLeftArrow() instanceof OutgoingArrow) && (this.getLeftArrow().getPuppetFromArrow() == null) ){
+		    System.out.println("305a Left Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getLeftArrow().addPuppetToArrow(puppet);
+		} else if((this.getLeftArrow() instanceof OutgoingArrow) && (this.getLeftArrow().getPuppetFromArrow() != null)){
+		    System.out.println("305b Left Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("305c You can't add a puppet to an Incoming arrow. Or the left arrow does not exists");
+		}
+	} else if(arrowDirection == Right){
+	    // RIGHT
+	    if((this.getRightArrow() instanceof OutgoingArrow) && (this.getRightArrow().getPuppetFromArrow() == null) ){
+		    System.out.println("306a Right Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getRightArrow().addPuppetToArrow(puppet);
+		} else if((this.getRightArrow() instanceof OutgoingArrow) && (this.getRightArrow().getPuppetFromArrow() != null)){
+		    System.out.println("306b Right Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("306c You can't add a puppet to an Incoming arrow. Or the right arrow does not exists");
+		}
+	} else {
+	    System.out.println("310 Invalid arrowDirection choice");
+	}
+	*/
+	
+	
+    }
+    
+    public void addPuppetWithArrowTwo(GroupCard puppet, int arrowDirection){
+	int Top = 1;
+	int Bottom = 2;
+	int Left = 3;
+	int Right = 4;
+	
+	if(arrowDirection == Top){
+	    // TOP
+	    if((this.getTopArrow() instanceof OutgoingArrow) && (this.getTopArrow().getCardFromArrow() == null) ){
+		    System.out.println("303a Top Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getTopArrow().addCardToArrow(puppet);
+		} else if((this.getTopArrow() instanceof OutgoingArrow) && (this.getTopArrow().getCardFromArrow() != null)){
+		    System.out.println("303b Top Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("303c You can't add a puppet to an Incoming arrow. Or the top arrow does not exists");
+		}
+	} else if(arrowDirection == Bottom){
+	    // BOTTOM
+	    if((this.getBottomArrow() instanceof OutgoingArrow) && (this.getBottomArrow().getCardFromArrow() == null) ){
+		    System.out.println("304a Bottom Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getBottomArrow().addCardToArrow(puppet);
+		} else if((this.getBottomArrow() instanceof OutgoingArrow) && (this.getBottomArrow().getCardFromArrow() != null)){
+		    System.out.println("304b Bottom Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("304c You can't add a puppet to an Incoming arrow. Or the bottom arrow does not exists");
+		}
+	} else if(arrowDirection == Left){
+	    // LEFT
+	    if((this.getLeftArrow() instanceof OutgoingArrow) && (this.getLeftArrow().getCardFromArrow() == null) ){
+		    System.out.println("305a Left Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getLeftArrow().addCardToArrow(puppet);
+		} else if((this.getLeftArrow() instanceof OutgoingArrow) && (this.getLeftArrow().getCardFromArrow() != null)){
+		    System.out.println("305b Left Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("305c You can't add a puppet to an Incoming arrow. Or the left arrow does not exists");
+		}
+	} else if(arrowDirection == Right){
+	    // RIGHT
+	    if((this.getRightArrow() instanceof OutgoingArrow) && (this.getRightArrow().getCardFromArrow() == null) ){
+		    System.out.println("306a Right Outgoing arrow is added with this puppet: " + puppet.getCardName());
+		    this.getRightArrow().addCardToArrow(puppet);
+		} else if((this.getRightArrow() instanceof OutgoingArrow) && (this.getRightArrow().getCardFromArrow() != null)){
+		    System.out.println("306b Right Outgoing arrow is already occupied");
+		} else {
+		    System.out.println("306c You can't add a puppet to an Incoming arrow. Or the right arrow does not exists");
+		}
+	} else {
+	    System.out.println("310 Invalid arrowDirection choice");
+	}
+    }
+    
 
     public void addAlignment(String alignment) {
 	alignments.add(alignment);
     }
 
+    /**
+     * When a Group Card gets destroyed or neutralized, set its master to null
+     */
+    public void resetMaster(){
+	this.master = null;
+    }
     @Override
     public void adjustTreasury(int megaBucks) {
 	// TODO Auto-generated method stub
@@ -166,11 +348,14 @@ public class GroupCard extends Card implements Attack, cardStats,
     	System.out.println("103 Display Stats for " + this.getCardName());
 
     	System.out.println("\t Power: " + this.getPower());
-    	System.out.println("\t tPower: " + this.getTransferPower());
-    	System.out.println("\t tPower: " + this.getResistance());
-    	System.out.println("\t treasury: " + this.getTreasury());
-    	System.out.println("\t income: " + this.getIncome());
-
+    	System.out.println("\t Transferrable Power: " + this.getTransferPower());
+    	System.out.println("\t Resistance: " + this.getResistance());
+    	System.out.println("\t MegaBucks: " + this.getTreasury()); // megaBucks
+    	System.out.println("\t Income: " + this.getIncome());
+    	
+    	for(int i = 0 ; i < alignments.size(); i++){
+        	System.out.println("\t Aliignment: " + this.alignments.get(i));
+    	}
 
 
     	
