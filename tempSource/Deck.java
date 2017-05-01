@@ -32,14 +32,23 @@ public class Deck {
     /**
      * Draw card from top of deck
      * Decrease size of Deck by 1 by removing the card drawn
+     * Only draw if there is at least 1 card left. Use getDeckSize in Game.java to check if the gameDeck's size is greater than 1
      * @return Card that was at the top of the face-down deck
      */
     public Card draw(){
+        
     	int topOfDeckIndex = deck.size() - 1;
     	Card cardDrawn = deck.get(topOfDeckIndex);
-    	deck.remove(deck.get(topOfDeckIndex));
+        deck.remove(deck.get(topOfDeckIndex));
     	return cardDrawn;
+        
     }
+    
+    public int getDeckSize(){
+        return deck.size();
+    }
+    
+  
     
     
      //temp method 

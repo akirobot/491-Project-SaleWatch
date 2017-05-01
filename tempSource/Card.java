@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 public class Card {
     /** The name of this card */
     private String name;
+        
     /**
      * The type of this card. Types of Card (1): Illuminati Card (2): Group Card
      * (3): Special Card

@@ -26,6 +26,8 @@ public class Illuminati extends Card implements Attack, cardStats, cardUpdateSta
     private Arrow left = new OutgoingArrow();
     private Arrow right = new OutgoingArrow();
     
+    private Card master = null;
+    
     // Default values
     // These values should not change during the course of the game, besides the initial assignment
     private int incomeDefault;
@@ -33,7 +35,7 @@ public class Illuminati extends Card implements Attack, cardStats, cardUpdateSta
     private int transferrablePowerDefault;
     
     
-    
+
     
     
     public Illuminati(String name, int type, int power, int tPower, int income,javax.swing.ImageIcon face) {
@@ -50,7 +52,7 @@ public class Illuminati extends Card implements Attack, cardStats, cardUpdateSta
     }
     
     public void addIncomeAtStartOfTurn() {
-	// this.treasury += this.income;
+	 this.treasury += this.income;
     }
     
     public void moveMegaBucks() {

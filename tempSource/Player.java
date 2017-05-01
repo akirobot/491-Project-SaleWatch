@@ -66,7 +66,7 @@ public class Player {
     }
 
     public void takeAction() {
-	actionsTaken--;
+	actionsTaken++;
     }
 
     /**
@@ -74,7 +74,7 @@ public class Player {
      * is set back to 0
      */
     public void resetAction() {
-	actionsTaken = 0;
+    	actionsTaken = 0;
     }
 
     /** Player interferes an attack */

@@ -3,7 +3,11 @@ package theilluminatigame;
 
 public class Arrow {
 
-    private Card card;
+
+  
+  
+    
+       protected Card card;
 
     /**
      * Add a Card to the Arrow as long as its not a Special Card
@@ -24,7 +28,5 @@ public class Arrow {
     public Card getCardFromArrow(){
 	return card;
     }
-    //
-    
 
 }
