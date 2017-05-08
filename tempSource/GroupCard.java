@@ -294,7 +294,7 @@ public class GroupCard extends Card implements Attack, cardStats,
 		System.out.println("313 printOutAvailableAndOccupiedArrows called ");
 		System.out
 				.println(this.getCardName()
-						+ "has the following available and occupied arrows and types: ");
+						+ " has the following available and occupied arrows and types: ");
 
 		if (top != null) {
 
@@ -1141,7 +1141,11 @@ public class GroupCard extends Card implements Attack, cardStats,
 	 *            - 1:TOP, 2:BOTTOM, 3: LEFT, 4:RIGHT
 	 */
 	public void addPuppetWithArrow(GroupCard puppet, int arrowDirection) {
-		puppets.add(puppet);
+ // make sure we don't add puppet again if it is already in the puppets arraylist
+	    if(puppets.contains(puppet) == false){
+        
+        puppets.add(puppet);
+        };
 		// Check if available "outgoing" arrows
 		// Check if puppet has an available incoming arrow spot
 		// With the Game UI graphics, we need to check if the arrow isn't
@@ -1383,4 +1387,143 @@ public class GroupCard extends Card implements Attack, cardStats,
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	public boolean canAtkToControl() {
+        System.out.println("3145 checkOutAvailableAndOccupiedArrows called ");
+        System.out.println(this.getCardName()
+                + " has the following available and occupied arrows and types: ");
+        boolean canAttackToControl = false;
+
+        int availOutArrows = 0;
+
+        if (top != null) {
+
+        if (top.getCardFromArrow() == null) {
+        System.out.println("\tTop Out: <Empty>");
+        availOutArrows++;
+        }
+
+//        if (top.getCardFromArrow() != null) {
+//        System.out.println("\tTop Out: " + top.getCardFromArrow().getCardName());
+//
+//        }
+        }
+
+        if (bottom != null) {
+
+        if (bottom.getCardFromArrow() == null) {
+        System.out.println("\tBottom Out: <Empty>");
+        availOutArrows++;
+
+        }
+
+//        if (bottom.getCardFromArrow() != null) {
+//        System.out.println("\tBottom Out: " + bottom.getCardFromArrow().getCardName());
+//        }
+
+        }
+
+        if (leftOut != null) {
+        if (leftOut.getCardFromArrow() == null) {
+        System.out.println("\tLeft Out: <Empty>");
+        availOutArrows++;
+
+        }
+
+//        if (leftOut.getCardFromArrow() != null) {
+//        System.out.println("\tLeft Out: " + leftOut.getCardFromArrow().getCardName());
+//        }
+        }
+
+        if (rightOut != null) {
+        if (rightOut.getCardFromArrow() == null) {
+        System.out.println("\tRight Out: <Empty>");
+        availOutArrows++;
+
+        }
+
+//        if (rightOut.getCardFromArrow() != null) {
+//        System.out.println("\tRight Out: " + rightOut.getCardFromArrow().getCardName());
+//        }
+        }
+
+        int GroupCardType = 2;
+        if (this.getCardType() == GroupCardType) {
+        // has 0 to 3 outgoing arrows
+        if (availOutArrows > 0) {
+        canAttackToControl = true;
+
+        }
+        }
+        return canAttackToControl;
+
+    } // check method
+	
+	  public boolean canAddToThisArrow(int directionChoice) {
+
+	        int TopC = 1;
+	        int BottomC = 2;
+	        int LeftC = 3;
+	        int RightC = 4;
+
+	        boolean canAddHere = false;
+	        if (directionChoice == TopC) {
+	        if (top != null) {
+
+	        if (top.getCardFromArrow() == null) {
+	        System.out.println("\tTop Out: <Empty>");
+	        canAddHere = true;
+
+	        }
+	        }
+
+	        }
+	        if (directionChoice == BottomC) {
+
+	        if (bottom != null) {
+
+	        if (bottom.getCardFromArrow() == null) {
+	        System.out.println("\tBottom Out: <Empty>");
+	        canAddHere = true;
+
+	        }
+
+	        }
+	        }
+
+	        if (directionChoice == LeftC) {
+	        if (leftOut != null) {
+	        if (leftOut.getCardFromArrow() == null) {
+            System.out.println("\tLeft Out: <Empty>");
+            canAddHere = true;
+
+            }
+	        }
+	     
+
+	        }
+
+	        if (directionChoice == RightC) {
+	        if (rightOut != null) {
+	        if (rightOut.getCardFromArrow() == null) {
+	        System.out.println("\tRight Out: <Empty>");
+            canAddHere = true;
+
+            }
+	        }
+	      
+
+	        }
+
+	        // TODO Auto-generated method stub
+
+	        return canAddHere;
+
+	    } // can add to this arrow method
 }

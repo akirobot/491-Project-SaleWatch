@@ -1,0 +1,276 @@
+*** Welcome to Illuminati! ***
+
+000a Player 0's Illuminati: The Bavarian Illuminati
+000a Player 1's Illuminati: The Society of Assassins
+001 createGameDeck() is called
+002 groupCards's size is 10
+003 first card in groupCards array F.B.I.
+101 deck.size() is 10
+	0: F.B.I.
+	1: Clone Arrangers
+	2: Moonies
+	3: Punk Rockers
+	4: TV Preachers
+	5: New York
+	6: Madison Avenue
+	7: Gun Lobby
+	8: California
+	9: Junk Mail
+004 shuffled the game deck - disabled for now 
+101 deck.size() is 10
+	0: F.B.I.
+	1: Clone Arrangers
+	2: Moonies
+	3: Punk Rockers
+	4: TV Preachers
+	5: New York
+	6: Madison Avenue
+	7: Gun Lobby
+	8: California
+	9: Junk Mail
+006 Drew Group Card from gameDeck: Junk Mail
+006 Drew Group Card from gameDeck: California
+006 Drew Group Card from gameDeck: Gun Lobby
+006 Drew Group Card from gameDeck: Madison Avenue
+
+007 Uncontrolled Area consists of these cards
+	0: Junk Mail
+	1: California
+	2: Gun Lobby
+	3: Madison Avenue
+0000a Player #0 goes first for now.
+0000b Round 1 starts.
+0000c Player draws income for his cards. 
+006a Player Drew Group Card from gameDeck: New York
+
+007 Uncontrolled Area consists of these cards
+	0: Junk Mail
+	1: California
+	2: Gun Lobby
+	3: Madison Avenue
+	4: New York
+
+***MENU***
+What would you like to do?
+1. Pass a turn
+2. Take actions
+3. Take free actions
+4. View your stats
+5. Finish turn
+6. End game
+
+2
+Take actions *UNDER CONSTRUCTION* 
+***ACTIONS MENU***
+Your actions taken: 0
+What would you like to do?
+1. Attack to Control
+2. Attack to Destroy
+3. Attack To Neutralize
+4. Exit menu
+1
+Attack to Control *UNDER CONSTRUCTION* 
+***ATTACK TO CONTROL MENU***
+1. Attack another player's power structure
+2. Attack a Group Card from the Uncontrolled Area
+3. Cancel Attack to Control
+
+2
+0010a Attack To Control another Group Card from Uncontrolled Area is under construction
+0010b TEST SAMPLE SCENARIO FOR ATK TO CONTROL
+1. Attack with your Illuminati
+2. Attack with your Group Card
+3. Cancel selection
+
+1
+0010aa Attack with your Illuminati
+3145 checkOutAvailableAndOccupiedArrows called 
+The Bavarian Illuminati has the following available and occupied arrows and types: 
+	Top Out: <Empty>
+	Bottom Out: <Empty>
+	Left Out: <Empty>
+	Right Out: <Empty>
+This is an Illuminati card
+0010aaa Attack with your Illuminati processing
+
+007 Uncontrolled Area consists of these cards
+	0: Junk Mail
+	1: California
+	2: Gun Lobby
+	3: Madison Avenue
+	4: New York
+
+009 Player's Illuminati's stat
+102 Display Stats for The Bavarian Illuminati
+	 Power: 10
+	 tPower: 10
+	 treasury: 9
+	 income: 9
+
+010 Defender's stat
+103 Display Stats for Junk Mail
+	 Power: 1
+	 Transferrable Power: 0
+	 Resistance: 3
+	 MegaBucks: 0
+	 Income: 2
+	 Aliignment: Criminal
+
+011 Power and Resistance difference is 7
+
+011 Power difference is 7
+
+012 Player must roll 7 or less.
+A roll of 11 or 12 is an automatic failure.
+
+013 Assume player rolls dice value is 4
+
+014 Player's dice roll value is 4
+
+015 Successful atk to control
+494 Select direction for your Illuminati Card 
+
+1. Top
+2. Bottom
+3. Left
+4. Right
+
+2
+	Bottom Out: <Empty>
+495a Can add to this arrow
+99998888 adding puppet 
+99998888a puppets size 1
+305b This Group Card Junk Mail has a Right Incoming Arrow
+305b This Group Card Junk Mail has a Right Incoming Arrow
+304a Bottom Outgoing arrow is added with this puppet: Junk Mail
+305b This Group Card Junk Mail has a Right Incoming Arrow
+313 printOutAvailableAndOccupiedArrows called 
+The Bavarian Illuminati has the following available and occupied arrows and types: 
+	Top Out: <Empty>
+	Bottom Out: Junk Mail
+	Left Out: <Empty>
+	Right Out: <Empty>
+
+007 Uncontrolled Area consists of these cards
+	0: California
+	1: Gun Lobby
+	2: Madison Avenue
+	3: New York
+***ACTIONS MENU***
+Your actions taken: 1
+What would you like to do?
+1. Attack to Control
+2. Attack to Destroy
+3. Attack To Neutralize
+4. Exit menu
+1
+Attack to Control *UNDER CONSTRUCTION* 
+***ATTACK TO CONTROL MENU***
+1. Attack another player's power structure
+2. Attack a Group Card from the Uncontrolled Area
+3. Cancel Attack to Control
+
+2
+0010a Attack To Control another Group Card from Uncontrolled Area is under construction
+0010b TEST SAMPLE SCENARIO FOR ATK TO CONTROL
+1. Attack with your Illuminati
+2. Attack with your Group Card
+3. Cancel selection
+
+2
+0010bb Attack with your Group Card
+Select the Group Card you would like to attack with
+(0) Junk Mail
+0
+0010aa Attack with your Group Card: Junk Mail
+3145 checkOutAvailableAndOccupiedArrows called 
+Junk Mail has the following available and occupied arrows and types: 
+	Top Out: <Empty>
+0010aaa Attack with your GroupCard processing
+
+007 Uncontrolled Area consists of these cards
+	0: California
+	1: Gun Lobby
+	2: Madison Avenue
+	3: New York
+
+009 Player's Group Card's stat
+103 Display Stats for Junk Mail
+	 Power: 1
+	 Transferrable Power: 0
+	 Resistance: 3
+	 MegaBucks: 0
+	 Income: 2
+	 Aliignment: Criminal
+
+010 Defender's stat
+103 Display Stats for California
+	 Power: 5
+	 Transferrable Power: 0
+	 Resistance: 4
+	 MegaBucks: 0
+	 Income: 5
+	 Aliignment: Liberal
+	 Aliignment: Weird
+	 Aliignment: Government
+
+011 Power and Resistance difference is 12
+
+011 Power difference is 12
+
+012 Player must roll 12 or less.
+A roll of 11 or 12 is an automatic failure.
+
+013 Assume player rolls dice value is 4
+
+014 Player's dice roll value is 4
+
+015 Successful atk to control
+494 Select direction for your Group Card 
+
+1. Top
+2. Bottom
+3. Left
+4. Right
+
+2
+495 You can't add to an already occupied arrow. Or your Group Card does not have that specific outgoing arrow.
+1. Top
+2. Bottom
+3. Left
+4. Right
+
+1
+	Top Out: <Empty>
+495a Can add to this arrow
+305a This Group Card California has a Left Incoming Arrow
+305a This Group Card California has a Left Incoming Arrow
+303a Top Outgoing arrow is added with this puppet: California
+305a This Group Card California has a Left Incoming Arrow
+313 printOutAvailableAndOccupiedArrows called 
+Junk Mail has the following available and occupied arrows and types: 
+	Top Out: California
+	Right In: The Bavarian Illuminati
+313 printOutAvailableAndOccupiedArrows called 
+Junk Mail has the following available and occupied arrows and types: 
+	Top Out: California
+	Right In: The Bavarian Illuminati
+
+007 Uncontrolled Area consists of these cards
+	0: Gun Lobby
+	1: Madison Avenue
+	2: New York
+Your actions taken: 2
+You are out of regular actions.
+
+***MENU***
+What would you like to do?
+1. Pass a turn
+2. Take actions
+3. Take free actions
+4. View your stats
+5. Finish turn
+6. End game
+
+6
+End game

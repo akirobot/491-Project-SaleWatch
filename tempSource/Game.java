@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 
 /**
  * 
- * @author saidz
+ * @authors saidz, ly
  */
 // Game logic
 // Convert Flowchart into code
@@ -45,8 +45,7 @@ public class Game {
     // This main method in Game.java is temporary for now
 
     public static void main(String[] args) {
-        System.out.println("*** Welcome to Illuminati! ***");
-        System.out.println();
+        System.out.println("*** Welcome to Illuminati! ***\n");
 
         gameLoop();
 
@@ -146,13 +145,13 @@ public class Game {
         // Player draws a card from a gameDeck, if special card, keep it.
         // Else
         // uncontrolledArea gets one Card
-        
-        if(gameDeck.getDeckSize() > 0){
-            drawCardGameDeck(playersTurn);
-        }else{
-            System.out.println("Game Deck is out of cards.");
+
+        if (gameDeck.getDeckSize() > 0) {
+        drawCardGameDeck(playersTurn);
+        } else {
+        System.out.println("Game Deck is out of cards.");
         }
-        
+
         boolean done = false;
 
         while (!done) {
@@ -169,7 +168,7 @@ public class Game {
         done = true;
         round++;
         players.get(playersTurn).resetAction();
-        players.get(playersTurn).resetDiceValue();  
+        players.get(playersTurn).resetDiceValue();
         checkUnControlledAreaAtEndOfTurn();
 
         } else if (inputMenuChoice == 2) {
@@ -184,9 +183,9 @@ public class Game {
         System.out.println("Next Player's turn should start");
         done = true;
         round++;
-         players.get(playersTurn).resetAction();
-         players.get(playersTurn).resetDiceValue();
-         checkUnControlledAreaAtEndOfTurn();
+        players.get(playersTurn).resetAction();
+        players.get(playersTurn).resetDiceValue();
+        checkUnControlledAreaAtEndOfTurn();
         } else if (inputMenuChoice == 6) {
         System.out.println("End game");
         gameOver = true;
@@ -237,10 +236,11 @@ public class Game {
 
         if (inputMenuChoice == 1) {
         System.out.println("Attack to Control *UNDER CONSTRUCTION* ");
-        players.get(player).takeAction(); // move
-                                          // players.get(player).takeAction()
-                                          // to atkToControl,
-                                          // atkToNeut methods later
+        atkToControl(player);
+        // players.get(player).takeAction(); // move
+        // players.get(player).takeAction()
+        // to atkToControl,
+        // atkToNeut methods later
 
         } else if (inputMenuChoice == 2) {
         System.out.println("Attack to Destroy *UNDER CONSTRUCTION* ");
@@ -266,8 +266,7 @@ public class Game {
     }
 
     public static void drawCardGameDeck(int player) {
-        
-       
+
         Card cardDrawn = gameDeck.draw();
 
         if (cardDrawn.getCardType() == 3) {
@@ -342,48 +341,83 @@ public class Game {
 
     }
 
-    public static void atkToControl(int choice) {
+    public static void atkToControl(int player) {
+
+        System.out.println("***ATTACK TO CONTROL MENU***");
+        System.out.println("1. Attack another player's power structure\n"
+                + "2. Attack a Group Card from the Uncontrolled Area\n"
+                + "3. Cancel Attack to Control\n");
+        int highestRange = 3;
+        int lowestRange = 1;
+        int choice = CheckInput.checkIntRange(lowestRange, highestRange);
+
+        boolean done = false;
+
+        while (!done) {
         // The user can attack another Player's Card
         if (choice == 1) {
+        // players.get(player).takeAction();
+        System.out.println("0010a atkToControlanother player is under construction");
+        // players.get(player).takeAction();
+        } else if (choice == 2) {
+        System.out
+                .println("0010a Attack To Control another Group Card from Uncontrolled Area is under construction");
+        System.out.println("0010b TEST SAMPLE SCENARIO FOR ATK TO CONTROL");
 
-        } else {
+        highestRange = 3;
+        lowestRange = 1;
+        System.out.println("1. Attack with your Illuminati\n" + "2. Attack with your Group Card\n"
+                + "3. Cancel selection\n");
+        choice = CheckInput.checkIntRange(lowestRange, highestRange);
+
+        if (choice == 1) {
+        System.out.println("0010aa Attack with your Illuminati");
+        if (players.get(player).getIlluminati().canAtkToControl()) {
+        System.out.println("0010aaa Attack with your Illuminati processing");
+
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        // Disabled shuffling for testing purposes
         displayUncontrolledAreaCards();
 
-        System.out.println("\n009 Player's 1 stat");
+        // players.get(0).getIlluminati()
 
-        players.get(0).getIlluminati().displayStats();
+        System.out.println("\n009 Player's Illuminati's stat");
 
-        // Player wants attack to control the 1st card from uncontrolledArea
+        players.get(player).getIlluminati().displayStats();
+
+        // Player wants attack to control the 1st card from
+        // uncontrolledArea
         System.out.println("\n010 Defender's stat");
 
         uncontrolledArea.get(0).displayStats();
-
         int attackerIndex = 0;
         int defenderIndex = 0;
 
-        Card attacker = players.get(0).getIlluminati();
+        Card attacker = players.get(player).getIlluminati();
         GroupCard defender = uncontrolledArea.get(0);
 
-        int atkPower = players.get(0).getIlluminati().getPower();
+        int atkPower = players.get(player).getIlluminati().getPower();
         int defResistance = uncontrolledArea.get(0).getResistance();
 
         int powerAndResistDifference = atkPower - defResistance;
         System.out.println("\n011 Power and Resistance difference is " + powerAndResistDifference);
 
-        System.out.println("\n012 Player must roll " + powerAndResistDifference + " or less."
+        int powerDifference = atkPower - defResistance;
+        System.out.println("\n011 Power difference is " + powerDifference);
+
+        System.out.println("\n012 Player must roll " + powerDifference + " or less."
                 + "\nA roll of 11 or 12 is an automatic failure.");
 
-        System.out.println("\n013 Assume player rolls dice value is 5");
-        players.get(0).setDiceRoll_TestModeOnly(5);
+        System.out.println("\n013 Assume player rolls dice value is 4");
+        players.get(0).setDiceRoll_TestModeOnly(4);
 
-        int playerDiceRoll = players.get(0).getDiceRollOutcome();
+        int playerDiceRoll = players.get(player).getDiceRollOutcome();
         System.out.println("\n014 Player's dice roll value is " + playerDiceRoll);
 
         boolean successfulAttack = false;
-        if ((playerDiceRoll <= powerAndResistDifference) && playerDiceRoll < 11) {
+        if ((playerDiceRoll <= powerDifference) && playerDiceRoll < 11) {
         System.out.println("\n015 Successful atk to control");
         successfulAttack = true;
-        // so add to an arrow of Illuminati
         } else if (playerDiceRoll == 11 || playerDiceRoll == 12) {
         System.out.println("\n016 Failed atk to control");
         } else {
@@ -391,31 +425,283 @@ public class Game {
         }
 
         if (successfulAttack) {
-        // deadPile.add(defender);
+        // add to players illluminati
+        // or add to a group card
         // displayDeadPileCards();
 
-        players.get(0).getIlluminati().addPuppet(defender);
-        // players.get(0).
+        players.get(0).getIlluminati();
 
+        int Top = 1;
+        int Bottom = 2;
+        int Left = 3;
+        int Right = 4;
+
+        System.out.println("494 Select direction for your Illuminati Card \n");
+        highestRange = 4;
+        lowestRange = 1;
+        boolean doneAdding = false;
+
+        while (!doneAdding) {
+
+        System.out.println("1. Top\n" + "2. Bottom\n" + "3. Left\n" + "4. Right\n");
+        int directionChoice = CheckInput.checkIntRange(lowestRange, highestRange);
+
+        if (players.get(player).getIlluminati().canAddToThisArrow(directionChoice)) {
+        System.out.println("495a Can add to this arrow");
+        players.get(player).getIlluminati().addPuppetWithArrow(uncontrolledArea.get(defenderIndex),
+                directionChoice);
+
+        doneAdding = true;
+        } else {
+        System.out.println("495 You can't add to an already occupied arrow.");
+        }
+
+        }
+        players.get(player).getIlluminati().printOutAvailableAndOccupiedArrows();
         uncontrolledArea.remove(defenderIndex);
         }
 
         displayUncontrolledAreaCards();
 
-        // Increase player's action after an attack
-        players.get(0).takeAction();
+        players.get(player).takeAction();
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        } else {
+        System.out
+                .println("0010aab You don't have any available outgoing arrows for your Illuminati.");
 
-        // As long as player haven't taken more than 2 regular actions, then
-        // he can still attack
+        }
+        } else if (choice == 2) {
+        if (players.get(player).getIlluminati().getPuppetSize() == 0) {
 
-        // When attack is done, reset Player's roll back to 0
-        // players.get(0).setDiceRoll_TestModeOnly(0);
-        players.get(0).resetDiceValue();
+        System.out.println("00010cc You don't have any Group Cards");
+        } else {
 
-        System.out.println("030 players dice value is " + players.get(0).getDiceRollOutcome());
+        System.out.println("0010bb Attack with your Group Card");
+
+        System.out.println("Select the Group Card you would like to attack with");
+
+        for (int i = 0; i < players.get(player).getIlluminati().getPuppetSize(); i++) {
+        System.out.println("(" + i + ") "
+                + players.get(player).getIlluminati().getPuppet(i).getCardName());
+
         }
 
-    }
+        int highestGroupCardChoice = players.get(player).getIlluminati().getPuppetSize() - 1;
+        int lowestGroupCardChoice = 0;
+
+        int groupCardChoice = CheckInput.checkIntRange(lowestGroupCardChoice,
+                highestGroupCardChoice);
+        GroupCard attacker = players.get(player).getIlluminati().getPuppet(groupCardChoice);
+
+        // ********************************************
+        System.out.println("0010aa Attack with your Group Card: " + attacker.getCardName());
+        if (attacker.canAtkToControl()) {
+        System.out.println("0010aaa Attack with your GroupCard processing");
+
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        // Disabled shuffling for testing purposes
+        displayUncontrolledAreaCards();
+
+        // players.get(0).getIlluminati()
+
+        System.out.println("\n009 Player's Group Card's stat");
+
+        attacker.displayStats();
+
+        // Player wants attack to control the 1st card from
+        // uncontrolledArea
+        System.out.println("\n010 Defender's stat");
+
+        uncontrolledArea.get(0).displayStats();
+        int attackerIndex = 0;
+        int defenderIndex = 0;
+
+        GroupCard defender = uncontrolledArea.get(0);
+
+        // for testing purpose, buff up power of attackr
+        int tempPowerBuff = 15;
+        int atkPower = attacker.getPower() + tempPowerBuff;
+        int defResistance = uncontrolledArea.get(0).getResistance();
+
+        int powerAndResistDifference = atkPower - defResistance;
+        System.out.println("\n011 Power and Resistance difference is " + powerAndResistDifference);
+
+        int powerDifference = atkPower - defResistance;
+        System.out.println("\n011 Power difference is " + powerDifference);
+
+        System.out.println("\n012 Player must roll " + powerDifference + " or less."
+                + "\nA roll of 11 or 12 is an automatic failure.");
+
+        System.out.println("\n013 Assume player rolls dice value is 4");
+        players.get(0).setDiceRoll_TestModeOnly(4);
+
+        int playerDiceRoll = players.get(player).getDiceRollOutcome();
+        System.out.println("\n014 Player's dice roll value is " + playerDiceRoll);
+
+        boolean successfulAttack = false;
+        if ((playerDiceRoll <= powerDifference) && playerDiceRoll < 11) {
+        System.out.println("\n015 Successful atk to control");
+        successfulAttack = true;
+        } else if (playerDiceRoll == 11 || playerDiceRoll == 12) {
+        System.out.println("\n016 Failed atk to control");
+        } else {
+        System.out.println("\n017 Failed atk to control");
+        }
+
+        if (successfulAttack) {
+        // add to players illluminati
+        // or add to a group card
+        // displayDeadPileCards();
+
+        int Top = 1;
+        int Bottom = 2;
+        int Left = 3;
+        int Right = 4;
+
+        // Keep in mind Group cards can have 0 to 3 outgoing arrows
+        System.out.println("494 Select direction for your Group Card \n");
+        highestRange = 4;
+        lowestRange = 1;
+        boolean doneAdding = false;
+
+        while (!doneAdding) {
+
+        System.out.println("1. Top\n" + "2. Bottom\n" + "3. Left\n" + "4. Right\n");
+        int directionChoice = CheckInput.checkIntRange(lowestRange, highestRange);
+
+        if (attacker.canAddToThisArrow(directionChoice)) {
+        System.out.println("495a Can add to this arrow");
+        attacker.addPuppetWithArrow(uncontrolledArea.get(defenderIndex), directionChoice);
+
+        doneAdding = true;
+        } else {
+        System.out
+                .println("495 You can't add to an already occupied arrow. Or your Group Card does not have that specific outgoing arrow.");
+        }
+
+        }
+        attacker.printOutAvailableAndOccupiedArrows();
+       attacker.printOutAvailableAndOccupiedArrows();
+        uncontrolledArea.remove(defenderIndex);
+        }
+
+        displayUncontrolledAreaCards();
+
+        players.get(player).takeAction();
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        } else {
+        System.out
+                .println("00101aab You don't have any available outgoing arrows for your Group Card.");
+
+        }
+        }
+        // ********************************************
+        // ********************************************
+
+        // let's print out
+        } else if (choice == 3) {
+        System.out.println("0010cc Cancel selection");
+        }
+
+        // ask user if he wants to attack with illuminati or group cards
+        // (1) for illum
+        // (2) for gro card
+
+        // attacking card must have outgoing arrows available
+
+        /*
+         * // Disabled shuffling for testing purposes
+         * displayUncontrolledAreaCards();
+         * 
+         * 
+         * 
+         * // players.get(0).getIlluminati()
+         * 
+         * System.out.println("\n009 Player's Illuminati's stat");
+         * 
+         * players.get(player).getIlluminati().displayStats();
+         * 
+         * // Player wants attack to control the 1st card from //
+         * uncontrolledArea System.out.println("\n010 Defender's stat");
+         * 
+         * uncontrolledArea.get(0).displayStats(); int attackerIndex = 0; int
+         * defenderIndex = 0;
+         * 
+         * Card attacker = players.get(player).getIlluminati(); GroupCard
+         * defender = uncontrolledArea.get(0);
+         * 
+         * int atkPower = players.get(player).getIlluminati().getPower(); int
+         * defResistance = uncontrolledArea.get(0).getResistance();
+         * 
+         * int powerAndResistDifference = atkPower - defResistance;
+         * System.out.println("\n011 Power and Resistance difference is " +
+         * powerAndResistDifference);
+         * 
+         * int powerDifference = atkPower - defResistance;
+         * System.out.println("\n011 Power difference is " + powerDifference);
+         * 
+         * System.out.println("\n012 Player must roll " + powerDifference +
+         * " or less." + "\nA roll of 11 or 12 is an automatic failure.");
+         * 
+         * System.out.println("\n013 Assume player rolls dice value is 4");
+         * players.get(0).setDiceRoll_TestModeOnly(4);
+         * 
+         * int playerDiceRoll = players.get(player).getDiceRollOutcome();
+         * System.out.println("\n014 Player's dice roll value is " +
+         * playerDiceRoll);
+         * 
+         * boolean successfulAttack = false; if ((playerDiceRoll <=
+         * powerDifference) && playerDiceRoll < 11) {
+         * System.out.println("\n015 Successful atk to control");
+         * successfulAttack = true; } else if (playerDiceRoll == 11 ||
+         * playerDiceRoll == 12) {
+         * System.out.println("\n016 Failed atk to control"); } else {
+         * System.out.println("\n017 Failed atk to control"); }
+         * 
+         * if (successfulAttack) { //add to players illluminati // or add to a
+         * group card // displayDeadPileCards();
+         * 
+         * players.get(0).getIlluminati();
+         * 
+         * int Top = 1; int Bottom = 2; int Left = 3; int Right = 4;
+         * 
+         * System.out.println("494 Select direction for your Illuminati Card \n")
+         * ; highestRange = 4; lowestRange = 1; boolean doneAdding = false;
+         * 
+         * while (!doneAdding ) {
+         * 
+         * System.out.println("1. Top\n" + "2. Bottom\n" + "3. Left\n" +
+         * "4. Right\n"); int directionChoice =
+         * CheckInput.checkIntRange(lowestRange, highestRange);
+         * 
+         * 
+         * if(players.get(player).getIlluminati().canAddToThisArrow(directionChoice
+         * )){ System.out.println("495a Can add to this arrow");
+         * players.get(player).getIlluminati().addPuppetWithArrow(
+         * uncontrolledArea.get(defenderIndex), directionChoice);
+         * 
+         * doneAdding = true; }else{
+         * System.out.println("495 You can't add to an already occupied arrow."
+         * ); }
+         * 
+         * }
+         * players.get(player).getIlluminati().printOutAvailableAndOccupiedArrows
+         * (); uncontrolledArea.remove(defenderIndex); }
+         * 
+         * displayUncontrolledAreaCards();
+         * 
+         * players.get(player).takeAction();
+         */
+
+        } else if (choice == 3) {
+        done = true;
+        }
+        done = true;
+        } // while
+
+    } // atk to control
 
     /**
      * Later, we have to keep the alignment oppositions in mind
@@ -488,8 +774,8 @@ public class Game {
         System.out.println("\n012 Player must roll " + powerDifference + " or less."
                 + "\nA roll of 11 or 12 is an automatic failure.");
 
-        System.out.println("\n013 Assume player rolls dice value is 7");
-        players.get(0).setDiceRoll_TestModeOnly(7);
+        System.out.println("\n013 Assume player rolls dice value is 5");
+        players.get(0).setDiceRoll_TestModeOnly(5);
 
         int playerDiceRoll = players.get(0).getDiceRollOutcome();
         System.out.println("\n014 Player's dice roll value is " + playerDiceRoll);
@@ -548,9 +834,10 @@ public class Game {
         displayUncontrolledAreaCards();
 
     }
-    
+
     /**
-     * This method makes sure that there is at least 2 Group Cards in the Uncontrolled Area at the end of a player's turn
+     * This method makes sure that there is at least 2 Group Cards in the
+     * Uncontrolled Area at the end of a player's turn
      */
     public static void checkUnControlledAreaAtEndOfTurn() {
 
@@ -578,7 +865,6 @@ public class Game {
         displayUncontrolledAreaCards();
 
     }
-    
 
     public static void displayDeadPileCards() {
         // Display deadPile cards
@@ -622,37 +908,36 @@ public class Game {
 
     public static void initializeIlluminatiCards() {
         int illuminatiCardType = 1;
-        Arrow out = new OutgoingArrow();
         ImageIcon face = null;
         Illuminati BavarianIlluminati = new Illuminati("The Bavarian Illuminati",
                 illuminatiCardType, 10, 10, 9, face);
-        BavarianIlluminati.setTopArrow(out);
-        BavarianIlluminati.setRightArrow(out);
-        BavarianIlluminati.setBottomArrow(out);
-        BavarianIlluminati.setLeftArrow(out);
+        BavarianIlluminati.setTopArrowOut();
+        BavarianIlluminati.setRightArrowOut();
+        BavarianIlluminati.setBottomArrowOut();
+        BavarianIlluminati.setLeftArrowOut();
         illuminatiCards.add(BavarianIlluminati);
 
         Illuminati SocietyOfAssassins = new Illuminati("The Society of Assassins",
                 illuminatiCardType, 8, 8, 8, face);
-        SocietyOfAssassins.setTopArrow(out);
-        SocietyOfAssassins.setRightArrow(out);
-        SocietyOfAssassins.setBottomArrow(out);
-        SocietyOfAssassins.setLeftArrow(out);
+        SocietyOfAssassins.setTopArrowOut();
+        SocietyOfAssassins.setRightArrowOut();
+        SocietyOfAssassins.setBottomArrowOut();
+        SocietyOfAssassins.setLeftArrowOut();
         illuminatiCards.add(SocietyOfAssassins);
 
         Illuminati BermudaTriangle = new Illuminati("The Bermuda Triangle", illuminatiCardType, 8,
                 8, 9, face);
-        BermudaTriangle.setTopArrow(out);
-        BermudaTriangle.setRightArrow(out);
-        BermudaTriangle.setBottomArrow(out);
-        BermudaTriangle.setLeftArrow(out);
+        BermudaTriangle.setTopArrowOut();
+        BermudaTriangle.setRightArrowOut();
+        BermudaTriangle.setBottomArrowOut();
+        BermudaTriangle.setLeftArrowOut();
         illuminatiCards.add(BermudaTriangle);
 
         Illuminati Network = new Illuminati("The Network", illuminatiCardType, 7, 7, 9, face);
-        Network.setTopArrow(out);
-        Network.setRightArrow(out);
-        Network.setBottomArrow(out);
-        Network.setLeftArrow(out);
+        Network.setTopArrowOut();
+        Network.setRightArrowOut();
+        Network.setBottomArrowOut();
+        Network.setLeftArrowOut();
         illuminatiCards.add(Network);
 
         // /////////////////////////////////////////////////////////////////////
