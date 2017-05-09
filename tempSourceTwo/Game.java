@@ -1376,105 +1376,781 @@ public class Game {
 		int groupCardType = 2;
 		ImageIcon face = null;// THIS VARIABLE WILL BE CHANGED TO FIT THE
 		// IMAGAGE THAT WILL BE USED IN THE PARAMETER
-		GroupCard FBI = new GroupCard("F.B.I.", groupCardType, 4, 2, 6, 0, face);
-		FBI.setTopArrowOut();
-		FBI.setRightArrowIn();
-		FBI.setBottomArrowOut();
-		// FBI.setLeftArrow(empty);
-		FBI.addAlignment(government);
-		FBI.addAlignment(straight);
-		groupCards.add(FBI);
+		GroupCard FBI = new GroupCard("F.B.I.", groupCardType, 4, 2, 6, 0,face);
 
-		GroupCard CloneArrangers = new GroupCard("Clone Arrangers",
-			groupCardType, 6, 2, 6, 1, face);
-		CloneArrangers.setRightArrowOut();
-		CloneArrangers.setBottomArrowOut();
-		CloneArrangers.setLeftArrowIn();
-		CloneArrangers.addAlignment(violent);
-		CloneArrangers.addAlignment(communist);
-		CloneArrangers.addAlignment(criminal);
-		groupCards.add(CloneArrangers);
+	FBI.setTopArrow(out);
 
-		GroupCard Moonies = new GroupCard("Moonies", groupCardType, 2, 0, 4, 3,
-			face);
-		Moonies.setTopArrowOut();
-		// Moonies.setRightArrow(empty);
-		// Moonies.setBottomArrow(empty);
-		Moonies.setLeftArrowIn();
-		Moonies.addAlignment(peaceful);
-		Moonies.addAlignment(fanatic);
-		groupCards.add(Moonies);
+	FBI.setRightArrow(in);	
 
-		GroupCard PunkRockers = new GroupCard("Punk Rockers", groupCardType, 0,
-			0, 4, 1, face);
-		// PunkRockers.setTopArrow(empty);
-		// PunkRockers.setRightArrow(empty);
-		// PunkRockers.setBottomArrow(empty);
-		PunkRockers.setLeftArrowIn();
-		PunkRockers.addAlignment(weird);
-		groupCards.add(PunkRockers);
+	FBI.setBottomArrow(out);
 
-		GroupCard TVPreachers = new GroupCard("TV Preachers", groupCardType, 3,
-			0, 6, 4, face);
-		// TVPreachers.setTopArrow(empty);
-		TVPreachers.setRightArrowIn();
-		TVPreachers.setBottomArrowOut();
-		TVPreachers.setLeftArrowOut();
-		TVPreachers.addAlignment(straight);
-		TVPreachers.addAlignment(fanatic);
-		groupCards.add(TVPreachers);
+	FBI.setLeftArrow(null);
 
-		GroupCard NewYork = new GroupCard("New York", groupCardType, 7, 0, 8, 3,
-			face);
-		NewYork.setTopArrowOut();
-		NewYork.setRightArrowIn();
-		NewYork.setBottomArrowOut();
-		NewYork.setLeftArrowOut();
-		NewYork.addAlignment(violent);
-		NewYork.addAlignment(criminal);
-		NewYork.addAlignment(government);
-		groupCards.add(NewYork);
+	FBI.addAlignment(government);
 
-		GroupCard MadisonAvenue = new GroupCard("Madison Avenue", groupCardType,
-			3, 3, 3, 2, face);
-		// MadisonAvenue.setTopArrow(empty);
-		MadisonAvenue.setRightArrowOut();
-		MadisonAvenue.setBottomArrowOut();
-		MadisonAvenue.setLeftArrowOut();
-		groupCards.add(MadisonAvenue);
+	FBI.addAlignment(straight);
 
-		// The resistance for Gun lobby changes to 10 when faced against
-		// Communist or weird. Something to think about when we work with rule
-		// enforcements
-		GroupCard GunLobby = new GroupCard("Gun Lobby", groupCardType, 1, 0, 3,
-			1, face);
-		// GunLobby.setTopArrow(empty);
-		GunLobby.setRightArrowIn();
-		GunLobby.setBottomArrowOut();
-		GunLobby.setLeftArrowOut();
-		GunLobby.addAlignment(conservative);
-		GunLobby.addAlignment(violent);
-		groupCards.add(GunLobby);
+	groupCards.add( FBI);
 
-		GroupCard California = new GroupCard("California", groupCardType, 5, 0,
-			4, 5, face);
-		California.setTopArrowOut();
-		// California.setRightArrow(empty);
-		California.setBottomArrowOut();
-		California.setLeftArrowIn();
-		California.addAlignment(liberal);
-		California.addAlignment(weird);
-		California.addAlignment(government);
-		groupCards.add(California);
+	
 
-		GroupCard JunkMail = new GroupCard("Junk Mail", groupCardType, 1, 0, 3,
-			2, face);
-		JunkMail.setTopArrowOut();
-		JunkMail.setRightArrowIn();
-		// JunkMail.setBottomArrow(empty);
-		// JunkMail.setLeftArrow(empty);
-		JunkMail.addAlignment(criminal);
-		groupCards.add(JunkMail);
+        
+
+        GroupCard CloneArrangers = new GroupCard("Clone Arrangers",groupCardType,6,2,6,1,face);
+
+        CloneArrangers.setTopArrow(null);
+
+        CloneArrangers.setRightArrow(out);
+
+        CloneArrangers.setBottomArrow(out);
+
+        CloneArrangers.setLeftArrow(in);
+
+        CloneArrangers.addAlignment(violent);
+
+        CloneArrangers.addAlignment(communist);
+
+        CloneArrangers.addAlignment(criminal);
+
+        groupCards.add( CloneArrangers);
+
+      
+
+        
+
+        GroupCard Moonies = new GroupCard("Moonies", groupCardType,2,0,4,3,face);
+
+        Moonies.setTopArrow(out);
+
+        Moonies.setRightArrow(null);
+
+        Moonies.setBottomArrow(null);
+
+        Moonies.setLeftArrow(in);
+
+        Moonies.addAlignment(peaceful);
+
+        Moonies.addAlignment(fanatic);
+
+        groupCards.add( Moonies);
+
+        
+
+        GroupCard PunkRockers = new GroupCard("Punk Rockers", groupCardType,0,0,4,1,face);
+
+        PunkRockers.setTopArrow(null);
+
+        PunkRockers.setRightArrow(null);
+
+        PunkRockers.setBottomArrow(null);
+
+        PunkRockers.setLeftArrow(in);
+
+        PunkRockers.addAlignment(weird);
+
+        groupCards.add( PunkRockers);
+
+        
+
+        GroupCard TVPreachers = new GroupCard("TV Preachers", groupCardType,3,0,6,4,face);
+
+        TVPreachers.setTopArrow(null);
+
+        TVPreachers.setRightArrow(in);
+
+        TVPreachers.setBottomArrow(out);
+
+        TVPreachers.setLeftArrow(out);
+
+        TVPreachers.addAlignment(straight);
+
+        TVPreachers.addAlignment(fanatic);
+
+        groupCards.add( TVPreachers);
+
+        
+
+        GroupCard NewYork = new GroupCard("New York",groupCardType,7,0,8,3,face);
+
+        NewYork.setTopArrow(out);
+
+        NewYork.setRightArrow(in);
+
+        NewYork.setBottomArrow(out);
+
+        NewYork.setLeftArrow(out);
+
+        NewYork.addAlignment(violent);
+
+        NewYork.addAlignment(criminal);
+
+        NewYork.addAlignment(government);
+
+        groupCards.add(NewYork);
+
+        
+
+        GroupCard MadisonAvenue = new GroupCard("Madison Avenue",groupCardType,3,3,3,2,face);
+
+        MadisonAvenue.setTopArrow(null);
+
+        MadisonAvenue.setRightArrow(out);
+
+        MadisonAvenue.setBottomArrow(out);
+
+        MadisonAvenue.setLeftArrow(out);
+
+        groupCards.add(MadisonAvenue);
+
+        
+
+        //The resistance for Gun lobby changes to 10 when faced against Communist or weird. Something to think about when we work with rule enforcements
+
+        GroupCard GunLobby = new GroupCard("Gun Lobby", groupCardType,1,0,3,1,face);
+
+        GunLobby.setTopArrow(null);
+
+        GunLobby.setRightArrow(in);
+
+        GunLobby.setBottomArrow(out);
+
+        GunLobby.setLeftArrow(out);
+
+        GunLobby.addAlignment(conservative);
+
+        GunLobby.addAlignment(violent);
+
+        groupCards.add( GunLobby);
+
+        
+
+        GroupCard California = new GroupCard ("California",groupCardType,5,0,4,5,face);
+
+        California.setTopArrow(out);
+
+        California.setRightArrow(null);
+
+        California.setBottomArrow(out);
+
+        California.setLeftArrow(in);
+
+        California.addAlignment(liberal);
+
+        California.addAlignment(weird);
+
+        California.addAlignment(government);
+
+        groupCards.add(California);
+
+        
+
+        GroupCard JunkMail = new GroupCard ("Junk Mail",groupCardType,1,0,3,2,face);
+
+        JunkMail.setTopArrow(out);
+
+        JunkMail.setRightArrow(in);
+
+        JunkMail.setBottomArrow(null);
+
+        JunkMail.setLeftArrow(null);
+
+        JunkMail.addAlignment(criminal);
+
+        groupCards.add( JunkMail);
+        
+        GroupCard AmericanAutoduelAssociation = new GroupCard("American Autoduel Association",groupCardType,1,0,5,1,face);
+        AmericanAutoduelAssociation.setTopArrow(null);
+        AmericanAutoduelAssociation.setRightArrow(out);
+        AmericanAutoduelAssociation.setBottomArrow(null);
+        AmericanAutoduelAssociation.setLeftArrow(in);
+        AmericanAutoduelAssociation.addAlignment(violent);
+        AmericanAutoduelAssociation.addAlignment(weird);
+        groupCards.add(AmericanAutoduelAssociation);
+        
+        GroupCard AntiNuclearActivists = new GroupCard("AntiNuclearActivists",groupCardType,2,0,5,1,face);
+        AntiNuclearActivists.setTopArrow(out);
+        AntiNuclearActivists.setRightArrow(null);
+        AntiNuclearActivists.setBottomArrow(null);
+        AntiNuclearActivists.setLeftArrow(in);
+        AntiNuclearActivists.addAlignment(liberal);
+        groupCards.add(AntiNuclearActivists);
+        
+        GroupCard AntiwarActivists = new GroupCard("Antiwar Activists",groupCardType,3,0,0,1,face);
+        AntiwarActivists.setTopArrow(null);
+        AntiwarActivists.setRightArrow(null);
+        AntiwarActivists.setBottomArrow(null);
+        AntiwarActivists.setLeftArrow(in);
+        AntiwarActivists.addAlignment(peaceful);
+        AntiwarActivists.addAlignment(liberal);
+        groupCards.add(AntiwarActivists);
+        
+        GroupCard BigMedia = new GroupCard("Big Media", groupCardType,4,3,6,3,face);
+        BigMedia.setTopArrow(out);
+        BigMedia.setRightArrow(in);
+        BigMedia.setBottomArrow(out);
+        BigMedia.setLeftArrow(out);
+        BigMedia.addAlignment(liberal);
+        BigMedia.addAlignment(straight);
+        groupCards.add(BigMedia);
+        
+        GroupCard BoySprouts = new GroupCard("Boy Sprouts",groupCardType,0,0,3,1,face);
+        BoySprouts.setTopArrow(out);
+        BoySprouts.setLeftArrow(in);
+        BoySprouts.setBottomArrow(out);
+        BoySprouts.setLeftArrow(out);
+        BoySprouts.addAlignment(straight);
+        BoySprouts.addAlignment(peaceful);
+        groupCards.add(BoySprouts);
+        
+        GroupCard CFLAIO = new GroupCard ("CFL-AIO", groupCardType,6,0,5,3,face);
+        CFLAIO.setTopArrow(out);
+        CFLAIO.setRightArrow(in);
+        CFLAIO.setBottomArrow(in);
+        CFLAIO.setLeftArrow(out);
+        CFLAIO.addAlignment(liberal);
+        groupCards.add(CFLAIO);
+        
+        GroupCard ChineseCampaignDonors = new GroupCard("Chinese Campaign Donors",groupCardType, 3,0,2,3,face);
+        ChineseCampaignDonors.setTopArrow(out);
+        ChineseCampaignDonors.setRightArrow(in);
+        ChineseCampaignDonors.setBottomArrow(out);
+        ChineseCampaignDonors.setLeftArrow(null);
+        ChineseCampaignDonors.addAlignment(communist);
+        groupCards.add(ChineseCampaignDonors);
+        
+        GroupCard CIA = new GroupCard("C.I.A.", groupCardType, 6,4,5,0, face);
+        CIA.setTopArrow(out);
+        CIA.setRightArrow(in);
+        CIA.setBottomArrow(out);
+        CIA.setLeftArrow(out);
+        CIA.addAlignment(government);
+        CIA.addAlignment(violent);
+        groupCards.add(CIA);
+        
+        GroupCard ComicBooks = new GroupCard("Comic Book", groupCardType,1,0,1,2,face);
+        ComicBooks.setTopArrow(out);
+        ComicBooks.setRightArrow(null);
+        ComicBooks.setBottomArrow(null);
+        ComicBooks.setLeftArrow(in);
+        ComicBooks.addAlignment(weird);
+        ComicBooks.addAlignment(violent);
+        groupCards.add(ComicBooks);
+        
+        GroupCard CongressionalWives = new GroupCard("Congressional Wives", groupCardType,1,0,4,1,face);
+        CongressionalWives.setTopArrow(null);
+        CongressionalWives.setRightArrow(out);
+        CongressionalWives.setBottomArrow(null);
+        CongressionalWives.setLeftArrow(in);
+        CongressionalWives.addAlignment(conservative);
+        CongressionalWives.addAlignment(straight);
+        groupCards.add(CongressionalWives);
+        
+        GroupCard ConvenienceStores = new GroupCard ("Conveninece Stores", groupCardType,1,0,4,3,face);
+        ConvenienceStores.setTopArrow(null);
+        ConvenienceStores.setRightArrow(null);
+        ConvenienceStores.setBottomArrow(out);
+        ConvenienceStores.setLeftArrow(in);
+        ConvenienceStores.addAlignment(straight);
+        groupCards.add(ConvenienceStores);
+        
+        GroupCard CopyShops = new GroupCard ("Copy Shops", groupCardType, 1,0,3,4,face);
+        CopyShops.setTopArrow(null);
+        CopyShops.setRightArrow(in);
+        CopyShops.setBottomArrow(null);
+        CopyShops.setLeftArrow(out);
+        CopyShops.addAlignment(peaceful);
+        groupCards.add(CopyShops);
+        
+        GroupCard Democrats = new GroupCard ("Democrats", groupCardType, 5,0,4,3,face);
+        Democrats.setTopArrow(null);
+        Democrats.setRightArrow(in);
+        Democrats.setBottomArrow(out);
+        Democrats.setLeftArrow(out);
+        Democrats.addAlignment(liberal);
+        groupCards.add(Democrats);
+        
+        GroupCard EcoGuerrillas = new GroupCard ("Eco-Guerrillas", groupCardType,0,0,6,1,face);
+        EcoGuerrillas.setTopArrow(null);
+        EcoGuerrillas.setRightArrow(in);
+        EcoGuerrillas.setBottomArrow(null);
+        EcoGuerrillas.setLeftArrow(null);
+        EcoGuerrillas.addAlignment(null);
+        groupCards.add(EcoGuerrillas);
+        
+        GroupCard EmptyVee = new GroupCard ("Empty Vee", groupCardType, 3,0,3,4,face);
+        EmptyVee.setTopArrow(null);
+        EmptyVee.setRightArrow(in);
+        EmptyVee.setBottomArrow(in);
+        EmptyVee.setLeftArrow(out);
+        groupCards.add(EmptyVee);
+        
+        GroupCard EvilGeniuses = new GroupCard ("Evil Geniuses For A Better Tomorrow",groupCardType ,0,2,6,3,face);
+        EvilGeniuses.setTopArrow(null);
+        EvilGeniuses.setRightArrow(in);
+        EvilGeniuses.setBottomArrow(null);
+        EvilGeniuses.setLeftArrow(null);
+        EvilGeniuses.addAlignment(violent);
+        EvilGeniuses.addAlignment(weird);
+        groupCards.add(EvilGeniuses);
+        
+        GroupCard FastFoodChains = new GroupCard ("Fast Food Chains", groupCardType,2,0,4,3,face);
+        FastFoodChains.setTopArrow(null);
+        FastFoodChains.setRightArrow(null);
+        FastFoodChains.setBottomArrow(out);
+        FastFoodChains.setLeftArrow(in);
+        FastFoodChains.addAlignment(straight);
+        groupCards.add(FastFoodChains);
+        
+        GroupCard FederalReserve = new GroupCard ("Federal Reserve", groupCardType,5,3,7,6,face);
+        FederalReserve.setTopArrow(out);
+        FederalReserve.setRightArrow(out);
+        FederalReserve.setBottomArrow(null);
+        FederalReserve.setLeftArrow(in);
+        FederalReserve.addAlignment(government);
+        groupCards.add(FederalReserve);
+        
+        GroupCard Feminists = new GroupCard ("Feminists", groupCardType, 2,0,2,1,face);
+        Feminists.setTopArrow(null);
+        Feminists.setRightArrow(null);
+        Feminists.setBottomArrow(out);
+        Feminists.setLeftArrow(in);
+        Feminists.addAlignment(liberal);
+        groupCards.add(Feminists);
+        
+        GroupCard FiendishFluoridators = new GroupCard ("Fiendish Fluoridators", groupCardType,3,0,5,1,face);
+        FiendishFluoridators.setTopArrow(out);
+        FiendishFluoridators.setRightArrow(out);
+        FiendishFluoridators.setBottomArrow(null);
+        FiendishFluoridators.setLeftArrow(in);
+        FiendishFluoridators.addAlignment(communist);
+        FiendishFluoridators.addAlignment(fanatic);
+        groupCards.add(FiendishFluoridators);
+        
+        GroupCard FlatEarthers = new GroupCard ("Flat Earthers", groupCardType, 1,0,2,1,face);
+        FlatEarthers.setTopArrow(null);
+        FlatEarthers.setRightArrow(in);
+        FlatEarthers.setBottomArrow(null);
+        FlatEarthers.setLeftArrow(out);
+        FlatEarthers.addAlignment(weird);
+        FlatEarthers.addAlignment(conservative);
+        groupCards.add(FlatEarthers);
+        
+        GroupCard FnordMotorCompany = new GroupCard ("Fnord Motor Company", groupCardType,2,0,4,2,face);
+        FnordMotorCompany.setTopArrow(null);
+        FnordMotorCompany.setRightArrow(out);
+        FnordMotorCompany.setBottomArrow(null);
+        FnordMotorCompany.setLeftArrow(in);
+        FnordMotorCompany.addAlignment(peaceful);
+        groupCards.add(FnordMotorCompany );
+        
+       GroupCard FraternalOrders = new GroupCard ("Fraternal Orders",groupCardType,3,0,5,3,face);
+        FraternalOrders.setTopArrow(out);
+        FraternalOrders.setRightArrow(in);
+        FraternalOrders.setBottomArrow(null);
+        FraternalOrders.setLeftArrow(null);
+        FraternalOrders.addAlignment(conservative);
+        groupCards.add(FraternalOrders);
+        
+        GroupCard GirlieMagazines = new GroupCard("GirlieMagazine",groupCardType,2,0,2,3,face);
+        GirlieMagazines.setTopArrow(null);
+        GirlieMagazines.setRightArrow(in);
+        GirlieMagazines.setBottomArrow(out);
+        GirlieMagazines.setLeftArrow(out);
+        GirlieMagazines.addAlignment(liberal);
+        groupCards.add(GirlieMagazines);
+        
+        GroupCard GoldfishFanciers = new GroupCard("Goldfish Fanciers",groupCardType,0,0,4,1,face);
+        GoldfishFanciers.setTopArrow(null);
+        GoldfishFanciers.setRightArrow(null);
+        GoldfishFanciers.setBottomArrow(null);
+        GoldfishFanciers.setLeftArrow(in);
+        GoldfishFanciers.addAlignment(peaceful);
+        GoldfishFanciers.addAlignment(fanatic);
+        groupCards.add(GoldfishFanciers);
+        
+        GroupCard HealthFoodStores = new GroupCard ("Health Food Stores",groupCardType,1,0,3,2,face);
+        HealthFoodStores.setTopArrow(null);
+        HealthFoodStores.setRightArrow(null);
+        HealthFoodStores.setBottomArrow(out);
+        HealthFoodStores.setLeftArrow(in);
+        HealthFoodStores.addAlignment(liberal);
+        groupCards.add(HealthFoodStores);
+        
+        GroupCard Intellectuals = new GroupCard ("Intellectuals", groupCardType, 0,0,3,1,face);
+        Intellectuals.setTopArrow(null);
+        Intellectuals.setRightArrow(null);
+        Intellectuals.setBottomArrow(null);
+        Intellectuals.setLeftArrow(in);
+        Intellectuals.addAlignment(weird);
+        Intellectuals.addAlignment(fanatic);
+        groupCards.add(Intellectuals);
+        
+        GroupCard InternationalCommunistConspiracy = new GroupCard ("International Communist Conspiracy", groupCardType,7,0,8,6,face);
+        InternationalCommunistConspiracy.setTopArrow(out);
+        InternationalCommunistConspiracy.setRightArrow(in);
+        InternationalCommunistConspiracy.setBottomArrow(out);
+        InternationalCommunistConspiracy.setLeftArrow(out);
+        InternationalCommunistConspiracy.addAlignment(communist);
+        groupCards.add(InternationalCommunistConspiracy);
+        
+        int tax = 0;
+        GroupCard IRS = new GroupCard ("I.R.S.", groupCardType,5,3,5,tax,face);
+        IRS.setTopArrow(out);
+        IRS.setRightArrow(out);
+        IRS.setBottomArrow(out);
+        IRS.setLeftArrow(null);
+        IRS.addAlignment(criminal);
+        IRS.addAlignment(government);
+        
+        GroupCard KGB = new GroupCard("KGB", groupCardType,2,2,6,0,face);
+        KGB.setTopArrow(null);
+        KGB.setRightArrow(in);
+        KGB.setBottomArrow(out);
+        KGB.setLeftArrow(null);
+        KGB.addAlignment(communist);
+        KGB.addAlignment(violent);
+        groupCards.add(KGB);
+        
+        GroupCard KKK = new GroupCard("KKK", groupCardType,2,0,5,1,face);
+        KKK.setTopArrow(null);
+        KKK.setRightArrow(in);
+        KKK.setBottomArrow(out);
+        KKK.setLeftArrow(null);
+        KKK.addAlignment(conservative);
+        KKK.addAlignment(violent);
+        groupCards.add(KKK);
+        
+        GroupCard L4Society = new GroupCard("L-4 Society", groupCardType,1,0,2,0,face);
+        L4Society.setTopArrow(null);
+        L4Society.setRightArrow(in);
+        L4Society.setBottomArrow(null);
+        L4Society.setLeftArrow(out);
+        L4Society.addAlignment(weird);
+        groupCards.add(L4Society);
+        
+        GroupCard Libertarians = new GroupCard("Libertarians",groupCardType,1,0,4,1,face);
+        Libertarians.setTopArrow(out);
+        Libertarians.setRightArrow(null);
+        Libertarians.setBottomArrow(null);
+        Libertarians.setLeftArrow(in);
+        Libertarians.addAlignment(fanatic);
+        groupCards.add(Libertarians);
+        
+        GroupCard LoanSharks = new GroupCard ("Loan Sharks", groupCardType,5,0,5,6,face);
+        LoanSharks.setTopArrow(null);
+        LoanSharks.setRightArrow(out);
+        LoanSharks.setBottomArrow(null);
+        LoanSharks.setLeftArrow(in);
+        LoanSharks.addAlignment(criminal);
+        LoanSharks.addAlignment(violent);
+        groupCards.add(LoanSharks);
+        
+        GroupCard LocalPoliceDepartment = new GroupCard ("Local Police Department",groupCardType,0,0,4,1,face);
+        LocalPoliceDepartment.setTopArrow(null);
+        LocalPoliceDepartment.setRightArrow(null);
+        LocalPoliceDepartment.setBottomArrow(null);
+        LocalPoliceDepartment.setLeftArrow(in);
+        LocalPoliceDepartment.addAlignment(conservative);
+        LocalPoliceDepartment.addAlignment(straight);
+        LocalPoliceDepartment.addAlignment(violent);
+        groupCards.add(LocalPoliceDepartment);
+        
+        GroupCard Mafia = new GroupCard("The Mafia",groupCardType,7,0,7,6,face);
+        Mafia.setTopArrow(out);
+        Mafia.setRightArrow(in);
+        Mafia.setBottomArrow(out);
+        Mafia.setLeftArrow(out);
+        Mafia.addAlignment(criminal);
+        Mafia.addAlignment(violent);
+        groupCards.add(Mafia);
+        
+        GroupCard MenInBlack = new GroupCard("The Men In Black",groupCardType,0,2,6,1,face);
+        MenInBlack.setTopArrow(null);
+        MenInBlack.setRightArrow(null);
+        MenInBlack.setBottomArrow(null);
+        MenInBlack.setLeftArrow(in);
+        MenInBlack.addAlignment(criminal);
+        MenInBlack.addAlignment(weird);
+        groupCards.add(MenInBlack);
+        
+        GroupCard Militia = new GroupCard("Militia", groupCardType,2,0,4,2,face);
+        Militia.setTopArrow(out);
+        Militia.setRightArrow(in);
+        Militia.setBottomArrow(null);
+        Militia.setLeftArrow(out);
+        Militia.addAlignment(violent);
+        Militia.addAlignment(conservative);
+        groupCards.add(Militia);
+        
+        GroupCard MoralMinority = new GroupCard ("Moral Minority", groupCardType,2,0,1,2,face);
+        MoralMinority.setTopArrow(null);
+        MoralMinority.setRightArrow(in);
+        MoralMinority.setBottomArrow(out);
+        MoralMinority.setLeftArrow(null);
+        MoralMinority.addAlignment(conservative);
+        MoralMinority.addAlignment(straight);
+        MoralMinority.addAlignment(fanatic);
+        groupCards.add(MoralMinority);
+        
+        GroupCard Morticians = new GroupCard("Morticians", groupCardType,0,0,4,1,face);
+        Morticians.setTopArrow(null);
+        Morticians.setRightArrow(in);
+        Morticians.setBottomArrow(null);
+        Morticians.setLeftArrow(null);
+        Morticians.addAlignment(straight);
+        Morticians.addAlignment(peaceful);
+        groupCards.add(Morticians);
+        
+        GroupCard MultinationalOilCompanies = new GroupCard ("Multinational Oil Companies", groupCardType, 6,0,4,8,face);
+        MultinationalOilCompanies.setTopArrow(out);
+        MultinationalOilCompanies.setRightArrow(out);
+        MultinationalOilCompanies.setBottomArrow(out);
+        MultinationalOilCompanies.setLeftArrow(in);
+        groupCards.add(MultinationalOilCompanies);
+        
+        GroupCard NephewsOfGod = new GroupCard ("Nephews Of GOd", groupCardType,0,0,4,2,face);
+        NephewsOfGod.setTopArrow(null);
+        NephewsOfGod.setRightArrow(in);
+        NephewsOfGod.setBottomArrow(null);
+        NephewsOfGod.setLeftArrow(null);
+        NephewsOfGod.addAlignment(conservative);
+        NephewsOfGod.addAlignment(fanatic);
+        groupCards.add(NephewsOfGod);
+        
+        GroupCard NuclearPowerCompanies = new GroupCard ("Nuclear Power Companies", groupCardType, 4,0,4,3,face);
+        NuclearPowerCompanies.setTopArrow(null);
+        NuclearPowerCompanies.setRightArrow(in);
+        NuclearPowerCompanies.setBottomArrow(null);
+        NuclearPowerCompanies.setLeftArrow(out);
+        NuclearPowerCompanies.addAlignment(conservative);
+        groupCards.add(NuclearPowerCompanies);
+        
+        GroupCard OrbitalMindControlLasers = new GroupCard ("Orbital Mind Control Lasers", groupCardType, 4,2,5,0,face);
+        OrbitalMindControlLasers.setTopArrow(out);
+        OrbitalMindControlLasers.setRightArrow(out);
+        OrbitalMindControlLasers.setBottomArrow(null);
+        OrbitalMindControlLasers.setLeftArrow(in);
+        OrbitalMindControlLasers.addAlignment(communist);
+        groupCards.add(OrbitalMindControlLasers);
+        
+        GroupCard ParentTeacher = new GroupCard ("Parent/Teacher Agglomeration", groupCardType,0,0,5,1,face);
+        ParentTeacher.setTopArrow(null);
+        ParentTeacher.setRightArrow(null);
+        ParentTeacher.setBottomArrow(null);
+        ParentTeacher.setLeftArrow(in);
+        ParentTeacher.addAlignment(peaceful);
+        ParentTeacher.addAlignment(conservative);
+        ParentTeacher.addAlignment(straight);
+        groupCards.add(ParentTeacher);
+        
+        GroupCard Pentagon = new GroupCard ("Pentagon", groupCardType,6,0,6,2,face);
+        Pentagon.setTopArrow(out);
+        Pentagon.setRightArrow(in);
+        Pentagon.setBottomArrow(out);
+        Pentagon.setLeftArrow(out);
+        Pentagon.addAlignment(government);
+        Pentagon.addAlignment(violent);
+        Pentagon.addAlignment(straight);
+        groupCards.add(Pentagon);
+        
+        GroupCard PhoneCompany = new GroupCard ("The Phone Company", groupCardType,5,2,6,3,face);
+        PhoneCompany.setTopArrow(null);
+        PhoneCompany.setRightArrow(out);
+        PhoneCompany.setBottomArrow(out);
+        PhoneCompany.setLeftArrow(in);
+        groupCards.add(PhoneCompany);
+        
+        GroupCard PhonePhreaks = new GroupCard ("Phone Phreaks", groupCardType, 0,1,1,1,face);
+        PhonePhreaks.setTopArrow(null);
+        PhonePhreaks.setRightArrow(null);
+        PhonePhreaks.setBottomArrow(null);
+        PhonePhreaks.setLeftArrow(in);
+        PhonePhreaks.addAlignment(criminal);
+        PhonePhreaks.addAlignment(liberal);
+        groupCards.add(PhonePhreaks);
+        
+        GroupCard PostOffice = new GroupCard ("Post Office", groupCardType,4,3,3,1,face);
+        PostOffice.setTopArrow(null);
+        PostOffice.setRightArrow(in);
+        PostOffice.setBottomArrow(out);
+        PostOffice.setLeftArrow(null);
+        PostOffice.addAlignment(government);
+        groupCards.add(PostOffice);
+        
+        GroupCard ProfessionalSports = new GroupCard ("Professional Sports", groupCardType,2,0,4,3,face);
+        ProfessionalSports.setTopArrow(null);
+        ProfessionalSports.setRightArrow(out);
+        ProfessionalSports.setBottomArrow(out);
+        ProfessionalSports.setLeftArrow(in);
+        ProfessionalSports.addAlignment(violent);
+        ProfessionalSports.addAlignment(fanatic);
+        groupCards.add(ProfessionalSports);
+        
+        GroupCard Psychiatrists = new GroupCard ("Psychiatrists", groupCardType, 0,0,6,2,face);
+        Psychiatrists.setTopArrow(null);
+        Psychiatrists.setRightArrow(in);
+        Psychiatrists.setBottomArrow(null);
+        Psychiatrists.setLeftArrow(null);
+        Psychiatrists.addAlignment(weird);
+        groupCards.add(Psychiatrists);
+        
+        GroupCard Recyclers = new GroupCard ("Recyclers",groupCardType,2,0,2,3,face);
+        Recyclers.setTopArrow(null);
+        Recyclers.setRightArrow(in);
+        Recyclers.setBottomArrow(null);
+        Recyclers.setLeftArrow(out);
+        Recyclers.addAlignment(liberal);
+        groupCards.add(Recyclers);
+        
+        GroupCard Republicans = new GroupCard("Republicans", groupCardType,4,0,4,4,face);
+        Republicans.setTopArrow(out);
+        Republicans.setRightArrow(in);
+        Republicans.setBottomArrow(out);
+        Republicans.setLeftArrow(out);
+        Republicans.addAlignment(conservative);
+        groupCards.add(Republicans);
+        
+        GroupCard RobotSeaMonsters = new GroupCard ("Robot Sea Monsters", groupCardType,0,0,6,2,face);
+        RobotSeaMonsters.setTopArrow(null);
+        RobotSeaMonsters.setRightArrow(in);
+        RobotSeaMonsters.setBottomArrow(null);
+        RobotSeaMonsters.setLeftArrow(null);
+        RobotSeaMonsters.addAlignment(violent);
+        RobotSeaMonsters.addAlignment(communist);
+        groupCards.add(RobotSeaMonsters);
+        
+        GroupCard ScienceFictionFans = new GroupCard  ("Science Fiction Fans", groupCardType,0,0,5,1,face);
+        ScienceFictionFans.setTopArrow(in);
+        ScienceFictionFans.setRightArrow(null);
+        ScienceFictionFans.setBottomArrow(null);
+        ScienceFictionFans.setLeftArrow(in);
+        ScienceFictionFans.addAlignment(weird);
+        groupCards.add(ScienceFictionFans);
+        
+        GroupCard SemiconsciousLiberationArmy = new GroupCard ("Semiconscious Liberation Army",groupCardType,0,0,5,1,face);
+        SemiconsciousLiberationArmy.setTopArrow(null);
+        SemiconsciousLiberationArmy.setRightArrow(null);
+        SemiconsciousLiberationArmy.setBottomArrow(null);
+        SemiconsciousLiberationArmy.setLeftArrow(in);
+        SemiconsciousLiberationArmy.addAlignment(criminal);
+        SemiconsciousLiberationArmy.addAlignment(violent);
+        SemiconsciousLiberationArmy.addAlignment(liberal);
+        SemiconsciousLiberationArmy.addAlignment(weird);
+        SemiconsciousLiberationArmy.addAlignment(communist);
+        groupCards.add(SemiconsciousLiberationArmy);
+        
+        GroupCard SMOF = new GroupCard ("S.M.O.F.",groupCardType,1,0,1,0,face);
+        SMOF.setTopArrow(out);
+        SMOF.setRightArrow(in);
+        SMOF.setBottomArrow(out);
+        SMOF.setLeftArrow(null);
+        SMOF.addAlignment(weird);
+        groupCards.add(SMOF);
+        
+        GroupCard SocietyForCA = new GroupCard("Society for Creative Anarchism", groupCardType,0,0,4,1,face);
+        SocietyForCA.addAlignment(violent);
+        SocietyForCA.addAlignment(weird);
+        SocietyForCA.setTopArrow(null);
+        SocietyForCA.setRightArrow(in);
+        SocietyForCA.setBottomArrow(null);
+        SocietyForCA.setLeftArrow(null);
+        groupCards.add(SocietyForCA);
+        
+        GroupCard SouthAmericanNazis = new GroupCard ("South American Nazis", groupCardType, 4,0,6,2,face);
+        SouthAmericanNazis.setTopArrow(out);
+        SouthAmericanNazis.setRightArrow(in);
+        SouthAmericanNazis.setBottomArrow(out);
+        SouthAmericanNazis.setLeftArrow(null);
+        SouthAmericanNazis.addAlignment(conservative);
+        SouthAmericanNazis.addAlignment(violent);
+        groupCards.add(SouthAmericanNazis);
+        
+        GroupCard Survivalists = new GroupCard ("Survivalists", groupCardType,0,0,6,2,face);
+        Survivalists.setTopArrow(null);
+        Survivalists.setRightArrow(in);
+        Survivalists.setBottomArrow(null);
+        Survivalists.setLeftArrow(null);
+        Survivalists.addAlignment(conservative);
+        Survivalists.addAlignment(violent);
+        Survivalists.addAlignment(fanatic);
+        groupCards.add(Survivalists);
+        
+        GroupCard Tabloids = new GroupCard ("Tabloids", groupCardType,2,0,3,3,face);
+        Tabloids.setTopArrow(out);
+        Tabloids.setRightArrow(in);
+        Tabloids.setBottomArrow(null);
+        Tabloids.setLeftArrow(null);
+        Tabloids.addAlignment(weird);
+        groupCards.add(Tabloids);
+        
+        GroupCard Texas = new GroupCard ("Texas", groupCardType,6,0,6,4,face);
+        Texas.setTopArrow(out);
+        Texas.setRightArrow(out);
+        Texas.setBottomArrow(null);
+        Texas.setLeftArrow(in);
+        Texas.addAlignment(violent);
+        Texas.addAlignment(conservative);
+        Texas.addAlignment(government);
+        groupCards.add(Texas);
+        
+        GroupCard TobaccoLiquorCompanies = new GroupCard ("Tobacco & Liquor Companies", groupCardType,4,0,3,3,face);
+        TobaccoLiquorCompanies.setTopArrow(out);
+        TobaccoLiquorCompanies.setRightArrow(in);
+        TobaccoLiquorCompanies.setBottomArrow(null);
+        TobaccoLiquorCompanies.setLeftArrow(out);
+        TobaccoLiquorCompanies.addAlignment(straight);
+        groupCards.add(TobaccoLiquorCompanies);
+        
+        GroupCard Trekkies = new GroupCard ("Trekkies", groupCardType,0,0,4,3,face);
+        Trekkies.setTopArrow(null);
+        Trekkies.setRightArrow(in);
+        Trekkies.setBottomArrow(null);
+        Trekkies.setLeftArrow(null);
+        Trekkies.addAlignment(weird);
+        Trekkies.addAlignment(fanatic);
+        groupCards.add(Trekkies);
+        
+        GroupCard TriliberalCommission = new GroupCard ("Triliberal Commission", groupCardType,5,0,6,3,face);
+        TriliberalCommission.setTopArrow(out);
+        TriliberalCommission.setRightArrow(in);
+        TriliberalCommission.setBottomArrow(out);
+        TriliberalCommission.setLeftArrow(null);
+        TriliberalCommission.addAlignment(liberal);
+        TriliberalCommission.addAlignment(straight);
+        groupCards.add(TriliberalCommission);
+        
+        GroupCard UndergroundNewspapers = new GroupCard ("Underground Newspaper", groupCardType,1,1,5,0,face);
+        UndergroundNewspapers.setTopArrow(out);
+        UndergroundNewspapers.setRightArrow(in);
+        UndergroundNewspapers.setBottomArrow(null);
+        UndergroundNewspapers.setLeftArrow(null);
+        UndergroundNewspapers.addAlignment(communist);
+        UndergroundNewspapers.addAlignment(liberal);
+        groupCards.add(UndergroundNewspapers);
+        
+        GroupCard TheUnitedNations = new GroupCard ("The United Nations", groupCardType, 1,0,3,3,face);
+        TheUnitedNations.setTopArrow(null);
+        TheUnitedNations.setRightArrow(null);
+        TheUnitedNations.setBottomArrow(out);
+        TheUnitedNations.setLeftArrow(in);
+        TheUnitedNations.addAlignment(liberal);
+        groupCards.add(TheUnitedNations);
+        
+        GroupCard VideoGames = new GroupCard ("Video Games", groupCardType,2,0,3,7,face);
+        VideoGames.setTopArrow(null);
+        VideoGames.setRightArrow(in);
+        VideoGames.setBottomArrow(out);
+        VideoGames.setLeftArrow(null);
+        groupCards.add(VideoGames);
+        
+        GroupCard Yuppies = new GroupCard ("Yuppies", groupCardType, 1,1,4,5,face);
+        Yuppies.setTopArrow(null);
+        Yuppies.setRightArrow(in);
+        Yuppies.setBottomArrow(out);
+        Yuppies.setLeftArrow(null);
+        Yuppies.addAlignment(conservative);
+        groupCards.add(Yuppies);
+        
 
 		// /////////////////////////////////////////////////////////////////////
 		// THIS IS ONLY 10 GROUP CARDS
