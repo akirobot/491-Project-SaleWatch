@@ -525,6 +525,58 @@ public class Game {
         // players.get(player).takeAction();
         System.out.println("0010a atkToDESTROYanother player is under construction");
         // players.get(player).takeAction();
+
+        // ///$$$$$$$$$$$$$$$$$$$$
+
+        
+
+
+        highestRange = 3;
+        lowestRange = 1;
+        System.out.println("1. Attack with your Illuminati\n" + "2. Attack with your Group Card\n"
+                + "3. Cancel selection\n");
+        choice = CheckInput.checkIntRange(lowestRange, highestRange);
+
+        if (choice == 1) {
+        System.out.println("0010aa Attack with your Illuminati");
+        if (players.get(player).getIlluminati().canAtkToControl()) { // Player's
+                                                                     // Illuminati
+                                                                     // has
+                                                                     // available
+                                                                     // outgoing
+                                                                     // arrows
+        System.out.println("0010aaa4 Attack to dest another player with your Illuminati processing");
+
+        // ToControlUncontrolledAreaWithIlluminati(player);
+        atkToDestroyControlledWithIlluminatiEnemies(player);
+
+        } else {
+        System.out
+                .println("0010aab You don't have any available outgoing arrows for your Illuminati. So you can't attack to destroy with your Illuminati.");
+
+        }
+        } else if (choice == 2) {
+        if (players.get(player).getIlluminati().getPuppetSize() == 0) {
+
+        System.out.println("00010cc You don't have any Group Cards");
+        } else {
+
+        System.out.println("0010bb Attack to dest another player  with your Group Card");
+        // atkToDestroyUncontrolledAreaWithControlledGroupCard(
+        // player);
+
+        atkToDestroyControlledAreaWithControlledGroupCardEnemies(player);
+        }
+        // ********************************************
+        // ********************************************
+
+        // let's print out
+        } else if (choice == 3) {
+        System.out.println("0010cc Cancel selection");
+        }
+        
+
+        // /////%%%%%%%%%%%%%%%%%%%%%%
         } else if (choice == 2) {
 
         System.out
@@ -583,6 +635,154 @@ public class Game {
         } // while
 
     } // atk to destroy
+
+    /**
+     * Attack enemy player's power structure
+     * 
+     * @param player
+     */
+    private static void atkToDestroyControlledAreaWithControlledGroupCardEnemies(int player) {
+        // TODO Auto-generated method stub
+
+    }
+
+    // static boolean canAtkToDest = false;
+
+    private static void atkToDestroyControlledWithIlluminatiEnemies(int player) {
+
+        ArrayList<Integer> playersWithGroupCards = new ArrayList<Integer>();
+
+        for (int i = 0; i < players.size(); i++) {
+        System.out.println("767676 " + players.get(i).getIlluminati().getPuppetSize());
+        if (players.get(i).getIlluminati().getPuppetSize() > 0 && (i != player)) {
+        System.out.println("6665 Player (" + i + ")'s Group Card can be attacked to destroy");
+        playersWithGroupCards.add(i);
+        }
+        }
+
+        System.out.println("33##33 playersw/GC size is " + playersWithGroupCards.size());
+
+        if (playersWithGroupCards.size() > 0) {
+        System.out.println("44**44 You may atk to destroy!!!!");
+
+        // Check all of the players besides the current player to see if they
+        // have at least one group card
+
+        System.out.println("00107bb Attack to Destroy with your Illuminati at the Enemy Player");
+
+        Illuminati attacker = players.get(player).getIlluminati();
+
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        // Disabled shuffling for testing purposes
+        // displayUncontrolledAreaCards();
+
+        // players.get(0).getIlluminati()
+
+        System.out.println("\n009 Player's Illuminati's stat");
+
+        attacker.displayStats();
+
+        System.out
+                .println("Which player's power structure would you like to attack to destroy?\n"
+                        + "Note: We are using 0-based numbering. So choice 0 is Player 1, choice 1 is Player 2, etc.\n");
+        for (int i = 0; i < players.size(); i++) {
+        System.out.println("Player (" + (i + 1) + ")." + " has "
+                + players.get(i).getIlluminati().getPuppetSize() + " group cards.");
+        // players.get(i).getIlluminati().displayPuppets());
+
+        }
+        int highestEnemyChoiceDefender = players.size();
+        int lowestEnemyChoiceDefender = 1;
+
+        boolean pickedEnemy = false;
+        while (!pickedEnemy) {
+        int enemyPlayer = CheckInput.checkIntRange(lowestEnemyChoiceDefender,
+                highestEnemyChoiceDefender);
+        enemyPlayer--;
+        if (enemyPlayer == player) {
+        System.out.println("9771 You can't attack yourself. Please pick another player");
+        } else {
+        if (players.get(enemyPlayer).getIlluminati().getPuppetSize() > 0) {
+        pickedEnemy = true;
+        System.out
+                .println("You want to attack the power structure of Player #" + (enemyPlayer + 1));
+
+        System.out.println("Which uncontrolled Group Card would you like to attack to destroy?\n");
+        for (int i = 0; i < players.get(enemyPlayer).getIlluminati().getPuppetSize(); i++) {
+        System.out.println("(" + i + ") "
+                + players.get(enemyPlayer).getIlluminati().getPuppet(i).getCardName());
+
+        }
+
+        int highestGroupCardChoiceDefender = players.get(enemyPlayer).getIlluminati()
+                .getPuppetSize() - 1;
+        int lowestGroupCardChoiceDefender = 0;
+
+        int groupCardChoiceDefender = CheckInput.checkIntRange(lowestGroupCardChoiceDefender,
+                highestGroupCardChoiceDefender);
+
+        GroupCard defender = players.get(enemyPlayer).getIlluminati().getPuppet(
+                groupCardChoiceDefender);
+
+        // uncontrolledArea.get(0).displayStats();
+        int defenderIndex = groupCardChoiceDefender;
+
+        // for testing purpose, buff up power of attackr
+        // in normal game, we will ask user to attack privilege
+
+        int tempPowerBuff = 15;
+        int atkPower = attacker.getPower() + tempPowerBuff;
+        int defPower = defender.getPower();
+
+        int powerAndpowerDifference = atkPower - defPower;
+        System.out.println("\n011 Power difference is " + powerAndpowerDifference);
+
+        System.out.println("\n011 Power difference is " + powerAndpowerDifference);
+
+        System.out.println("\n012 Player must roll " + powerAndpowerDifference + " or less."
+                + "\nA roll of 11 or 12 is an automatic failure.");
+
+        System.out.println("\n013 Assume player rolls dice value is 4");
+        players.get(0).setDiceRoll_TestModeOnly(4);
+
+        int playerDiceRoll = players.get(player).getDiceRollOutcome();
+        System.out.println("\n014 Player's dice roll value is " + playerDiceRoll);
+
+        boolean successfulAttack = false;
+        if ((playerDiceRoll <= powerAndpowerDifference) && playerDiceRoll < 11) {
+        System.out.println("\n015 Successful atk to destroy");
+        successfulAttack = true;
+        } else if (playerDiceRoll == 11 || playerDiceRoll == 12) {
+        System.out.println("\n016 Failed atk to destroy");
+        } else {
+        System.out.println("\n017 Failed atk to destroy");
+        }
+
+        if (successfulAttack) {
+        deadPile.add(defender);
+        players.get(enemyPlayer).getIlluminati().getPuppetArrayList().remove(defenderIndex);
+        }
+
+        players.get(enemyPlayer).displayPowerStructure();
+        displayDeadPileCards();
+
+        players.get(player).takeAction();
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+        } else {
+        System.out
+                .println("4444 Sorry this player does not have any Group Cards. Please pick another player");
+
+        }
+        }
+
+        } // while(!pickEnemy)
+        } else{
+            System.out.println("55##55 Sorry can't atk to dest right now");
+        } // you may attack to destroy!
+
+    }
 
     private static void atkToDestroyUncontrolledAreaWithIlluminati(int player) {
 
@@ -695,7 +895,7 @@ public class Game {
 
         System.out.println("\n010 Defender's stat");
 
-        System.out.println("Which uncontrolled Group Card would you like to attack to control?\n");
+        System.out.println("Which uncontrolled Group Card would you like to attack to destroy?\n");
         for (int i = 0; i < uncontrolledArea.size(); i++) {
         System.out.println("(" + i + ") " + uncontrolledArea.get(i).getCardName());
 
@@ -1303,27 +1503,10 @@ public class Game {
         int groupCardType = 2;
         ImageIcon face = null;// THIS VARIABLE WILL BE CHANGED TO FIT THE
         // IMAGAGE THAT WILL BE USED IN THE PARAMETER
-       
-  
-
-        
-
-        
-
-        
-
-        
-
 
         // The resistance for Gun lobby changes to 10 when faced against
         // Communist or weird. Something to think about when we work with rule
         // enforcements
-
-        
-
- 
-
- 
 
         GroupCard AmericanAutoduelAssociation = new GroupCard("American Autoduel Association",
                 groupCardType, 1, 0, 5, 1, face);
@@ -1367,7 +1550,6 @@ public class Game {
         BoySprouts.addAlignment(peaceful);
         groupCards.add(BoySprouts);
 
-        
         GroupCard California = new GroupCard("California", groupCardType, 5, 0, 4, 5, face);
         California.setTopArrowOut();
         California.setBottomArrowOut();
@@ -1376,7 +1558,7 @@ public class Game {
         California.addAlignment(weird);
         California.addAlignment(government);
         groupCards.add(California);
-        
+
         GroupCard CFLAIO = new GroupCard("CFL-AIO", groupCardType, 6, 0, 5, 3, face);
         CFLAIO.setTopArrowOut();
         CFLAIO.setRightArrowIn();
@@ -1410,8 +1592,7 @@ public class Game {
         CloneArrangers.addAlignment(communist);
         CloneArrangers.addAlignment(criminal);
         groupCards.add(CloneArrangers);
-        
-        
+
         GroupCard ComicBooks = new GroupCard("Comic Book", groupCardType, 1, 0, 1, 2, face);
         ComicBooks.setTopArrowOut();
 
@@ -1456,7 +1637,6 @@ public class Game {
         EcoGuerrillas.addAlignment(violent);
         EcoGuerrillas.addAlignment(weird);
 
-
         groupCards.add(EcoGuerrillas);
 
         GroupCard EmptyVee = new GroupCard("Empty Vee", groupCardType, 3, 0, 3, 4, face);
@@ -1480,7 +1660,6 @@ public class Game {
         FastFoodChains.addAlignment(straight);
         groupCards.add(FastFoodChains);
 
-        
         GroupCard FBI = new GroupCard("F.B.I.", groupCardType, 4, 2, 6, 0, face);
 
         FBI.setTopArrowOut();
@@ -1489,7 +1668,7 @@ public class Game {
         FBI.addAlignment(government);
         FBI.addAlignment(straight);
         groupCards.add(FBI);
-        
+
         GroupCard FederalReserve = new GroupCard("Federal Reserve", groupCardType, 5, 3, 7, 6, face);
         FederalReserve.setTopArrowOut();
         FederalReserve.setRightArrowOut();
@@ -1550,8 +1729,6 @@ public class Game {
         GoldfishFanciers.addAlignment(fanatic);
         groupCards.add(GoldfishFanciers);
 
-        
-       
         GroupCard GunLobby = new GroupCard("Gun Lobby", groupCardType, 1, 0, 3, 1, face);
         GunLobby.setRightArrowIn();
         GunLobby.setBottomArrowOut();
@@ -1559,15 +1736,15 @@ public class Game {
         GunLobby.addAlignment(conservative);
         GunLobby.addAlignment(violent);
         groupCards.add(GunLobby);
-        
-        //Hackers missing
+
+        // Hackers missing
         GroupCard Hackers = new GroupCard("Hackers", groupCardType, 1, 1, 4, 2, face);
         Hackers.setRightArrowIn();
         Hackers.setTopArrowOut();
         Hackers.addAlignment(weird);
         Hackers.addAlignment(fanatic);
         groupCards.add(Hackers);
-        
+
         GroupCard HealthFoodStores = new GroupCard("Health Food Stores", groupCardType, 1, 0, 3, 2,
                 face);
         HealthFoodStores.setBottomArrowOut();
@@ -1598,7 +1775,7 @@ public class Game {
         IRS.setBottomArrowOut();
         IRS.addAlignment(criminal);
         IRS.addAlignment(government);
-        
+
         GroupCard JunkMail = new GroupCard("Junk Mail", groupCardType, 1, 0, 3, 2, face);
         JunkMail.setTopArrowOut();
         JunkMail.setRightArrowIn();
@@ -1648,14 +1825,12 @@ public class Game {
         LocalPoliceDepartment.addAlignment(violent);
         groupCards.add(LocalPoliceDepartment);
 
-        
-
         GroupCard MadisonAvenue = new GroupCard("Madison Avenue", groupCardType, 3, 3, 3, 2, face);
         MadisonAvenue.setRightArrowOut();
         MadisonAvenue.setBottomArrowOut();
         MadisonAvenue.setLeftArrowOut();
         groupCards.add(MadisonAvenue);
-        
+
         GroupCard Mafia = new GroupCard("The Mafia", groupCardType, 7, 0, 7, 6, face);
         Mafia.setTopArrowOut();
         Mafia.setRightArrowIn();
@@ -1686,7 +1861,7 @@ public class Game {
         Moonies.addAlignment(peaceful);
         Moonies.addAlignment(fanatic);
         groupCards.add(Moonies);
-        
+
         GroupCard MoralMinority = new GroupCard("Moral Minority", groupCardType, 2, 0, 1, 2, face);
         MoralMinority.setRightArrowIn();
         MoralMinority.setBottomArrowOut();
@@ -1718,7 +1893,6 @@ public class Game {
         NephewsOfGod.addAlignment(fanatic);
         groupCards.add(NephewsOfGod);
 
-        
         GroupCard NewYork = new GroupCard("New York", groupCardType, 7, 0, 8, 3, face);
         NewYork.setTopArrowOut();
         NewYork.setRightArrowIn();
@@ -1728,8 +1902,7 @@ public class Game {
         NewYork.addAlignment(criminal);
         NewYork.addAlignment(government);
         groupCards.add(NewYork);
-        
-        
+
         GroupCard NuclearPowerCompanies = new GroupCard("Nuclear Power Companies", groupCardType,
                 4, 0, 4, 3, face);
 
@@ -1806,7 +1979,7 @@ public class Game {
         PunkRockers.setLeftArrowIn();
         PunkRockers.addAlignment(weird);
         groupCards.add(PunkRockers);
-        
+
         GroupCard Recyclers = new GroupCard("Recyclers", groupCardType, 2, 0, 2, 3, face);
         Recyclers.setRightArrowIn();
         Recyclers.setLeftArrowOut();
@@ -1926,7 +2099,7 @@ public class Game {
         TVPreachers.addAlignment(straight);
         TVPreachers.addAlignment(fanatic);
         groupCards.add(TVPreachers);
-        
+
         GroupCard UndergroundNewspapers = new GroupCard("Underground Newspaper", groupCardType, 1,
                 1, 5, 0, face);
         UndergroundNewspapers.setTopArrowOut();
