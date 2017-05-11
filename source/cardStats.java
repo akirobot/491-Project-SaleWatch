@@ -1,3 +1,4 @@
+package theilluminatigame;
 
 public interface cardStats {
 

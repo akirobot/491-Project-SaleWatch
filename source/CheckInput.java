@@ -1,3 +1,4 @@
+package theilluminatigame;
 import java.util.Scanner;
 /** 
  * Used to check different types of user input.

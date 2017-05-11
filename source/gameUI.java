@@ -1,4 +1,4 @@
-package IlluminatiCards;
+package theilluminatigame;
 
 import java.awt.Frame;
 import java.awt.GraphicsEnvironment;

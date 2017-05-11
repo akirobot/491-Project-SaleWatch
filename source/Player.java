@@ -1,12 +1,16 @@
+package theilluminatigame;
 import java.util.ArrayList;
 
 /** Player is a representation of player */
 
 public class Player {
 
+	private String name;
     private Illuminati illuminati;
     private int diceRollOutcome;
     private int actionsTaken;
+    private int freeActionsTaken;
+
     private ArrayList<SpecialCard> specialCards;
     private boolean interfereFlag;
 
@@ -50,6 +54,11 @@ public class Player {
 
     }
 
+    // For easy and fast testing, we can set the dice roll value
+    public void setDiceRoll_TestModeOnly(int value){
+    	diceRollOutcome = value;
+    }
+    
     public int getDiceRollOutcome() {
 	return diceRollOutcome;
     }
@@ -58,16 +67,25 @@ public class Player {
 	return actionsTaken;
     }
 
+    public int getFreeActionsTaken() {
+    	return freeActionsTaken;
+        }
+    
     public void takeAction() {
-	actionsTaken--;
+	actionsTaken++;
     }
+    
+    public void takeFreeAction() {
+    	freeActionsTaken++;
+        }
 
     /**
      * After the player is done with his turn, then his number of actions taken
      * is set back to 0
      */
     public void resetAction() {
-	actionsTaken = 0;
+    	actionsTaken = 0;
+    	freeActionsTaken = 0;
     }
 
     /** Player interferes an attack */
@@ -82,12 +100,24 @@ public class Player {
     public void resetInterfere() {
 	interfereFlag = false;
     }
+    
+    /**
+     * Reset player's dice roll value after he is done attacking
+     */
+    public void resetDiceValue(){
+    	this.diceRollOutcome = 0;
+    }
 
     /**
      * Remove this method since the power structured should be already be
-     * displayed via the gameUI class public void displayPowerStructure(){
+     * displayed via the gameUI class 
      * 
-     * }
-     */
+     * */
+     //Actually let's put this method back for now 
+     public void displayPowerStructure(){
+    	 System.out.println("200 Displaying Power Structure Method is called");
+    	 
+    	// this.getIlluminati().
+     }
 
 }

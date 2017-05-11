@@ -1,6 +1,7 @@
+package theilluminatigame;
 
 public interface cardUpdateStats {
-    public int adjustTreasury(int megaBucks);
-    public int adjustPower(int power);
-    public int adjustTransferrablePower(int tPower);
+    public void adjustTreasury(int megaBucks);
+    public void adjustPower(int power);
+    public void adjustTransferrablePower(int tPower);
 }

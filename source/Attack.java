@@ -1,3 +1,4 @@
+package theilluminatigame;
 /** Interface for different types of attacks for CombatCards */
 
 public interface Attack {
