@@ -14,3 +14,5 @@ Here are some basic instructions to connect to the server using PuTTY, if you ha
     - The MEAN stack is installed by default, so you should just be able to load files using it and it should work
     - At the current moment (2/6/19) the server is not set up for FTP file transfer
     - I don't think you can direct clone the files either, as the repo is private, FTP should be the work around
+    
+Ignore the MongoDB password for now, I haven't set it up completely yet
