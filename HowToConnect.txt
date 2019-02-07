@@ -1,0 +1,16 @@
+Here are some basic instructions to connect to the server using PuTTY, if you have a similar SSH client, then the steps are most likely the same:
+  1. Download the .pem
+  2. Convert the private key into a .ppk using PuTTYgen
+  3. In the host name enter this: ec2-54-183-132-211.us-west-1.compute.amazonaws.com
+    - If you entered this as the host name, follow the rest of the steps and it still doesn't connect, then message me
+    - If the server is shut down then restarted, it changes the name, every time
+  4. Under Connection -> SSH -> Auth enter the location of the .ppk file
+  5. Don't change any of the default settings
+  6. Press Open
+  7. PuTTY might say that the key isn't stored or something, just ignore it and press yes
+  8. Log in as bitnami
+  9. You are now connected to the server!
+    - If you got to this point and somehow still can't connect to the server, let me know
+    - The MEAN stack is installed by default, so you should just be able to load files using it and it should work
+    - At the current moment (2/6/19) the server is not set up for FTP file transfer
+    - I don't think you can direct clone the files either, as the repo is private, FTP should be the work around
