@@ -2,7 +2,38 @@
   <div class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" routerLink="">Home</a>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Login
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div id="myDropDown" class="dropdown-content">
+          <a href="wishlist">wishlist</a>
+          <a href="watchlist">watchlist</a>
+          <a href="games">games</a>
+        </div>
+      </div>
       <a class="navbar-item" routerLink="login">Login</a>
+    
+      <a class="navbar-item" routerLink="wishlist">Wish List</a>
+      <a class="navbar-item" routerLink="analytics">Analytics</a>
+      <a class="navbar-item" routerLink="about-us">About Us</a>
     </div>
   </div>
 </nav>
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+    }
+  }
+  </script>
