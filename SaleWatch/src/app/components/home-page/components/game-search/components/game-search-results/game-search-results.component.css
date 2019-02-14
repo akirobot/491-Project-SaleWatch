@@ -1,0 +1,14 @@
+.hero {
+    background-color: #1B2838;
+}
+
+.tile.is-child {
+    border: dimgray solid;
+    border-radius: 1em;
+}
+.game-info {
+    float: left;
+}
+.get-more-game-info {
+    float: right;
+}

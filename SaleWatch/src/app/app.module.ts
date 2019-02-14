@@ -10,6 +10,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginComponent } from './components/account/components/login/login.component';
 import { RegisterComponent } from './components/account/components/register/register.component';
+import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
+import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
+import { GameDataComponent } from './components/home-page/components/game-search/components/game-data/game-data.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { RegisterComponent } from './components/account/components/register/regi
     FooterComponent,
     HomePageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GameSearchComponent,
+    GameSearchResultsComponent,
+    GameDataComponent
   ],
   imports: [
     BrowserModule,
