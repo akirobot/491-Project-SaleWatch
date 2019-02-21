@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameSearchResultsComponent implements OnInit {
 
-  constructor() { }
+  List;
+
+  constructor() {
+    this.List = [1,2,3,4];
+   }
 
   ngOnInit() {
   }
