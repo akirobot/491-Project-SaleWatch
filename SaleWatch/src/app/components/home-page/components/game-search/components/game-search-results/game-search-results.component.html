@@ -1,0 +1,23 @@
+<div class="hero is-fullheight">
+  <section class="container">
+    <div class="sandbox">
+      <div class="tile is-ancestor" *ngFor="let item of List">
+        <div class="tile is-parent is-12 is-shady">
+          <div class="tile is-child notification is-dark">
+            <div class="game-info">
+                <p class="title">Game 1</p>
+                <p class="subtitle">Rating: 4 Stars</p>
+                <div class="content">
+                  <p>$59.99</p>
+                </div>
+            </div>
+            <div class="get-more-game-info is-centered">
+                <a class="button is-link is-large" routerLink="game-data">Game1</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- <a class="button is-info" routerLink="game-data">Game1</a> -->
+  </section>
+</div>
