@@ -33,7 +33,7 @@ import { GameDataComponent } from './components/home-page/components/game-search
     FaqComponent,
     DeveloperGuideComponent,
     UserGuideComponent,
-    GameLibraryComponent
+    GameLibraryComponent,
     RegisterComponent,
     GameSearchComponent,
     GameSearchResultsComponent,
