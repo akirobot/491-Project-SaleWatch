@@ -7,6 +7,10 @@ import { FaqComponent } from './components/faq/faq.component';
 import { DeveloperGuideComponent } from './components/developer-guide/developer-guide.component';
 import { UserGuideComponent } from './components/user-guide/user-guide.component';
 import { GameLibraryComponent } from './components/game-library/game-library.component';
+import { RegisterComponent } from './components/account/components/register/register.component';
+import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
+import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
+import { GameDataComponent } from './components/home-page/components/game-search/components/game-data/game-data.component';
 
 const routes: Routes = [
   {
@@ -37,6 +41,23 @@ const routes: Routes = [
   {
     path: 'game-library',
     component: GameLibraryComponent
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'game-search-results',
+    component: GameSearchComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: GameSearchResultsComponent
+      },
+      {
+        path: 'game-data',
+        component: GameDataComponent
+      }
+    ]
   }
 ];
 

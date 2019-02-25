@@ -15,6 +15,10 @@ import { FaqComponent } from './components/faq/faq.component';
 import { DeveloperGuideComponent } from './components/developer-guide/developer-guide.component';
 import { UserGuideComponent } from './components/user-guide/user-guide.component';
 import { GameLibraryComponent } from './components/game-library/game-library.component';
+import { RegisterComponent } from './components/account/components/register/register.component';
+import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
+import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
+import { GameDataComponent } from './components/home-page/components/game-search/components/game-data/game-data.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { GameLibraryComponent } from './components/game-library/game-library.com
     DeveloperGuideComponent,
     UserGuideComponent,
     GameLibraryComponent
+    RegisterComponent,
+    GameSearchComponent,
+    GameSearchResultsComponent,
+    GameDataComponent
   ],
   imports: [
     BrowserModule,
