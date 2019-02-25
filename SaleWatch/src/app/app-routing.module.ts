@@ -41,6 +41,8 @@ const routes: Routes = [
   {
     path: 'game-library',
     component: GameLibraryComponent
+  },
+  {
     path: 'register',
     component: RegisterComponent
   },

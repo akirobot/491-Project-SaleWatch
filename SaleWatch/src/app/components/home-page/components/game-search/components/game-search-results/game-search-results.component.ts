@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-search-results.component.css']
 })
 export class GameSearchResultsComponent implements OnInit {
-
+  //Just a dummy variable to demonstrate multiple "Game Results"
   List;
 
   constructor() {
