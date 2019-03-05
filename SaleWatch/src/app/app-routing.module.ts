@@ -11,7 +11,13 @@ import { RegisterComponent } from './components/account/components/register/regi
 import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
 import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
 import { GameDataComponent } from './components/home-page/components/game-search/components/game-data/game-data.component';
-
+import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
+import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughnut.component';
+import { ChartDynamicComponent } from './components/chart-dynamic/chart-dynamic.component';
+import { ChartLineComponent } from './components/chart-line/chart-line.component';
+import { ChartPieComponent } from './components/chart-pie/chart-pie.component';
+import { ChartPolarComponent } from './components/chart-polar/chart-polar.component';
+import { ChartRadarComponent } from './components/chart-radar/chart-radar.component';
 const routes: Routes = [
   {
     path: '',
@@ -60,6 +66,34 @@ const routes: Routes = [
         component: GameDataComponent
       }
     ]
+  },
+  {
+    path:'chart-bar',
+    component: ChartBarComponent
+  },
+  {
+    path:'chart-doughnut',
+    component: ChartDoughnutComponent
+  },
+  {
+    path:'chart-dynamic',
+    component: ChartDynamicComponent
+  },
+  {
+    path:'chart-line',
+    component: ChartLineComponent
+  },
+  {
+    path:'chart-pie',
+    component: ChartPieComponent
+  },
+  {
+    path:'chart-polar',
+    component: ChartPolarComponent
+  },
+  {
+    path:'chart-radar',
+    component: ChartRadarComponent
   }
 ];
 

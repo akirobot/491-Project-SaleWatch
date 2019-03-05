@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -19,6 +21,13 @@ import { RegisterComponent } from './components/account/components/register/regi
 import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
 import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
 import { GameDataComponent } from './components/home-page/components/game-search/components/game-data/game-data.component';
+import { ChartLineComponent } from './components/chart-line/chart-line.component';
+import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
+import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughnut.component';
+import { ChartRadarComponent } from './components/chart-radar/chart-radar.component';
+import { ChartPieComponent } from './components/chart-pie/chart-pie.component';
+import { ChartPolarComponent } from './components/chart-polar/chart-polar.component';
+import { ChartDynamicComponent } from './components/chart-dynamic/chart-dynamic.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +46,20 @@ import { GameDataComponent } from './components/home-page/components/game-search
     RegisterComponent,
     GameSearchComponent,
     GameSearchResultsComponent,
-    GameDataComponent
+    GameDataComponent,
+    ChartLineComponent,
+    ChartBarComponent,
+    ChartDoughnutComponent,
+    ChartRadarComponent,
+    ChartPieComponent,
+    ChartPolarComponent,
+    ChartDynamicComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
