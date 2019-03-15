@@ -3,15 +3,21 @@
     <div class="container has-text-centered">
       <div class="column is-4 is-offset-4">
         <h3 class="title has-text-white">Login</h3>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="field">
             <div class="control">
-              <input type="email" name="email" class="input is-large" placeholder="Your Email" autofocus="">
+              <input type="email" name="email" formControlName="user_email" class="input is-large" [ngClass]="{ 'is-invalid': submitted && f.user_email.errors }" placeholder="Your Email" autofocus="">
+              <div *ngIf="submitted && f.user_email.errors" class="invalide-feedback">
+                <div *ngIf="f.user_email.errors.required">Email is required...</div>
+              </div>
             </div>
           </div>
           <div class="field">
             <div class="control">
-              <input type="password" name="password" class="input is-large" placeholder="Your Password">
+              <input type="password" formControlName="user_password" name="password" class="input is-large" [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }"placeholder="Your Password">
+              <div *ngIf="submitted && f.user_password.errors" class="invalide-feedback">
+                <div *ngIf="f.user_password.errors.required">Password is required...</div>
+              </div>
             </div>
           </div>
           <div class="field">
@@ -20,7 +26,10 @@
               Remember Me
             </label>
           </div>
-          <button type="submit" class="button is-danger is-large">Submit</button>
+          <div *ngIf="!loading" class="loginButtonSubmit">
+            <button [disabled]="loading" type="submit" class="button is-danger is-large">Login</button>
+          </div>
+          <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==">
         </form>
       </div>
     </div>

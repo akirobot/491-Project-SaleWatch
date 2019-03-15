@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ChartsModule } from 'ng2-charts';
+
+import { UserService } from './services/user.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +16,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginComponent } from './components/account/components/login/login.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { NavigationBarLowerComponent } from './components/navigation-bar-lower/navigation-bar-lower.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { DeveloperGuideComponent } from './components/developer-guide/developer-guide.component';
 import { UserGuideComponent } from './components/user-guide/user-guide.component';
@@ -38,7 +41,6 @@ import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-d
     HomePageComponent,
     LoginComponent,
     AboutUsComponent,
-    NavigationBarLowerComponent,
     FaqComponent,
     DeveloperGuideComponent,
     UserGuideComponent,
@@ -59,9 +61,13 @@ import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-d
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

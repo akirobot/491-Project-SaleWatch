@@ -29,6 +29,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: 'about-us',
     component: AboutUsComponent
   },
@@ -47,10 +51,6 @@ const routes: Routes = [
   {
     path: 'game-library',
     component: GameLibraryComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
   },
   {
     path: 'game-search-results',
