@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ChartsModule } from 'ng2-charts';
+//import { ChartsModule } from 'ng2-charts';
 
 import { UserService } from './services/user.service';
 
@@ -62,8 +62,7 @@ import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-d
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    ChartsModule
+    HttpClientModule
   ],
   providers: [
     UserService,

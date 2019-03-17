@@ -17,7 +17,8 @@ const app = express();
 
 
 
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect("mongodb://localhost:27017/admin", { useNewUrlParser: true });
+useMongoClient: true
 const connection = mongoose.connection;
 
 connection.once('open', () => {
