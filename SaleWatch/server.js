@@ -8,20 +8,14 @@ const cors = require('cors');
 //import mongoose from 'mongoose';
 const mongoose = require('mongoose');
 
-
+//import user routes
+const userRoute = require('./server/routes/user.route');
 // Get our API routes
 const api = require('./server/routes/api');
-
 const app = express();
-const router = express.Router();
 
 
 
-// Parsers for POST data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-//
-app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017');
 const connection = mongoose.connection;
@@ -30,13 +24,17 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully!');
 });
 
+// Parsers for POST data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use('/user', userRoute);
+
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/SaleWatch')));
 
 // Set our api routes
 app.use('/api', api);
-
-app.use('/', router);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
