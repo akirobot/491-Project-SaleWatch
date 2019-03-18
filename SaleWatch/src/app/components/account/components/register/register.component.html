@@ -8,7 +8,7 @@
               <div class="control">
                 <input type="text" name="first-name" formControlName="user_first_name" [ngClass]="{ 'is-invalid': submitted && f.user_first_name.errors }" class="input is-large" placeholder="First Name" autofocus="">
                 <div *ngIf="submitted && f.user_first_name.errors" class="invalide-feedback">
-                  <div *ngIf="f.user_first_name.errors.required">Email is required...</div>
+                  <div *ngIf="f.user_first_name.errors.required">First name is required...</div>
                 </div>
               </div>
             </div>
@@ -16,7 +16,7 @@
               <div class="control">
                 <input type="text" name="last-name" formControlName="user_last_name" [ngClass]="{ 'is-invalid': submitted && f.user_last_name.errors }" class="input is-large" placeholder="Last Name" autofocus="">
                 <div *ngIf="submitted && f.user_last_name.errors" class="invalide-feedback">
-                  <div *ngIf="f.user_last_name.errors.required">Email is required...</div>
+                  <div *ngIf="f.user_last_name.errors.required">Last name is required...</div>
                 </div>
               </div>
             </div>
@@ -32,12 +32,13 @@
               <div class="control">
                 <input type="password" name="password" formControlName="user_password" [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }" class="input is-large" placeholder="Your Password">
                 <div *ngIf="submitted && f.user_password.errors" class="invalide-feedback">
-                  <div *ngIf="f.user_password.errors.required">Email is required...</div>
+                  <div *ngIf="f.user_password.errors.required">Password is required...</div>
                 </div>
               </div>
             </div>
             <div *ngIf="!loading" class="registerButtonSubmit">
-              <button [disabled]="loading" type="submit" class="button is-danger is-large">Register</button>
+              <button (click) = "register(user_first_name.value,user_last_name.value,user_email.value,user_password.value)"[disabled]="loading" type="submit" class="button is-danger is-large">Register</button>
+
             </div>
             <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==">
           </form>

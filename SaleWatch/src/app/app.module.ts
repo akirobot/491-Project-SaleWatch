@@ -24,13 +24,17 @@ import { RegisterComponent } from './components/account/components/register/regi
 import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
 import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
 import { GameDataComponent } from './components/home-page/components/game-search/components/game-data/game-data.component';
-import { ChartLineComponent } from './components/charts/chart-line/chart-line.component';
-import { ChartBarComponent } from './components/charts/chart-bar/chart-bar.component';
-import { ChartDoughnutComponent } from './components/charts/chart-doughnut/chart-doughnut.component';
-import { ChartRadarComponent } from './components/charts/chart-radar/chart-radar.component';
-import { ChartPieComponent } from './components/charts/chart-pie/chart-pie.component';
-import { ChartPolarComponent } from './components/charts/chart-polar/chart-polar.component';
-import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-dynamic.component';
+//import { ChartLineComponent } from './components/charts/chart-line/chart-line.component';
+//import { ChartBarComponent } from './components/charts/chart-bar/chart-bar.component';
+//import { ChartDoughnutComponent } from './components/charts/chart-doughnut/chart-doughnut.component';
+//import { ChartRadarComponent } from './components/charts/chart-radar/chart-radar.component';
+//import { ChartPieComponent } from './components/charts/chart-pie/chart-pie.component';
+//import { ChartPolarComponent } from './components/charts/chart-polar/chart-polar.component';
+//import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-dynamic.component';
+import { DataService } from './data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -48,24 +52,26 @@ import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-d
     RegisterComponent,
     GameSearchComponent,
     GameSearchResultsComponent,
-    GameDataComponent,
+    GameDataComponent/*,
     ChartLineComponent,
     ChartBarComponent,
     ChartDoughnutComponent,
     ChartRadarComponent,
     ChartPieComponent,
     ChartPolarComponent,
-    ChartDynamicComponent,
+    ChartDynamicComponent,*/
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     UserService,
+    DataService
   ],
   bootstrap: [AppComponent]
 })

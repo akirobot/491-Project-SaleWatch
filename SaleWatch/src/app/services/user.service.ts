@@ -30,4 +30,5 @@ export class UserService {
         this.http.post(`${this.uri}/register`, obj)
             .subscribe(res => console.log('Registered'));
     }
+    
 }
