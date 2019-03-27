@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.userService.login(this.f.user_email.value, this.f.user_password.value);
+    this.userService
+      .login(this.f.user_email.value, this.f.user_password.value)
+      //.subscribe()
     this.loading = false;  
   }
 

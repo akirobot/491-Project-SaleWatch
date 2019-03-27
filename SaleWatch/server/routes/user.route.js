@@ -15,7 +15,7 @@ router.route('/register').post(function (req, res) {
       });
 });
 
-router.route('/login').get(function (req, res) {
+router.route('/login').post(function (req, res) {
     User.find(function (err, user){
         if(err){
             console.log(err);
