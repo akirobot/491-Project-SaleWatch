@@ -1,15 +1,23 @@
 <nav class="navbar is-dark">
   <div class="navbar-item">
     <div class="field is-grouped">
+
+
+      
+
       <p class="control is-expanded">
-        <input class="input" type="search" placeholder="Search for a Game...">
+        <input class="input" type="search" [(ngModel)]="game_search" placeholder="Search for a Game...">
       </p>
       <p class="control">
-        <a class="button is-info" routerLink="game-search-results">
+        <a class="button is-info" [routerLink]="['/game-search-results']" [queryParams]="{search: game_search}"> <!-- use queryParams to send data from one component to the next... Regardless if it's child or not.
+                                                                                                                  it passes it thorugh the URL query params-->
           Search
         </a>
       </p>
-      <a class="navbar-item-active-color" routerLink="game-library">Games</a>
+      <a class="button is-info" routerLink="game-library">Categories</a>
+
+
+
     </div>
   </div> 
 </nav>

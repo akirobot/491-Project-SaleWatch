@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 
 import { UserService } from './services/user.service';
+import { GameService } from './services/game.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,6 +68,7 @@ import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-d
   ],
   providers: [
     UserService,
+    GameService
   ],
   bootstrap: [AppComponent]
 })

@@ -8,10 +8,9 @@ const cors = require('cors');
 //import mongoose from 'mongoose';
 const mongoose = require('mongoose');
 
-//import user routes
-const userRoute = require('./server/routes/user.route');
 // Get our API routes
-const api = require('./server/routes/api');
+const userRoute = require('./server/routes/user.route');
+const gameRoute = require('./server/routes/game.route');
 const app = express();
 
 
@@ -28,13 +27,13 @@ connection.once('open', () => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+
+// Set our api routes
 app.use('/user', userRoute);
+app.use('/game', gameRoute);
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist/SaleWatch')));
-
-// Set our api routes
-app.use('/api', api);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
