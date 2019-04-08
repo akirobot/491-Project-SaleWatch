@@ -16,7 +16,7 @@ const app = express();
 
 
 
-
+mongoose.connect('mongodb://localhost:27017');
 const connection = mongoose.connection;
 
 connection.once('open', () => {
