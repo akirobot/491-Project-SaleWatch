@@ -26,7 +26,6 @@
     "core-js": "^2.6.5",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongodb": "^3.1.13",
     "mongoose": "^5.4.16",
     "ng2-charts": "^2.0.0-beta.4",
     "rxjs": "~6.4.0",
