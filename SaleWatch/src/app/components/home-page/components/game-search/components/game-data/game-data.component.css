@@ -1,7 +1,108 @@
-.hero-body {
+.hero {
     background-color: #1B2838;
 }
 
+.button.is-info {
+    width: 10em;
+}
+
+.title {
+    color: white;
+    margin: 0em;
+    padding: .5em;
+    width: 100%;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center-vertical {
+    transform: translateY(50%);
+}
+
+.filler {
+    height: 4em;
+}
+
+.game-developer {
+    font-size: .45em;
+}
+
+.game-data {
+    width: 100%;
+}
+.game-data-top {
+    background-color: #363636;
+    border-radius: 1em;
+    margin: 1em;
+    width: -webkit-fill-available;
+    display: inline-block;
+}
+.game-image-container {
+    width: 13em;
+    padding: .5em;
+    margin: 0px;
+    display: -webkit-inline-box;
+    float: left;
+}
+.game-image {
+    margin: 0px auto;
+    border-radius: .5em;
+    height: 17em;
+}
+
+.game-price-table {
+    height: 8em;
+    width: 18em;
+    display: -webkit-inline-box;
+    position: relative;
+    left: 2em;
+}
+.table-header {
+    height: 1em;
+    color: lightslategray;
+    font-size: 1.25em;
+    
+}
+.price-text {
+    font-size: 1.45em;
+    color: white;
+}
+.game-price {
+    color: white;
+    text-align: center;
+    font-size: 1.15em;
+}
+.dollar {
+    font-size: 2em;
+}
+
+.game-percent-savings {
+    color: white;
+    text-align: center;
+}
+.percent {
+    color: lightgreen;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.game-dev {
+    position: relative;
+    right: 3em;
+    top: .5em;
+    float: right;
+    width: 27em;
+    color: white;
+}
+
+.game-buttons {
+    transform: translateY(4em);
+}
+
+
+=======
 .barGraph {
     height: 400px;
     background-color: #1B2838;

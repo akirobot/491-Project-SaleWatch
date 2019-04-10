@@ -3,18 +3,65 @@
 </div>
 
 <section class="hero is-fullheight">
-  <div class="hero-body">
-    <div class="title is-white">Game 1</div>
-  </div>
-  <div class="barGraph">
-      <canvas baseChart
-      [datasets]="lineChartData"
-      [labels]="lineChartLabels"
-      [options]="lineChartOptions"
-      [colors]="lineChartColors"
-      [legend]="lineChartLegend"
-      [chartType]="lineChartType"
-      (chartHover)="chartHovered($event)"
-      (chartClick)="chartClicked($event)"></canvas>
-  </div>
+    <div class="game-data">
+
+      <div class="game-data-top">
+
+        <div class="title">
+          Super Smash Bros Ultimate <span class="game-developer">by Nintendo</span>
+        </div>
+        <div class="game-image-container">
+          <img class="game-image" src="https://www.gamestop.com/common/images/lbox/164255b.jpg">
+        </div>
+        <div class="game-data-top-info">
+          <table class="game-price-table">
+            <tr class="table-header">
+              <td>current <span class="price-text">Price</span> </td>
+              <td>original <span class="price-text">Price</span></td>
+            </tr>
+            <tr class="game-price">
+              <td class="center-text">$<span class="dollar">0.00</span></td>
+              <td class="center-text">$<span class="dollar">0.00</span></td>
+            </tr>
+            <tr class="filler">
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="game-percent-savings">
+                <span class="percent">0%</span><br>
+                Savings
+              </td>
+            </tr>
+          </table>
+
+          <table class="game-dev">
+            <tr>
+              <td>Platform: </td>
+              <td>Publisher: </td>
+              <td>Developer: </td>
+              <td>Category: </td>
+            </tr>
+            <tr>
+              <td>Nintendo Switch</td>
+              <td>Nintendo</td>
+              <td>Nintendo</td>
+              <td>Fighting</td>
+            </tr>
+            <tr>
+              <td class="center-text center-vertical" colspan="4">
+                <img src="https://www.gamestop.com/common/esrb/esrb_t.gif">
+              </td>
+            </tr>
+            <tr class="game-buttons">
+              <td class="center-text" colspan="2">
+                <a class="button is-info">Bookmark</a>
+              </td>
+              <td class="center-text" colspan="2">
+                <a class="button is-info">Buy Now</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 </section>
