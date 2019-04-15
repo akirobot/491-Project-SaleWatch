@@ -65,7 +65,7 @@
 }
 .table-header {
     height: 1em;
-    color: lightslategray;
+    color: #363636;
     font-size: 1.25em;
     
 }
@@ -103,4 +103,12 @@
 
 .game-buttons {
     transform: translateY(4em);
+}
+
+.line-chart {
+    background-color: #363636;
+    border-radius: 1em;
+    margin: 1em;
+    width: -webkit-fill-available;
+    display: inline-block;
 }

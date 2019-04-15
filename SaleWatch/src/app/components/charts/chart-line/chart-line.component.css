@@ -1,0 +1,10 @@
+.col-md-6 {
+height: 30%;
+width: 100%;
+background-color: #363636;
+border-radius: 1em;
+}
+
+.row {
+    background-color: #1B2838;
+}
