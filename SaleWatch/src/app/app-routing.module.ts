@@ -18,6 +18,7 @@ import { ChartLineComponent } from './components/charts/chart-line/chart-line.co
 import { ChartPieComponent } from './components/charts/chart-pie/chart-pie.component';
 import { ChartPolarComponent } from './components/charts/chart-polar/chart-polar.component';
 import { ChartRadarComponent } from './components/charts/chart-radar/chart-radar.component';
+import { ProfileComponent } from './components/account/components/profile/profile.component';
 const routes: Routes = [
   {
     path: '',
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'about-us',
