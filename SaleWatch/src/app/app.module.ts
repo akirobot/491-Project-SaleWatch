@@ -32,6 +32,7 @@ import { ChartRadarComponent } from './components/charts/chart-radar/chart-radar
 import { ChartPieComponent } from './components/charts/chart-pie/chart-pie.component';
 import { ChartPolarComponent } from './components/charts/chart-polar/chart-polar.component';
 import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-dynamic.component';
+import { ProfileComponent } from './components/account/components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-d
     ChartPieComponent,
     ChartPolarComponent,
     ChartDynamicComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,10 @@
     background-color: #1B2838;
 }
 
+.navbar.is-dark.is-bold {
+    min-height: 2em;
+}
+
 .button.is-info {
     width: 10em;
 }
@@ -21,8 +25,8 @@
     transform: translateY(50%);
 }
 
-.filler {
-    height: 4em;
+.return-link {
+    padding-left: .5em;
 }
 
 .game-developer {
@@ -38,9 +42,9 @@
     margin: 1em;
     width: -webkit-fill-available;
     display: inline-block;
+    height: 17em;
 }
 .game-image-container {
-    width: 13em;
     padding: .5em;
     margin: 0px;
     display: -webkit-inline-box;
@@ -49,7 +53,7 @@
 .game-image {
     margin: 0px auto;
     border-radius: .5em;
-    height: 17em;
+    height: 10em;
 }
 
 .game-price-table {

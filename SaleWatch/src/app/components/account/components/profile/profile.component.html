@@ -1,0 +1,43 @@
+<div class="hero is-fullheight is-info">
+  <div class="hero-body">
+
+    <div class="profile">
+        <div class="profile-container">
+            <div class="profile title">
+              <p>First Name Last Name</p>
+            </div>
+            <div class="profile-info">
+              <table class="profile-info-table">
+                <tr>
+                  <td>email:</td>
+                  <td class="center">email@email.com</td>
+                </tr>
+                <tr>
+                  <td>birthday:</td>
+                  <td class="center">jan 1, 1996</td>
+                </tr>
+                <tr>
+                  <td>favorite game type:</td>
+                  <td class="center">adventure</td>
+                </tr>
+              </table>
+            </div>
+            <div class="profile-edit-button">
+                <a class="button is-info">Edit Profile</a>
+            </div>
+        </div>
+
+        <div class="bookmark-games-container">
+          <div class="bookmark-games-tiles" *ngFor="let item of list">
+            <img class="bookmark-games-img" src="https://steamcdn-a.akamaihd.net/steam/apps/980300/header.jpg?t=1555325479">
+            <p class="bookmark-games-current-price">
+              $0.00
+            </p>
+            <a class="button is-info buy-game-button">Buy</a>
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+</div>
