@@ -10,7 +10,8 @@
     <div class="navbar-end">
       <a class="navbar-item" routerLink="register" *ngIf="!currentUser">Sign Up</a>
       <a class="navbar-item loginButton" routerLink="login" *ngIf="!currentUser">Login</a>
-      <a class="navbar-item profileButton" routerLink="profile" *ngIf="currentUser">{{currentUser.user_first_name}}</a>
+      <a class="navbar-item" routerLink="profile" *ngIf="currentUser">{{currentUser.user_first_name}}</a>
+      <a class="navbar-item logoutButton" *ngIf="currentUser" (click)="logout()" routerLink="/">Logout</a>
     </div>
   </div>
 </nav>
