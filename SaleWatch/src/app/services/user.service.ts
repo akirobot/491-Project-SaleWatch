@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import { User } from '../models/User.js';
 
@@ -57,5 +57,10 @@ export class UserService {
         console.log(obj);
         this.http.post(`${this.uri}/register`, obj)
             .subscribe(res => console.log('Registered'));
+    }
+
+    logout() {
+        localStorage.removeItem('currentUser');
+        this.currentUserSubject$.next(null);
     }
 }

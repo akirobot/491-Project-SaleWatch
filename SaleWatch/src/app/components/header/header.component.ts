@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Observable, Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { User } from '../../models/User.js';
 
@@ -16,9 +17,10 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private router: Router
   ) { 
-    this.currentUserSubscription = this.userService.currentUser$.subscribe(user => {
-      this.currentUser = user;
+    this.currentUserSubscription = this.userService.currentUser$.subscribe(data => {
+      this.currentUser = data;
     })
   }
 
@@ -28,6 +30,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnDestroy() {
     this.currentUserSubscription.unsubscribe();
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
 
 }
