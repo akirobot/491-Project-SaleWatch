@@ -8,9 +8,9 @@
       </div>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" routerLink="register">Sign Up</a>
-      <a class="navbar-item loginButton" routerLink="login">Login</a>
-      <a class="navbar-item profileButton" routerLink="profile">User</a>
+      <a class="navbar-item" routerLink="register" *ngIf="!currentUser">Sign Up</a>
+      <a class="navbar-item loginButton" routerLink="login" *ngIf="!currentUser">Login</a>
+      <a class="navbar-item profileButton" routerLink="profile" *ngIf="currentUser">{{currentUser.user_first_name}}</a>
     </div>
   </div>
 </nav>
