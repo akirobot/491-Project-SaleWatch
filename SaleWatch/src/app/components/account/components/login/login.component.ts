@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 import { UserService } from 'src/app/services/user.service';
 
+import { User } from '../../../../models/User.js';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +16,12 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  users: User[];
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private userService: UserService,
   ) { }
 
@@ -26,8 +30,6 @@ export class LoginComponent implements OnInit {
       user_email: ['', Validators.required],
       user_password: ['', Validators.required]
     });
-
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
@@ -40,8 +42,16 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.userService
       .login(this.f.user_email.value, this.f.user_password.value)
-      //.subscribe()
-    this.loading = false;  
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(['/']);
+        },
+        error => {
+          console.log(error);
+          this.loading = false;
+        }
+      )
   }
 
   get f() { 
