@@ -54,13 +54,26 @@ export class UserService {
             user_email: user_email,
             user_password: user_password
         };
-        console.log(obj);
-        this.http.post(`${this.uri}/register`, obj)
-            .subscribe(res => console.log('Registered'));
+        return this.http.post(`${this.uri}/register`, obj)
+            .subscribe(res => {
+                localStorage.setItem('currentUser', JSON.stringify(obj));
+                this.currentUserSubject$.next(obj);
+                console.log("Register successful");
+            })
     }
 
     logout() {
         localStorage.removeItem('currentUser');
         this.currentUserSubject$.next(null);
+    }
+
+    getAllUsers(): Observable<User> {
+        return this.http.get(`${this.uri}/getAll`)
+        .pipe(map(user => {
+            if (user) {
+                this.users = user as User;
+                return this.users;
+            }
+        }))
     }
 }

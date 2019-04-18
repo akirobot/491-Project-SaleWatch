@@ -26,6 +26,7 @@
                 <div *ngIf="submitted && f.user_email.errors" class="invalide-feedback">
                   <div *ngIf="f.user_email.errors.required">Email is required...</div>
                 </div>
+                <div *ngIf="userExists" class="invalide-feedback">Email already been used...</div>
               </div>
             </div>
             <div class="field">
