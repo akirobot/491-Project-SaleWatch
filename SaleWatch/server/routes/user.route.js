@@ -18,12 +18,23 @@ router.route('/register').post(function (req, res) {
 router.route('/login').post(function (req, res) {
     User.find(function (err, user){
         if(err){
-            console.log(err);
+            res.status(400).send("unable to login user");
         }
         else {
-            res.json(user);
+            res.status(200).json(user);
         }
     });
+});
+
+router.route('/getAll').get(function (req, res) {
+    User.find(function (err, user) {
+        if(err) {
+            res.status(400).send("unable to get users");
+        }
+        else {
+            res.status(200).json(user);
+        }
+    })
 });
 
 module.exports = router;
