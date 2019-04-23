@@ -4,13 +4,13 @@
     <div class="profile">
         <div class="profile-container">
             <div class="profile title">
-              <p>First Name Last Name</p>
+              <p>{{currentUser.user_first_name}} {{currentUser.user_last_name}}</p>
             </div>
             <div class="profile-info">
               <table class="profile-info-table">
                 <tr>
                   <td>email:</td>
-                  <td class="center">email@email.com</td>
+                  <td class="center">{{currentUser.user_email}}</td>
                 </tr>
                 <tr>
                   <td>birthday:</td>
