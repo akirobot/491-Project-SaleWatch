@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDatepicker } from '@angular/material';
 import { first } from 'rxjs/operators';
 
 import { UserService } from 'src/app/services/user.service';
@@ -31,7 +32,9 @@ export class RegisterComponent implements OnInit {
       user_first_name: ['', Validators.required],
       user_last_name: ['', Validators.required],
       user_email: ['', Validators.required],
-      user_password: ['', Validators.required]
+      user_password: ['', Validators.required],
+      user_birthday: ['', Validators.required],
+      user_favorite_game_genre: ['', Validators.required]
     });
 
     //Check to see if User is already logged in... Use local storage... in User.Service
@@ -57,7 +60,7 @@ export class RegisterComponent implements OnInit {
             }
           });
           if(!this.userExists) {
-            this.userService.register(this.f.user_first_name.value, this.f.user_last_name.value, this.f.user_email.value, this.f.user_password.value);
+            this.userService.register(this.f.user_first_name.value, this.f.user_last_name.value, this.f.user_email.value, this.f.user_password.value, this.f.user_favorite_game_genre, this.f.user_birthday);
             this.loading = false;
             this.router.navigate(['/']);
           }

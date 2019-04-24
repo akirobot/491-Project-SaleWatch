@@ -16,7 +16,17 @@ let Game = new Schema({
     },
     game_release_date: {
         type: Date
-    }
+    },
+    game_img_src: {
+        type: String
+    },
+    game_ESRB: {
+        type: String
+    },
+    game_tags: [{
+        type: String
+    }]
+
 },{
     collection: 'game'
 });
