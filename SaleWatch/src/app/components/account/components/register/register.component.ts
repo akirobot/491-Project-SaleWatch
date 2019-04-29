@@ -33,8 +33,7 @@ export class RegisterComponent implements OnInit {
       user_last_name: ['', Validators.required],
       user_email: ['', Validators.required],
       user_password: ['', Validators.required],
-      user_birthday: ['', Validators.required],
-      user_favorite_game_genre: ['', Validators.required]
+      user_birthday: ['', Validators.required]
     });
 
     //Check to see if User is already logged in... Use local storage... in User.Service
@@ -60,7 +59,7 @@ export class RegisterComponent implements OnInit {
             }
           });
           if(!this.userExists) {
-            this.userService.register(this.f.user_first_name.value, this.f.user_last_name.value, this.f.user_email.value, this.f.user_password.value, this.f.user_favorite_game_genre, this.f.user_birthday);
+            this.userService.register(this.f.user_first_name.value, this.f.user_last_name.value, this.f.user_email.value, this.f.user_password.value, this.f.user_birthday.value);
             this.loading = false;
             this.router.navigate(['/']);
           }

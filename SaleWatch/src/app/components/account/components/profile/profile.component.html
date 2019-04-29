@@ -14,11 +14,11 @@
                 </tr>
                 <tr>
                   <td>birthday:</td>
-                  <td class="center">jan 1, 1996</td>
+                  <td class="center">{{currentUser.user_birthday | date: "longDate" }}</td>
                 </tr>
                 <tr>
                   <td>favorite game type:</td>
-                  <td class="center">adventure</td>
+                  <td class="center">{{currentUser.user_favorite_game_genre}}</td>
                 </tr>
               </table>
             </div>

@@ -47,14 +47,14 @@ export class UserService {
             
     }
 
-    register(user_first_name, user_last_name, user_email, user_password, user_favorite_game_genre, user_birthday) {
+    register(user_first_name, user_last_name, user_email, user_password, user_birthday) {
         const obj = {
             user_first_name: user_first_name,
             user_last_name: user_last_name,
             user_email: user_email,
             user_password: user_password,
             user_birthday: user_birthday,
-            user_favorite_game_genre: user_favorite_game_genre,
+            user_favorite_game_genre: "Adventure",
             user_games: []
         };
         return this.http.post(`${this.uri}/register`, obj)
