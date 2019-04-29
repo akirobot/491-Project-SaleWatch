@@ -7,10 +7,10 @@ let Game = require('../../src/app/models/Game');
 router.route('/search').post(function (req, res) {
     Game.find(function (err, game){
         if(err){
-            console.log(err);
+            res.status(400).send("unable to get games");
         }
         else {
-            res.json(game);
+            res.status(200).json(game);
         }
     });
 });
