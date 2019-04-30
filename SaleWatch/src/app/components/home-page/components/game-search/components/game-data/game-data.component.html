@@ -8,45 +8,37 @@
       <div class="game-data-top">
 
         <div class="title">
-          Super Smash Bros Ultimate <span class="game-developer">by Nintendo</span>
+          {{currentGame.game_name}} <span class="game-developer">by {{currentGame.developer}}</span>
         </div>
         <div class="game-image-container">
-          <img class="game-image" src="https://steamcdn-a.akamaihd.net/steam/apps/1035610/header.jpg?t=1554901192">
+          <img class="game-image" src={{currentGame.header_image}}>
         </div>
         <div class="game-data-top-info">
           <table class="game-price-table">
             <tr class="table-header">
-              <td>current <span class="price-text">Price</span> </td>
-              <td>original <span class="price-text">Price</span></td>
+              <td><span class="navy">current </span><span class="price-text">Price</span> </td>
+              <td><span class="navy">original </span><span class="price-text">Price</span></td>
             </tr>
             <tr class="game-price">
-              <td class="center-text">$<span class="dollar">0.00</span></td>
-              <td class="center-text">$<span class="dollar">0.00</span></td>
-            </tr>
-            <tr>
-              <td colspan="2" class="game-percent-savings">
-                <span class="percent">0%</span><br>
-                Savings
-              </td>
+              <td class="center-text"><span class="dollar">{{currentGame.sale_price}}</span></td>
+              <td class="center-text"><span class="dollar">{{currentGame.price}}</span></td>
             </tr>
           </table>
 
           <table class="game-dev">
             <tr>
-              <td>Platform: </td>
               <td>Publisher: </td>
               <td>Developer: </td>
               <td>Category: </td>
             </tr>
             <tr>
-              <td>Nintendo Switch</td>
-              <td>Nintendo</td>
-              <td>Nintendo</td>
-              <td>Fighting</td>
+              <td>{{currentGame.publisher}}</td>
+              <td>{{currentGame.developer}}</td>
+              <td>{{currentGameGenre}}</td>
             </tr>
             <tr class="game-buttons">
               <td class="center-text" colspan="2">
-                <a class="button is-info">Bookmark</a>
+                <button class="button is-info" (click)="bookmark()">Bookmark</button>
               </td>
               <td class="center-text" colspan="2">
                 <a class="button is-info">Buy Now</a>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+
+import { Game } from'../../../../../../models/Game';
 
 import { GameService } from '../../../../../../services/game.service';
 
@@ -10,24 +13,39 @@ import { GameService } from '../../../../../../services/game.service';
 })
 export class GameSearchResultsComponent implements OnInit {
   //Just a dummy variable to demonstrate multiple "Game Results"
-  List;
-  game_search_user: string
+  gameList: Game[];
+  game_search_params: string
 
   constructor( 
     private route: ActivatedRoute,
+    private router: Router,
     private gameService: GameService
-    ) {
-    this.List = [1,2,3,4];
-   }
+    ) { }
 
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
-        console.log(params);
-        this.game_search_user = params.search;
-        this.gameService.searchGames(this.game_search_user);
-        console.log(this.game_search_user);
+        this.game_search_params = params.search;
+        this.gameService
+          .searchGames(this.game_search_params)
+          .pipe(first())
+          .subscribe(
+            data => {
+              this.gameList = data as Game;
+              // console.log(this.gameList); TESTING
+            },
+            error => {
+              console.log(error);
+            }
+          )
+        // console.log(this.game_search_params);
       });
+  }
+
+  moreInfo(Game) {
+    let game = Game as Game;
+    localStorage.setItem('currentGame', JSON.stringify(game));
+    this.router.navigate(['/game-search-results/game-data']);
   }
 
 }
