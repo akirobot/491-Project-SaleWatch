@@ -2,25 +2,25 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Game = new Schema({
-    game_title: {
+    game_name: {
         type: String
     },
-    game_publisher: {
+    publisher: {
         type: String
     },
-    game_developer: {
+    developer: {
         type: String
     },
-    game_price: {
-        type: Schema.Types.Decimal128
+    price: {
+        type: String
     },
-    game_release_date: {
+    sale_price: {
+        type: String
+    },
+    release_date: {
         type: Date
     },
-    game_img_src: {
-        type: String
-    },
-    game_ESRB: {
+    header_image: {
         type: String
     },
     game_tags: [{
