@@ -4,21 +4,21 @@
     <div class="profile">
         <div class="profile-container">
             <div class="profile title">
-              <p>First Name Last Name</p>
+              <p>{{currentUser.user_first_name}} {{currentUser.user_last_name}}</p>
             </div>
             <div class="profile-info">
               <table class="profile-info-table">
                 <tr>
                   <td>email:</td>
-                  <td class="center">email@email.com</td>
+                  <td class="center">{{currentUser.user_email}}</td>
                 </tr>
                 <tr>
                   <td>birthday:</td>
-                  <td class="center">jan 1, 1996</td>
+                  <td class="center">{{currentUser.user_birthday | date: "longDate" }}</td>
                 </tr>
                 <tr>
                   <td>favorite game type:</td>
-                  <td class="center">adventure</td>
+                  <td class="center">{{currentUser.user_favorite_game_genre}}</td>
                 </tr>
               </table>
             </div>

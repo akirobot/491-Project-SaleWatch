@@ -3,23 +3,7 @@
       <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">
           <h3 class="title has-text-white">Sign Up</h3>
-          <form [formGroup]="registerForm" (ngSubmit)="register()"> 
-            <div class="field">
-              <div class="control">
-                <input type="text" name="first-name" formControlName="user_first_name" [ngClass]="{ 'is-invalid': submitted && f.user_first_name.errors }" class="input is-large" placeholder="First Name" autofocus="">
-                <div *ngIf="submitted && f.user_first_name.errors" class="invalide-feedback">
-                  <div *ngIf="f.user_first_name.errors.required">Email is required...</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <input type="text" name="last-name" formControlName="user_last_name" [ngClass]="{ 'is-invalid': submitted && f.user_last_name.errors }" class="input is-large" placeholder="Last Name" autofocus="">
-                <div *ngIf="submitted && f.user_last_name.errors" class="invalide-feedback">
-                  <div *ngIf="f.user_last_name.errors.required">Email is required...</div>
-                </div>
-              </div>
-            </div>
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="field">
               <div class="control">
                 <input type="email" name="email" formControlName="user_email" [ngClass]="{ 'is-invalid': submitted && f.user_email.errors }" class="input is-large" placeholder="Your Email" autofocus="">
@@ -33,7 +17,33 @@
               <div class="control">
                 <input type="password" name="password" formControlName="user_password" [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }" class="input is-large" placeholder="Your Password">
                 <div *ngIf="submitted && f.user_password.errors" class="invalide-feedback">
-                  <div *ngIf="f.user_password.errors.required">Email is required...</div>
+                  <div *ngIf="f.user_password.errors.required">Password is required...</div>
+                </div>
+              </div>
+            </div> 
+            <div class="field">
+              <div class="control">
+                <input type="text" name="first-name" formControlName="user_first_name" [ngClass]="{ 'is-invalid': submitted && f.user_first_name.errors }" class="input is-large" placeholder="First Name" autofocus="">
+                <div *ngIf="submitted && f.user_first_name.errors" class="invalide-feedback">
+                  <div *ngIf="f.user_first_name.errors.required">First Name is required...</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input type="text" name="last-name" formControlName="user_last_name" [ngClass]="{ 'is-invalid': submitted && f.user_last_name.errors }" class="input is-large" placeholder="Last Name" autofocus="">
+                <div *ngIf="submitted && f.user_last_name.errors" class="invalide-feedback">
+                  <div *ngIf="f.user_last_name.errors.required">Last Name is required...</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input matInput [matDatepicker]="picker" class="input is-large" placeholder="Birthday" name="birthday" formControlName="user_birthday" [ngClass]="{ 'is-invalid': submitted && f.user_birthday.errors }">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <div *ngIf="submitted && f.user_birthday.errors" class="invalide-feedback">
+                  <div *ngIf="f.user_birthday.errors.required">Birthday is required...</div>
                 </div>
               </div>
             </div>
