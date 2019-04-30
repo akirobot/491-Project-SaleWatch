@@ -62,6 +62,15 @@ export class UserService {
             })
     }
 
+    save(user) {
+        return this.http.post(`${this.uri}/update`, user)
+            .subscribe(res => {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject$.next(user);
+                console.log("Update successful");
+            })
+    }
+
     logout() {
         localStorage.removeItem('currentUser');
         this.currentUserSubject$.next(null);
