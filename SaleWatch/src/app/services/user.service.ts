@@ -59,8 +59,8 @@ export class UserService {
         };
         return this.http.post(`${this.uri}/register`, obj)
             .subscribe(res => {
-                localStorage.setItem('currentUser', JSON.stringify(obj));
-                this.currentUserSubject$.next(obj);
+                localStorage.setItem('currentUser', JSON.stringify(res));
+                this.currentUserSubject$.next(res);
                 console.log("Register successful");
             })
     }

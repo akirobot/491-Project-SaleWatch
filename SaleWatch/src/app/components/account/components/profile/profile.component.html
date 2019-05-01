@@ -28,12 +28,20 @@
         </div>
 
         <div class="bookmark-games-container">
-          <div class="bookmark-games-tiles" *ngFor="let item of list">
-            <img class="bookmark-games-img" src="https://steamcdn-a.akamaihd.net/steam/apps/980300/header.jpg?t=1555325479">
+          <div class="bookmark-games-tiles" *ngFor="let game of currentUser.user_games">
+            <div class="game-info">
+                <p class="title">{{game.game_name}}</p>
+                <p class="subtitle">{{game.developer}}</p>
+                <div class="content">
+                  <p>{{game.price}}</p>
+                </div>
+            </div>
+            <img class="bookmark-games-img" src={{game.header_image}} (click)="moreInfo(game)">
             <p class="bookmark-games-current-price">
-              $0.00
+              {{game.sale_price}}
             </p>
             <a class="button is-info buy-game-button">Buy</a>
+            <button class="button is-info remove-game-button" (click)="removeGame(game)">Remove</button>
           </div>
         </div>
 

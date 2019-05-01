@@ -5,6 +5,7 @@ import { UserService } from '../../../../../../services/user.service';
 
 import { Game } from '../../../../../../models/Game';
 import { User } from '../../../../../../models/User';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-game-data',
@@ -21,6 +22,7 @@ export class GameDataComponent implements OnInit {
   currentUser: User;
   currentUserSubscription: Subscription;
   test: String[];
+  alreadyBookMarked: boolean;
 
   constructor(
     private userService: UserService,
@@ -37,7 +39,19 @@ export class GameDataComponent implements OnInit {
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.currentUser) {
+      this.alreadyBookMarked = false;
+      this.currentUser.user_games.forEach(game => {
+        if(game._id == this.currentGame._id) {
+          this.alreadyBookMarked = true;
+        }
+      });
+    }
+    else {
+      this.alreadyBookMarked = true;
+    }
+   }
 
   ngOnDestroy() {
     this.currentGameSubscription.unsubscribe();
@@ -45,8 +59,10 @@ export class GameDataComponent implements OnInit {
   }
 
   bookmark() {
+    // console.log(this.currentUser._id);
     this.currentUser.user_games.push(this.currentGame);
     this.userService.save(this.currentUser);
+    this.alreadyBookMarked = true;
   }
 }
 
