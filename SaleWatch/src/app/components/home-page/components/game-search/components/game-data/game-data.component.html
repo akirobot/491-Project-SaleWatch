@@ -38,7 +38,8 @@
             </tr>
             <tr class="game-buttons">
               <td class="center-text" colspan="2">
-                <button class="button is-info" (click)="bookmark()">Bookmark</button>
+                <button *ngIf="!alreadyBookMarked" class="button is-info" (click)="bookmark()">Bookmark</button>
+                <button *ngIf="alreadyBookMarked" class="button is-info" disabled>Bookmark</button>
               </td>
               <td class="center-text" colspan="2">
                 <a class="button is-info">Buy Now</a>
