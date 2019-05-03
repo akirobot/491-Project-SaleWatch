@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+/*var assert = require('assert');
+var mongo = require('mongod');
+var express = require('express');
+var router = express.Router();*/
+
+var url = 'mongodb://localhost:27017/admin';
 
 @Component({
   selector: 'app-chart-line',
@@ -6,12 +12,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart-line.component.css']
 })
 
-/*interface UserJSON {
-  price:    number;
-  days:     number; //CODED OUT UNTIL I GET DATA
-  release:  Date;
-}*/   
+ 
 export class ChartLineComponent implements OnInit {
+
+ 
+
   /*
   mygame = {price: 12, days: 12, release: 123}; //CODED OUT UNTIL I GET DATA
   */
@@ -19,7 +24,7 @@ export class ChartLineComponent implements OnInit {
   points: number;
   today = new Date('2019-04-21T03:24:00');
   //var array_name[:datatype];        //declaration 
-  array_name = [3,69,34,54,67,87,5,76,45];
+  array_name = [3,100,50,2,100,4,100,7,100];
 
   
   public lineChartData: any[] = [
@@ -59,6 +64,8 @@ export class ChartLineComponent implements OnInit {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
+
+
 
   public predictor(price: number, days: number, changes: number, sign: number, holiday: Date): number {
     //const points = 0;

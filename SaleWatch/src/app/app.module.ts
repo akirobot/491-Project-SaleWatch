@@ -33,6 +33,7 @@ import { ChartPieComponent } from './components/charts/chart-pie/chart-pie.compo
 import { ChartPolarComponent } from './components/charts/chart-polar/chart-polar.component';
 import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-dynamic.component';
 import { ProfileComponent } from './components/account/components/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ProfileComponent } from './components/account/components/profile/profil
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     UserService,
