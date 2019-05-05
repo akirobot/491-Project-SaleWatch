@@ -19,10 +19,20 @@ export class GameService {
         return this.http.post(`${this.uri}/search`, obj)
             .pipe(map(game => {
                 if (game) {
-                    this.games = game as Game;
+                    this.games = game as Game[];
                     return this.games;
                 }
             }))
             // .subscribe(res => console.log('Search Complete'));
+    }
+
+    getGames() {
+        return this.http.get(`${this.uri}/get`)
+            .pipe(map(game => {
+                if (game) {
+                    this.games = game as Game;
+                    return this.games;
+                }
+            }))
     }
 }

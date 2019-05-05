@@ -15,4 +15,15 @@ router.route('/search').post(function (req, res) {
     });
 });
 
+router.route('/get').get(function (req, res) {
+    Game.find(function (err, game) {
+        if(err){
+            res.status(400).send("unable to get games");
+        }
+        else {
+            res.status(200).json(game);
+        }
+    })
+})
+
 module.exports = router;
