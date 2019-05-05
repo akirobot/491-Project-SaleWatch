@@ -72,12 +72,22 @@ export class ChartLineComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartType = 'line';
 
+ //price: string = localStorage.getItem('currentgame');
+ //prices: number = this.currentGame.gameSubject$.DATE;
+
  
 
   public predictor(price: number, days: number, changes: number, sign: number, holiday: Date): number {
     //const points = 0;
+    var stringPrice = this.currentGame.price;
+    price = +stringPrice;
+    holiday = this.currentGame.release_date;
+    changes = Math.floor(Math.random() * 10) + 1;
+
+
+
     var temp = price;
-    var sign = 0;
+    sign = 0;
     var discount = 0;
     var best = 100.00;
     sign = sign + 0;
@@ -156,7 +166,7 @@ export class ChartLineComponent implements OnInit {
     } 
     ///////////////////////////////////////////////////////
     var mon = new Date("2019-04-20T12:01:04.753Z");
-    var time = holiday.getTime() - new Date("2019-04-20T12:01:04.753Z").getTime()//JUST USING TODAYS DATE FOR THE TIME BEING
+    var time = holiday.getTime() - new Date("2019-05-08T12:01:04.753Z").getTime()//JUST USING TODAYS DATE FOR THE TIME BEING
     time = time/1000;
     time = time/60;
     time = time/60;

@@ -29,6 +29,7 @@ export class GameDataComponent implements OnInit {
   ) { 
     this.gameSubject$ = new BehaviorSubject<Game>(JSON.parse(localStorage.getItem("currentGame")));
     this.game$ = this.gameSubject$.asObservable();
+    
 
     this.currentGameSubscription = this.game$.subscribe(data => {
       this.currentGame = data;
