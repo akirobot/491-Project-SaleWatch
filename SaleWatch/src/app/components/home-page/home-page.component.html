@@ -1,45 +1,37 @@
-<section class="hero is-info is-fullheight is-bold is-dark">
+<section class="hero is-info is-fullheight is-bold is-dark" *ngIf="gameList[0]">
   <div class="row" style = "background-color:rgb(60, 60, 60);">
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">Top Savings</a>
-      <a href="#contact">Today's Deals</a>
-      <a href="#about">Expiring Soon</a>
-      <a href="#about">Coming Soon</a>
+      <a class="active" (click)="home()">Home</a>
+      <a (click)="topSavings()">Top Savings</a>
+      <a (click)="comingSoon()">Coming Soon</a>
+      <a mat-button [matMenuTriggerFor]="menu">Categories</a>
+      <mat-menu #menu="matMenu">
+        <div *ngFor="let menu of menuList">
+          <button mat-menu-item (click)="categories(menu)">{{menu}}</button>
+        </div>
+      </mat-menu>
     </div>
       <div class="column">
-        <a href="game-page">
-        <img src="https://steamcdn-a.akamaihd.net/steam/apps/814380/header.jpg?t=1553240683" alt="Sekiro" style="width:100%">
-        </a>
+        <img src={{gameList[0].header_image}} (click)="moreInfo(gameList[0])" style="width:100%">
       </div>
       <div class="column">
-        <a href="game-page" >
-        <img src="https://steamcdn-a.akamaihd.net/steam/apps/812140/header.jpg?t=1540836192" alt="ACOdyssey" style="width:100%">
-        </a>
+        <img src={{gameList[1].header_image}} (click)="moreInfo(gameList[1])" style="width:100%">
      </div>
    </div>
    <div class="row" style = "background-color:rgb(60, 60, 60);">
       <div class="column">
-        <a href="game-page" >
-        <img src="https://steamcdn-a.akamaihd.net/steam/apps/582660/header.jpg?t=1552978224" alt="BDO" style="width:100%">
-        </a>
+        <img src={{gameList[2].header_image}} (click)="moreInfo(gameList[2])" style="width:100%">
       </div>
       <div class="column">
-        <a href="game-page" >
-        <img src="https://steamcdn-a.akamaihd.net/steam/apps/268500/header.jpg?t=1553038039" alt="XCOM2" style="width:100%">
-        </a>
+        <img src={{gameList[3].header_image}} (click)="moreInfo(gameList[3])" style="width:100%">
       </div>
    </div>
    <div class="row" style = "background-color:rgb(60, 60, 60);">
       <div class="column">
-        <a href="game-page" >
-        <img src="https://steamcdn-a.akamaihd.net/steam/apps/939960/header.jpg?t=1553101654" alt="FarCry5" style="width:100%">
-        </a>
+        <img src={{gameList[4].header_image}} (click)="moreInfo(gameList[4])" style="width:100%">
       </div>
       <div class="column">
-        <a href="game-page" >
-        <img src="https://steamcdn-a.akamaihd.net/steam/apps/447040/header.jpg?t=1527101545" alt="WD2" style="width:100%">
-        </a>
+        <img src={{gameList[5].header_image}} (click)="moreInfo(gameList[5])" style="width:100%">
        </div>
    </div>
 </section>

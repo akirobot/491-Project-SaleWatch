@@ -1,7 +1,7 @@
 <div class="hero is-fullheight">
-  <section class="container">
+  <section class="container" *ngIf=" game_search_params != '' ">
     <div class="sandbox">
-      <div class="tile is-ancestor" *ngFor="let game of gameList">
+      <div class="tile is-ancestor" *ngFor="let game of gameList | filterGame: game_search_params">
         <div class="tile is-parent is-12 is-shady">
           <div class="tile is-child notification is-dark">
             <div class="game-info">
@@ -11,6 +11,7 @@
                   <p>{{game.price}}</p>
                 </div>
             </div>
+            <img class="bookmark-games-img" src={{game.header_image}}>
             <div class="get-more-game-info is-centered">
                 <button class="button is-link is-large" (click)="moreInfo(game)">More Info</button> <!-- Need to create a route button to change components and pass data //routerLink="game-data"// -->
             </div>

@@ -32,13 +32,11 @@ export class GameSearchResultsComponent implements OnInit {
           .subscribe(
             data => {
               this.gameList = data as Game;
-              // console.log(this.gameList); TESTING
             },
             error => {
               console.log(error);
             }
           )
-        // console.log(this.game_search_params);
       });
   }
 

@@ -20,7 +20,6 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { DeveloperGuideComponent } from './components/developer-guide/developer-guide.component';
 import { UserGuideComponent } from './components/user-guide/user-guide.component';
-import { GameLibraryComponent } from './components/game-library/game-library.component';
 import { RegisterComponent } from './components/account/components/register/register.component';
 import { GameSearchComponent } from './components/home-page/components/game-search/game-search.component';
 import { GameSearchResultsComponent } from './components/home-page/components/game-search/components/game-search-results/game-search-results.component';
@@ -34,7 +33,8 @@ import { ChartPolarComponent } from './components/charts/chart-polar/chart-polar
 import { ChartDynamicComponent } from './components/charts/chart-dynamic/chart-dynamic.component';
 import { ProfileComponent } from './components/account/components/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
+import { MatNativeDateModule, MatDatepickerModule, MatMenuModule } from '@angular/material';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,6 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
     FaqComponent,
     DeveloperGuideComponent,
     UserGuideComponent,
-    GameLibraryComponent,
     RegisterComponent,
     GameSearchComponent,
     GameSearchResultsComponent,
@@ -61,6 +60,7 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
     ChartPolarComponent,
     ChartDynamicComponent,
     ProfileComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +71,8 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
     ChartsModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatMenuModule
   ],
   providers: [
     UserService,
