@@ -7,23 +7,46 @@
               <p>{{currentUser.user_first_name}} {{currentUser.user_last_name}}</p>
             </div>
             <div class="profile-info">
-              <table class="profile-info-table">
-                <tr>
-                  <td>email:</td>
-                  <td class="center">{{currentUser.user_email}}</td>
-                </tr>
-                <tr>
-                  <td>birthday:</td>
-                  <td class="center">{{currentUser.user_birthday | date: "longDate" }}</td>
-                </tr>
-                <tr>
-                  <td>favorite game type:</td>
-                  <td class="center">{{currentUser.user_favorite_game_genre}}</td>
-                </tr>
-              </table>
+              <form [formGroup]="editForm">
+                  <table class="profile-info-table">
+                      <tr>
+                        <td>email:</td>
+                        <td class="center">{{currentUser.user_email}}</td>
+                      </tr>
+                      <tr>
+                        <td>birthday:</td>
+                        <td class="center">{{currentUser.user_birthday | date: "longDate" }}</td>
+                      </tr>
+                      <tr *ngIf="editProfile">
+                        <td>New birthday: </td>
+                        <td>
+                          <input matInput [matDatepicker]="picker" placeholder="Birthday" name="birthday" formControlName="user_birthday" [ngClass]="{ 'is-invalid': submitted && f.user_birthday.errors }">
+                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                          <div *ngIf="submitted && f.user_birthday.errors" class="invalide-feedback">
+                            <div *ngIf="f.user_birthday.errors.required" class="red">Birthday is required...</div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>favorite game type:</td>
+                        <td class="center">{{currentUser.user_favorite_game_genre}}</td>
+                      </tr>
+                      <tr *ngIf="editProfile">
+                        <td>New favorite game type:</td>
+                        <td>
+                          <input type="text" name="gameType" placeholder="New Favorite" formControlName="user_favorite_game_genre" [ngClass]="{ 'is-invalid': submitted && f.user_favorite_game_genre.errors }">
+                          <div *ngIf="submitted && f.user_favorite_game_genre.errors" class="invalide-feedback">
+                            <div *ngIf="f.user_favorite_game_genre.errors.required" class="red">input is required...</div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+              </form>
             </div>
             <div class="profile-edit-button">
-                <a class="button is-info">Edit Profile</a>
+                <a class="button is-info" (click)="edit()">Edit Profile</a>
+                <a *ngIf="editProfile "class="button is-info save" (click)="save()">Save</a>
             </div>
         </div>
 
@@ -33,13 +56,10 @@
                 <p class="title">{{game.game_name}}</p>
                 <p class="subtitle">{{game.developer}}</p>
                 <div class="content">
-                  <p>{{game.price}}</p>
+                  <p>{{game.sale_price}}</p>
                 </div>
             </div>
             <img class="bookmark-games-img" src={{game.header_image}} (click)="moreInfo(game)">
-            <p class="bookmark-games-current-price">
-              {{game.sale_price}}
-            </p>
             <a class="button is-info buy-game-button" href={{game.source_url}}>Buy</a>
             <button class="button is-info remove-game-button" (click)="removeGame(game)">Remove</button>
           </div>

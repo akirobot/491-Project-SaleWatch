@@ -1,3 +1,4 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 table {
     width: 100%;
 }
@@ -10,6 +11,9 @@ table {
     text-align: center;
 }
 
+.red {
+    color: red;
+}
 .profile{
     width: 100%;
 }
@@ -67,16 +71,19 @@ table {
     float: right;
     position: relative;
     top: 3em;
-    left: 3em;
+    right: 3em;
 }
 .remove-game-button {
     float: right;
     position: relative;
     top: 3em;
-    left: 3em;
+    right: 3em;
     margin-right: .5em;
 }
 .game-info {
     float: left;
     margin: .5;
+}
+.save {
+    margin-left: .5em;
 }

@@ -35,7 +35,6 @@ import { ProfileComponent } from './components/account/components/profile/profil
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule, MatDatepickerModule, MatMenuModule } from '@angular/material';
 import { FilterPipe } from './filter.pipe';
-
 @NgModule({
   declarations: [
     AppComponent,

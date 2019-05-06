@@ -45,7 +45,14 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/']);
+          if(localStorage.getItem("currentUser")) {
+            this.router.navigate(['/']);
+          }
+          else {
+            this.f.user_email.setValue("Incorrect Email or Password");
+            this.f.user_password.setValue("");
+            this.loading = false;
+          }
         },
         error => {
           console.log(error);
