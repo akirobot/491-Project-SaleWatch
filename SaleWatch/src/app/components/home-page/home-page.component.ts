@@ -45,7 +45,9 @@ export class HomePageComponent implements OnInit {
   home() {
     this.gameList = new Array<Game>();
     for(let i = 0; i < 6; i++) {
-      this.gameList.push(this.games[i]);
+      if(this.games[i]) {
+        this.gameList.push(this.games[i]);
+      }
     }
   }
 
