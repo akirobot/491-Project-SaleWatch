@@ -29,7 +29,19 @@ export class ChartLineComponent implements OnInit {
   points: number;
   today = new Date('2019-04-21T03:24:00');
   //var array_name[:datatype];        //declaration 
-  array_name = [3,100,50,2,100,4,100,7,100];
+  
+  array_name = [this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today),
+                this.predictor(0,0,0,0,this.today)];
 
  
   
