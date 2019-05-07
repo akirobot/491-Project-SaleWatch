@@ -12,7 +12,7 @@ export class UserService {
     public users: User;
     public currentUser$: Observable<User>;
     private currentUserSubject$: BehaviorSubject<User>;
-    public uri = 'http://localhost:4000/user';
+    public uri = '13.57.186.159:4000/user';
 
     constructor(private http: HttpClient) {
         this.currentUserSubject$ = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));

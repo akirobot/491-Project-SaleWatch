@@ -8,7 +8,7 @@ import { Game } from '../models/Game';
 export class GameService {
 
     public games: Game;
-    uri = 'http://localhost:4000/game';
+    public uri = '13.57.186.159:4000/game';
 
     constructor(private http: HttpClient) { }
 
