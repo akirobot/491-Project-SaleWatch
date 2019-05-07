@@ -15,7 +15,7 @@ const app = express();
 
 
 
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect('mongodb://lucas:ps@ec2-13-57-186-159.us-west-1.compute.amazonaws.com:27017/admin');
 const connection = mongoose.connection;
 
 connection.once('open', () => {
